@@ -1,3 +1,14 @@
 <div class="card">
-  <p-menubar [model]="items"></p-menubar>
+  <p-menubar [model]="items">
+    <ng-template pTemplate="start">
+      <img
+        src="https://cdn3.iconfinder.com/data/icons/soccer-14/33/goal_statistics-1024.png"
+        height="40"
+        class="mr-2"
+        [routerLink]="['']"
+        routerLinkActive="router-link-active"
+        id="logo"
+      />
+    </ng-template>
+  </p-menubar>
 </div>
