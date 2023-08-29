@@ -9,10 +9,19 @@ import { StartComponent } from './tipsPage/start/start.component';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
+import { CardModule } from 'primeng/card';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, HomeComponent, StartComponent],
-  imports: [BrowserModule, AppRoutingModule, MenubarModule, ButtonModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MenubarModule,
+    ButtonModule,
+    CardModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
