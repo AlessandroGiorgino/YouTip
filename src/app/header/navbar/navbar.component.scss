@@ -11,6 +11,17 @@
 .p-menuitem-text {
   color: #f1f6f4 !important;
 }
+// tentativo di selezionare solo il primo link che però ne seleziona due perché li crea uguali
+// div.p-menubar.p-component
+//   > p-menubarsub.p-element
+//   > ul
+//   > li
+//   > div.p-menuitem-content
+//   > a.p-ripple.p-element.p-menuitem-link.p-menuitem-link-active
+//   > span.p-menuitem-text {
+//   font-size: 2rem;
+// }
+
 //media query che toglie il logo in mobile
 @media (max-width: 960px) {
   #logo {

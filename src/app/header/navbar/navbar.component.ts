@@ -13,9 +13,10 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     this.items = [
       {
-        label: 'Start',
-        icon: 'pi pi-fw pi-pencil',
-        routerLink: ['start'],
+        label: 'YouTip',
+        icon: 'pi pi-fw pi-file',
+        routerLink: [''],
+
         // items: [
         //   {
         //     label: 'New',
@@ -45,9 +46,9 @@ export class NavbarComponent implements OnInit {
         // ],
       },
       {
-        label: 'Home',
-        icon: 'pi pi-fw pi-file',
-        routerLink: [''],
+        label: 'Start',
+        icon: 'pi pi-fw pi-pencil',
+        routerLink: ['start'],
 
         //   items: [
         //     {
