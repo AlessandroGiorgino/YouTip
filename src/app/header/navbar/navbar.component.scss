@@ -1,7 +1,19 @@
 #logo:hover {
   cursor: pointer;
 }
+
 #menuBar > div {
   border: none;
-  background-color: transparent;
+  background-color: #464646;
+  border-radius: 0;
+}
+//qui scritte dentro alla navbar  tocca inserire important per sovrascrivere il framework
+.p-menuitem-text {
+  color: #f1f6f4 !important;
+}
+//media query che toglie il logo in mobile
+@media (max-width: 960px) {
+  #logo {
+    display: none;
+  }
 }
