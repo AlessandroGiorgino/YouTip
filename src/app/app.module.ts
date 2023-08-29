@@ -8,10 +8,11 @@ import { HomeComponent } from './home/home/home.component';
 import { StartComponent } from './tipsPage/start/start.component';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [AppComponent, NavbarComponent, HomeComponent, StartComponent],
-  imports: [BrowserModule, AppRoutingModule, MenubarModule],
+  imports: [BrowserModule, AppRoutingModule, MenubarModule, ButtonModule],
   providers: [],
   bootstrap: [AppComponent],
 })
