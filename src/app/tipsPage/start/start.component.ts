@@ -1,3 +1,4 @@
+import { Response } from './../../interfaces/fixtures-serie-a';
 import { Component } from '@angular/core';
 import { FetchesService } from 'src/app/fetches.service';
 import { FixturesSerieA } from 'src/app/interfaces/fixtures-serie-a';
@@ -9,14 +10,17 @@ import { FixturesSerieA } from 'src/app/interfaces/fixtures-serie-a';
 })
 export class StartComponent {
   //qui
-  //imparato: per tipizzare un array di oggetti si scirve {}[]=[]
-  fixturesSerieA: {}[] = [];
+  fixturesSerieA: FixturesSerieA[] = [];
   constructor(private srv: FetchesService) {}
-  ngOnInit(): void {
+  getFixturesSerieA() {
     this.srv.getFixturesSerieA().subscribe((res) => {
-      console.log(res);
       this.fixturesSerieA.push(res as FixturesSerieA);
+      // this.fixturesSerieA = res as FixturesSerieA;
       console.log(this.fixturesSerieA);
+      console.log(this.fixturesSerieA[0].response[0].teams.home.name);
     });
+  }
+  ngOnInit() {
+    this.getFixturesSerieA();
   }
 }

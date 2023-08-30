@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { FixturesSerieA } from './interfaces/fixtures-serie-a';
 @Injectable({
   providedIn: 'root',
 })
@@ -30,8 +31,8 @@ export class FetchesService {
       'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
     },
   };
-  getFixturesSerieA() {
-    return this.http.get(
+  getFixturesSerieA(): Observable<FixturesSerieA> {
+    return this.http.get<FixturesSerieA>(
       this.urlApiFootballFixtures,
       this.optionsFixtureSerieA
     );
