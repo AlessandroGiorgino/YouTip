@@ -1,6 +1,43 @@
 /* You can add global styles to this file, and also import other style files */
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
+@font-face {
+  font-family: graphik-black;
+  src: url(./assets/fonts/graphik/GraphikBlack.otf);
+}
+@font-face {
+  font-family: graphik-bold;
+  src: url(./assets/fonts/graphik/GraphikBold.otf);
+}
+@font-face {
+  font-family: graphik-semiBold;
+  src: url(./assets/fonts/graphik/GraphikSemibold.otf);
+}
+
+@font-face {
+  font-family: graphik-light;
+  src: url(./assets/fonts/graphik/GraphikLight.otf);
+}
+@font-face {
+  font-family: graphik-extraLight;
+  src: url(./assets/fonts/graphik/GraphikExtralight.otf);
+}
+@font-face {
+  font-family: graphik-medium;
+  src: url(./assets/fonts/graphik/GraphikMedium.otf);
+}
+@font-face {
+  font-family: graphik-regular;
+  src: url(./assets/fonts/graphik/GraphikRegular.otf);
+}
+@font-face {
+  font-family: graphik-thin;
+  src: url(./assets/fonts/graphik/GraphikThin.otf);
+}
+@font-face {
+  font-family: graphik-super;
+  src: url(./assets/fonts/graphik/GraphikSuper.otf);
+}
 
 body {
   margin: 0;
