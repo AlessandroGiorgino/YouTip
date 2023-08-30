@@ -7,5 +7,6 @@ import { environment } from 'src/environments/environment.development';
 export class FetchesService {
   pssApiFootPred: string = environment.API_KEY_FOOT_PRED;
   pssApiFootNew: string = environment.API_KEY_AP_FOOT;
+  pssForFirebase:string=environment.
   constructor() {}
 }
