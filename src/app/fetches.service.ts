@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -16,8 +16,6 @@ export class FetchesService {
   //firebase
   pssApiFirebase: string = environment.API_KEY_FIREBASE;
 
-  //aray partite serie a settimana
-  serieAweekFixtures: [] = [];
   constructor(private http: HttpClient) {}
   //metodo get su api foot nuova per serie a
   optionsFixtureSerieA = {

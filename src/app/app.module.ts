@@ -11,7 +11,8 @@ import { MenuItem } from 'primeng/api';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { HttpClientModule } from '@angular/common/http';
-
+import { environment } from 'src/environments/environment';
+import { FixturesSerieA } from './interfaces/fixtures-serie-a';
 @NgModule({
   declarations: [AppComponent, NavbarComponent, HomeComponent, StartComponent],
   imports: [
