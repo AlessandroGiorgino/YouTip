@@ -6,32 +6,37 @@
         First off, choose a league to see scheduled matches for today and
         tomorrow
       </h3>
-      <div
-        *ngIf="fixturesSerieA.length > 0"
-        class="card flex justify-content-center"
-      >
-        <p-card
-          header="{{ fixturesSerieA[0].league.name }}"
-          subheader="Card Subheader"
-          [style]="{ width: '360px' }"
+      <div class="flex justify-content-center">
+        <div
+          *ngIf="fixturesSerieA.length > 0"
+          class="card flex justify-content-center"
+          id="flagCard"
         >
-          <ng-template pTemplate="header">
-            <img
-              alt="Card"
-              src="https://primefaces.org/cdn/primeng/images/usercard.png"
-            />
-          </ng-template>
-          <p></p>
-          <ng-template pTemplate="footer">
-            <p-button label="Save" icon="pi pi-check"></p-button>
-            <p-button
-              label="Cancel"
-              icon="pi pi-times"
-              styleClass="p-button-secondary"
-              [style]="{ 'margin-left': '.5em' }"
-            ></p-button>
-          </ng-template>
-        </p-card>
+          <p-card class="p-card-content">
+            <ng-template pTemplate="content">
+              <img
+                id="flag"
+                alt="Card"
+                src="https://media.api-sports.io/football/leagues/135.png"
+              />
+            </ng-template>
+          </p-card>
+        </div>
+        <div
+          *ngIf="fixturesSerieB.length > 0"
+          class="card flex justify-content-center"
+          id="flagCard"
+        >
+          <p-card class="p-card-content">
+            <ng-template pTemplate="content">
+              <img
+                id="flag"
+                alt="Card"
+                src="https://media.api-sports.io/football/leagues/136.png"
+              />
+            </ng-template>
+          </p-card>
+        </div>
       </div>
     </section>
 

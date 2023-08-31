@@ -31,10 +31,30 @@ export class FetchesService {
       'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
     },
   };
+  optionsFixtureSerieB = {
+    params: {
+      league: '136',
+      season: '2023',
+      from: '2023-09-01',
+      to: '2023-09-03',
+    },
+    headers: {
+      'X-RapidAPI-Key': this.pssApiFootNew,
+      'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+    },
+  };
+  //get per le fixtures serie a
   getFixturesSerieA() {
     return this.http.get<FixturesSerieA>(
       this.urlApiFootballFixtures,
       this.optionsFixtureSerieA
+    );
+  }
+  //get per le fixtures serie b
+  getFixturesSerieB() {
+    return this.http.get<FixturesSerieA>(
+      this.urlApiFootballFixtures,
+      this.optionsFixtureSerieB
     );
   }
 }
