@@ -5,11 +5,50 @@
       <h3>
         First off, choose a league to see scheduled matches for next tourn
       </h3>
+      <div class="flex justify-content-center">
+        <!-- appears only if this week there will be serie a matches -->
+        <div
+          *ngIf="fixturesSerieA.length > 0"
+          class="card flex justify-content-center"
+          id="flagCard"
+        >
+          <p-card class="p-card-content">
+            <ng-template pTemplate="content">
+              <img
+                id="flag"
+                (click)="showDialogSerieA()"
+                icon="pi pi-external-link"
+                label="Show"
+                alt="Card"
+                src="https://media.api-sports.io/football/leagues/135.png"
+              />
+            </ng-template>
+          </p-card>
+        </div>
+        <!-- appears only if this week there will be serie a matches -->
 
+        <div
+          *ngIf="fixturesSerieB.length > 0"
+          class="card flex justify-content-center"
+          id="flagCard"
+        >
+          <p-card class="p-card-content">
+            <ng-template pTemplate="content">
+              <img
+                id="flag"
+                alt="Card"
+                src="https://media.api-sports.io/football/leagues/136.png"
+                (click)="showDialogSerieB()"
+              />
+            </ng-template>
+          </p-card>
+        </div>
+      </div>
+      <!-- modal serieA -->
       <div id="cardListMatch" class="card flex justify-content-center">
         <p-dialog
-          [header]="'    ' + 'Serie A'"
-          [(visible)]="visible"
+          [header]="'Serie A matches of this turn'"
+          [(visible)]="visibleSerieA"
           [breakpoints]="{ '960px': '75vw' }"
           [style]="{ height: '50vh' }"
           [draggable]="false"
@@ -38,40 +77,38 @@
           </ul>
         </p-dialog>
       </div>
-      <div class="flex justify-content-center">
-        <div
-          *ngIf="fixturesSerieA.length > 0"
-          class="card flex justify-content-center"
-          id="flagCard"
+      <!-- modal for serieB matches -->
+      <div class="card flex justify-content-center">
+        <p-dialog
+          [header]="'Serie B matches of this turn'"
+          [(visible)]="visibleSerieB"
+          [breakpoints]="{ '960px': '75vw' }"
+          [style]="{ height: '50vh' }"
+          [draggable]="false"
+          [resizable]="false"
+          [showHeader]="true"
         >
-          <p-card class="p-card-content">
-            <ng-template pTemplate="content">
+          <ul class="ulMatchList">
+            <li class="matchList" *ngFor="let serieBmatch of fixturesSerieB">
               <img
-                id="flag"
-                (click)="showDialog()"
-                icon="pi pi-external-link"
-                label="Show"
-                alt="Card"
-                src="https://media.api-sports.io/football/leagues/135.png"
+                [src]="serieBmatch.teams.home.logo"
+                alt="SerieBHomeTeamLogo"
+                width="25px"
+                height="25px"
               />
-            </ng-template>
-          </p-card>
-        </div>
-        <div
-          *ngIf="fixturesSerieB.length > 0"
-          class="card flex justify-content-center"
-          id="flagCard"
-        >
-          <p-card class="p-card-content">
-            <ng-template pTemplate="content">
+
+              {{ serieBmatch.teams.home.name }} -
+
+              {{ serieBmatch.teams.away.name }}
               <img
-                id="flag"
-                alt="Card"
-                src="https://media.api-sports.io/football/leagues/136.png"
+                [src]="serieBmatch.teams.away.logo"
+                alt="SerieBAwayTeamLogo"
+                width="25px"
+                height="25px"
               />
-            </ng-template>
-          </p-card>
-        </div>
+            </li>
+          </ul>
+        </p-dialog>
       </div>
     </section>
 

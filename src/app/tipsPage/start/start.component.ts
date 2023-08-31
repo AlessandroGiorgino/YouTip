@@ -32,10 +32,16 @@ export class StartComponent {
     this.getFixturesSerieA();
     this.getFixturesSerieB();
   }
+  // seriaA modal
+  visibleSerieA: boolean = false;
 
-  visible: boolean = false;
+  showDialogSerieA() {
+    this.visibleSerieA = true;
+  }
+  // serie b modal
+  visibleSerieB: boolean = false;
 
-  showDialog() {
-    this.visible = true;
+  showDialogSerieB() {
+    this.visibleSerieB = true;
   }
 }
