@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './header/navbar/navbar.component';
@@ -13,15 +12,26 @@ import { CardModule } from 'primeng/card';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { FixturesSerieA } from './interfaces/fixtures-serie-a';
+import { MatchListComponent } from './modals/match-list/match-list.component';
+import { DialogModule } from 'primeng/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, HomeComponent, StartComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    HomeComponent,
+    StartComponent,
+    MatchListComponent,
+  ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     MenubarModule,
     ButtonModule,
     CardModule,
     HttpClientModule,
+    DialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
