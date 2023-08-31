@@ -5,6 +5,39 @@
       <h3>
         First off, choose a league to see scheduled matches for next tourn
       </h3>
+
+      <div id="cardListMatch" class="card flex justify-content-center">
+        <p-dialog
+          [header]="'    ' + 'Serie A'"
+          [(visible)]="visible"
+          [breakpoints]="{ '960px': '75vw' }"
+          [style]="{ height: '50vh' }"
+          [draggable]="false"
+          [resizable]="false"
+          [showHeader]="true"
+        >
+          <ul class="ulMatchList">
+            <li class="matchList" *ngFor="let serieAmatch of fixturesSerieA">
+              <img
+                [src]="serieAmatch.teams.home.logo"
+                alt="SerieAHomeTeamLogo"
+                width="25px"
+                height="25px"
+              />
+
+              {{ serieAmatch.teams.home.name }} -
+
+              {{ serieAmatch.teams.away.name }}
+              <img
+                [src]="serieAmatch.teams.away.logo"
+                alt="SerieAAwayTeamLogo"
+                width="25px"
+                height="25px"
+              />
+            </li>
+          </ul>
+        </p-dialog>
+      </div>
       <div class="flex justify-content-center">
         <div
           *ngIf="fixturesSerieA.length > 0"
@@ -15,6 +48,9 @@
             <ng-template pTemplate="content">
               <img
                 id="flag"
+                (click)="showDialog()"
+                icon="pi pi-external-link"
+                label="Show"
                 alt="Card"
                 src="https://media.api-sports.io/football/leagues/135.png"
               />

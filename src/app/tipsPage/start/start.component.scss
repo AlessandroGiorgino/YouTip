@@ -9,9 +9,6 @@ h3 {
   font-family: graphik-semiBold;
 }
 
-#flagCard {
-  // background-color: red;
-}
 .p-card.p-component {
   background-color: transparent;
   border: none;
@@ -20,4 +17,14 @@ h3 {
 #flag {
   background-color: transparent;
   height: 100px;
+}
+
+.ulMatchList {
+  padding: 0.1rem;
+}
+.matchList {
+  line-height: 1rem;
+  list-style-type: none;
+
+  margin: 0 0 5.5px 0;
 }

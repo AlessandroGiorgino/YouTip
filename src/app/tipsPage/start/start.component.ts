@@ -1,6 +1,7 @@
 import { Response, FixturesSerieA } from './../../interfaces/fixtures-serie-a';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FetchesService } from 'src/app/fetches.service';
+import { MatchListComponent } from 'src/app/modals/match-list/match-list.component';
 
 @Component({
   selector: 'app-start',
@@ -30,5 +31,11 @@ export class StartComponent {
   ngOnInit() {
     this.getFixturesSerieA();
     this.getFixturesSerieB();
+  }
+
+  visible: boolean = false;
+
+  showDialog() {
+    this.visible = true;
   }
 }
