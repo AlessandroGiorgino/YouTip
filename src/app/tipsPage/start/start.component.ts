@@ -1,7 +1,6 @@
-import { Response } from './../../interfaces/fixtures-serie-a';
+import { Response, FixturesSerieA } from './../../interfaces/fixtures-serie-a';
 import { Component } from '@angular/core';
 import { FetchesService } from 'src/app/fetches.service';
-import { FixturesSerieA } from 'src/app/interfaces/fixtures-serie-a';
 
 @Component({
   selector: 'app-start',
@@ -10,14 +9,13 @@ import { FixturesSerieA } from 'src/app/interfaces/fixtures-serie-a';
 })
 export class StartComponent {
   //qui
-  fixturesSerieA: FixturesSerieA[] = [];
+  fixturesSerieA: Response[] = [];
   constructor(private srv: FetchesService) {}
   getFixturesSerieA() {
     this.srv.getFixturesSerieA().subscribe((res) => {
-      this.fixturesSerieA.push(res as FixturesSerieA);
-      // this.fixturesSerieA = res as FixturesSerieA;
+      // this.fixturesSerieA.push(res as Response);
+      this.fixturesSerieA = res.response;
       console.log(this.fixturesSerieA);
-      console.log(this.fixturesSerieA[0].response[0].teams.home.name);
     });
   }
   ngOnInit() {

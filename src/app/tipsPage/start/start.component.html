@@ -6,9 +6,12 @@
         First off, choose a league to see scheduled matches for today and
         tomorrow
       </h3>
-      <div class="card flex justify-content-center">
+      <div
+        *ngIf="fixturesSerieA.length > 0"
+        class="card flex justify-content-center"
+      >
         <p-card
-          header="{{ fixturesSerieA[0].response[0].league.name }}"
+          header="{{ fixturesSerieA[0].league.name }}"
           subheader="Card Subheader"
           [style]="{ width: '360px' }"
         >
@@ -18,12 +21,7 @@
               src="https://primefaces.org/cdn/primeng/images/usercard.png"
             />
           </ng-template>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore
-            sed consequuntur error repudiandae numquam deserunt quisquam
-            repellat libero asperiores earum nam nobis, culpa ratione quam
-            perferendis esse, cupiditate neque quas!
-          </p>
+          <p></p>
           <ng-template pTemplate="footer">
             <p-button label="Save" icon="pi pi-check"></p-button>
             <p-button

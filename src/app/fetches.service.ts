@@ -31,7 +31,7 @@ export class FetchesService {
       'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
     },
   };
-  getFixturesSerieA(): Observable<FixturesSerieA> {
+  getFixturesSerieA() {
     return this.http.get<FixturesSerieA>(
       this.urlApiFootballFixtures,
       this.optionsFixtureSerieA
