@@ -1,11 +1,34 @@
+import { Predictions, Response } from './../../interfaces/predictions-by-id';
 import { Component } from '@angular/core';
 import { StartComponent } from 'src/app/tipsPage/start/start.component';
-
+import { ActivatedRoute } from '@angular/router';
+import { FetchesService } from 'src/app/fetches.service';
 @Component({
   selector: 'app-match-list',
   templateUrl: './match-list.component.html',
   styleUrls: ['./match-list.component.scss'],
 })
 export class MatchListComponent {
-  constructor(private start: StartComponent) {}
+  predictionsById: Response[] = [];
+  constructor(private route: ActivatedRoute, private srv: FetchesService) {}
+  id!: string | null;
+  ngOnInit() {
+    //ogni volta carica pagina prende id in alto
+    this.route.paramMap.subscribe((params) => {
+      this.id = params.get('id');
+      console.log(this.id);
+    });
+    //get della partita
+    //prima facciamo combaciare l'id nel service con quesllo effettivo della partita
+    this.srv.idForSingleMatch = this.id;
+
+    this.srv.getPredictionByMatchId().subscribe((res) => {
+      console.log(res);
+
+      this.predictionsById = res.response;
+
+      console.log(this.predictionsById);
+    });
+  }
+  //richiamare service e fare nuova get sull'id
 }

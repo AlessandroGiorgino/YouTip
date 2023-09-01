@@ -11,7 +11,7 @@ import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { FixturesSerieA } from './interfaces/fixtures-serie-a';
+import { Fixtures } from './interfaces/fixtures';
 import { MatchListComponent } from './modals/match-list/match-list.component';
 import { DialogModule } from 'primeng/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';

@@ -1,4 +1,4 @@
-export interface FixturesSerieA {
+export interface Fixtures {
   get: string;
   parameters: Parameters;
   errors: any[];

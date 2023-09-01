@@ -97,7 +97,7 @@
             <ng-container
               *ngFor="let serieBmatch of fixturesSerieB; let i = index"
             >
-              <li (click)="showModalSingleSeriebMatch()" class="matchList">
+              <a routerLink="/start/{{ serieBmatch.fixture.id }}">
                 <img
                   [src]="serieBmatch.teams.home.logo"
                   alt="SerieBHomeTeamLogo"
@@ -114,7 +114,7 @@
                   width="25px"
                   height="25px"
                 />
-              </li>
+              </a>
               <p-dialog
                 [header]="''"
                 [(visible)]="modalSingleSeriebMatch"

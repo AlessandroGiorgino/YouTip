@@ -1,4 +1,4 @@
-import { Response, FixturesSerieA } from './../../interfaces/fixtures-serie-a';
+import { Response, Fixtures } from '../../interfaces/fixtures';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FetchesService } from 'src/app/fetches.service';
 import { MatchListComponent } from 'src/app/modals/match-list/match-list.component';
