@@ -24,6 +24,7 @@ export class StartComponent {
   getFixturesSerieB() {
     this.srv.getFixturesSerieB().subscribe((res) => {
       // this.fixturesSerieA.push(res as Response);
+
       this.fixturesSerieB = res.response;
       console.log(this.fixturesSerieB);
     });
@@ -43,5 +44,11 @@ export class StartComponent {
 
   showDialogSerieB() {
     this.visibleSerieB = true;
+  }
+  //serieB single match modal
+  indice?: number;
+  modalSingleSeriebMatch: boolean = false;
+  showModalSingleSeriebMatch() {
+    this.modalSingleSeriebMatch = true;
   }
 }

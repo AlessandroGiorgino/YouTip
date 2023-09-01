@@ -13,7 +13,7 @@ export class FetchesService {
   //apifoot
   pssApiFootNew: string = environment.API_KEY_AP_FOOT;
   urlApiFootballFixtures: string =
-    'https://api-football-v1.p.rapidapi.com/v3/fixtures';
+    'https://api-football-v1.p.rapidapi.com/v3/fixtures/';
   //firebase
   pssApiFirebase: string = environment.API_KEY_FIREBASE;
 

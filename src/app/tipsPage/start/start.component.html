@@ -25,7 +25,7 @@
             </ng-template>
           </p-card>
         </div>
-        <!-- appears only if this week there will be serie a matches -->
+        <!-- appears only if this week there will be serie b matches -->
 
         <div
           *ngIf="fixturesSerieB.length > 0"
@@ -56,7 +56,11 @@
           [showHeader]="true"
         >
           <ul class="ulMatchList">
-            <li class="matchList" *ngFor="let serieAmatch of fixturesSerieA">
+            <li
+              (click)="showModalSingleSeriebMatch()"
+              class="matchList"
+              *ngFor="let serieAmatch of fixturesSerieA"
+            >
               <img
                 [src]="serieAmatch.teams.home.logo"
                 alt="SerieAHomeTeamLogo"
@@ -77,6 +81,7 @@
           </ul>
         </p-dialog>
       </div>
+
       <!-- modal for serieB matches -->
       <div class="card flex justify-content-center">
         <p-dialog
@@ -89,26 +94,45 @@
           [showHeader]="true"
         >
           <ul class="ulMatchList">
-            <li class="matchList" *ngFor="let serieBmatch of fixturesSerieB">
-              <img
-                [src]="serieBmatch.teams.home.logo"
-                alt="SerieBHomeTeamLogo"
-                width="25px"
-                height="25px"
-              />
+            <ng-container
+              *ngFor="let serieBmatch of fixturesSerieB; let i = index"
+            >
+              <li (click)="showModalSingleSeriebMatch()" class="matchList">
+                <img
+                  [src]="serieBmatch.teams.home.logo"
+                  alt="SerieBHomeTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
 
-              {{ serieBmatch.teams.home.name }} -
+                {{ serieBmatch.teams.home.name }} -
 
-              {{ serieBmatch.teams.away.name }}
-              <img
-                [src]="serieBmatch.teams.away.logo"
-                alt="SerieBAwayTeamLogo"
-                width="25px"
-                height="25px"
-              />
-            </li>
+                {{ serieBmatch.teams.away.name }}
+                <img
+                  [src]="serieBmatch.teams.away.logo"
+                  alt="SerieBAwayTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
+              </li>
+              <p-dialog
+                [header]="''"
+                [(visible)]="modalSingleSeriebMatch"
+                [breakpoints]="{ '960px': '75vw' }"
+                [style]="{ height: '50vh' }"
+                [draggable]="false"
+                [resizable]="false"
+                [showHeader]="true"
+              >
+                <p>
+                  {{ serieBmatch.teams.home.name }}
+                </p>
+              </p-dialog>
+            </ng-container>
           </ul>
         </p-dialog>
+
+        <!-- modal single match serie B -->
       </div>
     </section>
 
