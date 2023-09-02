@@ -3,7 +3,7 @@ export interface CurrentRoundResponse {
   get: string;
   paging: Paging;
   parameters: Parameters;
-  response: ResponseCurrent[];
+  response: string[];
   results: number;
 }
 
@@ -17,6 +17,6 @@ export interface Parameters {
   to: string;
   season: string;
 }
-export interface ResponseCurrent {
-  round: string;
-}
+// export interface ResponseCurrent {
+//   round: string;
+// }

@@ -24,7 +24,7 @@ export class FetchesService {
   //url per current round
   urlCurrentRoundSerieA: string = this.urlApiFootballFixtures + 'rounds';
   //variabile per il current round
-  currentRoundRes!: string;
+  currentRoundRes: string = '';
 
   //qui predictions for id
   urlPredictionsById: string =

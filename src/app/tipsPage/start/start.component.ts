@@ -2,10 +2,7 @@ import { Response, Fixtures } from '../../interfaces/fixtures';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FetchesService } from 'src/app/fetches.service';
 import { MatchListComponent } from 'src/app/modals/match-list/match-list.component';
-import {
-  CurrentRoundResponse,
-  ResponseCurrent,
-} from 'src/app/interfaces/currentRoundResponse';
+import { CurrentRoundResponse } from 'src/app/interfaces/currentRoundResponse';
 
 @Component({
   selector: 'app-start',
@@ -15,28 +12,31 @@ import {
 })
 export class StartComponent {
   //qui
-  currentRound: ResponseCurrent[] = [];
+  currentRound!: string;
   fixturesSerieA: Response[] = [];
   fixturesSerieB: Response[] = [];
   constructor(private srv: FetchesService) {}
-  getCurrentRound() {
+
+  getCurrentRound(): void {
     //qui abbiamo  il current round
     this.srv.getCurrentRoundSerieA().subscribe((res) => {
-      this.currentRound = res.response;
-      //continua a darmi come undefined quella che chiaramente è una stringa
-      console.log(this.currentRound);
-      this.srv.currentRoundRes = this.currentRound[0].round;
-    });
-  }
-  getFixturesSerieA() {
-    this.srv.getFixturesSerieA().subscribe((res) => {
-      // this.fixturesSerieA.push(res as Response);
-      console.log(res);
+      // console.log(res.response);
 
-      this.fixturesSerieA = res.response;
-      console.log(this.fixturesSerieA);
+      // console.log(res.response[0]);
+
+      this.currentRound = res.response[0];
+      this.srv.currentRoundRes = this.currentRound;
+      // this.srv.currentRoundRes = this.currentRound[0];
+
+      this.srv.getFixturesSerieA().subscribe((res) => {
+        console.log(this.srv.currentRoundRes);
+
+        this.fixturesSerieA = res.response;
+        console.log(this.fixturesSerieA);
+      });
     });
   }
+
   getFixturesSerieB() {
     this.srv.getFixturesSerieB().subscribe((res) => {
       // this.fixturesSerieA.push(res as Response);
@@ -46,9 +46,8 @@ export class StartComponent {
     });
   }
   ngOnInit() {
-    this.getFixturesSerieA();
-    this.getFixturesSerieB();
     this.getCurrentRound();
+    this.getFixturesSerieB();
   }
   // seriaA modal
   visibleSerieA: boolean = false;
