@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 import { MatchListComponent } from './modals/match-list/match-list.component';
 import { DialogModule } from 'primeng/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CurrentRoundResponse } from './interfaces/currentRoundResponse';
 @NgModule({
   declarations: [
     AppComponent,
