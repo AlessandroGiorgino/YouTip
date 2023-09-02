@@ -11,6 +11,7 @@ import { FetchesService } from 'src/app/fetches.service';
 export class MatchListComponent {
   predictionsById: Response[] = [];
   constructor(private route: ActivatedRoute, private srv: FetchesService) {}
+  pssApiFootPred = this.srv.pssApiFootPred;
   id!: string | null;
   ngOnInit() {
     //ogni volta carica pagina prende id in alto
@@ -28,6 +29,10 @@ export class MatchListComponent {
       this.predictionsById = res.response;
 
       console.log(this.predictionsById);
+    });
+    //qui abbiamo  il current round che usiamo poi vediamo per cosa
+    this.srv.getCurrentRoundSerieA().subscribe((res) => {
+      console.log(res);
     });
   }
   //richiamare service e fare nuova get sull'id
