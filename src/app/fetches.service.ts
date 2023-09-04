@@ -35,68 +35,71 @@ export class FetchesService {
 
   //metodo per get current round
   //options
-  optionsCurrentRoundSerieA = {
-    params: {
-      league: '135',
-      season: '2023',
-      current: 'true',
-    },
-    headers: {
-      'X-RapidAPI-Key': this.pssApiFootNew,
-      'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-    },
-  };
+
   //getCurrentRound
   getCurrentRoundSerieA() {
+    let optionsCurrentRoundSerieA = {
+      params: {
+        league: '135',
+        season: '2023',
+        current: 'true',
+      },
+      headers: {
+        'X-RapidAPI-Key': this.pssApiFootNew,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+      },
+    };
+
     return this.http.get<CurrentRoundResponse>(
       this.urlCurrentRoundSerieA,
-      this.optionsCurrentRoundSerieA
+      optionsCurrentRoundSerieA
     );
   }
 
   //metodo get su api foot nuova per serie a
-  optionsFixtureSerieA = {
-    params: {
-      league: '135',
-      season: '2023',
-      round: this.currentRoundRes,
-    },
-    headers: {
-      'X-RapidAPI-Key': this.pssApiFootNew,
-      'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-    },
-  };
-  optionsFixtureSerieB = {
-    params: {
-      league: '136',
-      season: '2023',
-      from: '2023-09-01',
-      to: '2023-09-03',
-    },
-    headers: {
-      'X-RapidAPI-Key': this.pssApiFootNew,
-      'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-    },
-  };
+
   //get per le fixtures serie a
   getFixturesSerieA() {
+    const optionsFixtureSerieA = {
+      params: {
+        league: '135',
+        season: '2023',
+        round: this.currentRoundRes,
+      },
+      headers: {
+        'X-RapidAPI-Key': this.pssApiFootNew,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+      },
+    };
     return this.http.get<Fixtures>(
       this.urlApiFootballFixtures,
-      this.optionsFixtureSerieA
+      optionsFixtureSerieA
     );
   }
   //get per le fixtures serie b
   getFixturesSerieB() {
+    let optionsFixtureSerieB = {
+      params: {
+        league: '136',
+        season: '2023',
+        from: '2023-09-01',
+        to: '2023-09-03',
+      },
+      headers: {
+        'X-RapidAPI-Key': this.pssApiFootNew,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+      },
+    };
     return this.http.get<Fixtures>(
       this.urlApiFootballFixtures,
-      this.optionsFixtureSerieB
+      optionsFixtureSerieB
     );
   }
 
   //get per partita singola tramite id
   getPredictionByMatchId() {
     //options per partita singola tramite id
-    const optionsMatchById = {
+    let optionsMatchById = {
       params: { fixture: this.idForSingleMatch },
       headers: {
         'X-RapidAPI-Key': this.pssApiFootNew,
