@@ -1,16 +1,47 @@
+@import "../../scss/partials";
+
 #logo:hover {
   cursor: pointer;
 }
 
+//menu che si apre
+
+#menuBar {
+  a {
+    background: transparent;
+  }
+  ul {
+    background: transparent;
+  }
+  span {
+    font-size: 2rem;
+    font-family: graphik-semiBold;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+@media screen and (max-width: 960px) {
+  #menuBar {
+    height: 100vh;
+    a {
+      background: transparent;
+    }
+    ul {
+      background: $greenForBody;
+    }
+  }
+}
 #menuBar > div {
-  border: none;
-  background-color: #464646;
+  border: none !important;
+  background: transparent;
   border-radius: 0;
 }
+
 //qui scritte dentro alla navbar  tocca inserire important per sovrascrivere il framework
 .p-menuitem-text {
   color: #f1f6f4 !important;
 }
+
 // tentativo di selezionare solo il primo link che però ne seleziona due perché li crea uguali
 // div.p-menubar.p-component
 //   > p-menubarsub.p-element

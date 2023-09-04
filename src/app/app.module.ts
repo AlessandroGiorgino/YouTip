@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 import { MatchListComponent } from './modals/match-list/match-list.component';
 import { DialogModule } from 'primeng/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'primeng/carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CardModule,
     HttpClientModule,
     DialogModule,
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
