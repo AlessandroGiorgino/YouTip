@@ -4,8 +4,8 @@
   <div id="colonna1diesterno" class="col">
     <div class="grid flex-column" id="gridInterno">
       <div class="col">
-        {{ predictionsById[0].league.name
-        }}{{ predictionsById[0].league.country }}
+        {{ (predictionsById[0]?.league)!.name
+        }}{{ (predictionsById[0]?.league)!.country }}
       </div>
       <div class="col">contenuto</div>
       <div class="col">Qui metterei la classifica</div>
@@ -14,14 +14,14 @@
   <div id="colonna2diesterno" class="col">
     <div class="grid flex-column" id="gridInterno">
       <div s class="col">
-        {{ predictionsById[0].league.name
-        }}{{ predictionsById[0].league.country }}
+        {{ (predictionsById[0]?.league)!.name
+        }}{{ (predictionsById[0]?.league)!.country }}
 
         <div class="grid">
           <div class="col">
             <img
               width="30"
-              [src]="predictionsById[0].teams.home.logo"
+              [src]="(predictionsById[0]?.teams)!.home.logo"
               alt="Home"
             />
           </div>
@@ -29,7 +29,7 @@
           <div class="col">
             <img
               width="30"
-              [src]="predictionsById[0].teams.away.logo"
+              [src]="(predictionsById[0]?.teams)!.away.logo"
               alt="Away"
             />
           </div>

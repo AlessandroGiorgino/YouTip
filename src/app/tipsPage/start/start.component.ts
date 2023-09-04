@@ -21,33 +21,32 @@ export class StartComponent {
     //qui abbiamo  il current round
     this.srv.getCurrentRoundSerieA().subscribe((res) => {
       // console.log(res.response);
-
       // console.log(res.response[0]);
 
       this.currentRound = res.response[0];
-      this.srv.currentRoundRes = this.currentRound;
-      // this.srv.currentRoundRes = this.currentRound[0];
 
+      this.srv.currentRoundRes = this.currentRound;
+      console.log(this.srv.currentRoundRes);
+
+      this.srv.currentRoundRes = this.currentRound;
+      console.log(this.srv.currentRoundRes);
+      //qui la get serieA
       this.srv.getFixturesSerieA().subscribe((res) => {
         console.log(this.srv.currentRoundRes);
 
         this.fixturesSerieA = res.response;
         console.log(this.fixturesSerieA);
       });
+      //qui la get serie b
+      this.srv.getFixturesSerieB().subscribe((res) => {
+        this.fixturesSerieB = res.response;
+        console.log(this.fixturesSerieB);
+      });
     });
   }
 
-  getFixturesSerieB() {
-    this.srv.getFixturesSerieB().subscribe((res) => {
-      // this.fixturesSerieA.push(res as Response);
-
-      this.fixturesSerieB = res.response;
-      console.log(this.fixturesSerieB);
-    });
-  }
   ngOnInit() {
     this.getCurrentRound();
-    this.getFixturesSerieB();
   }
   // seriaA modal
   visibleSerieA: boolean = false;
