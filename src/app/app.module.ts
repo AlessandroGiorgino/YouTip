@@ -15,6 +15,7 @@ import { MatchListComponent } from './modals/match-list/match-list.component';
 import { DialogModule } from 'primeng/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CurrentRoundResponse } from './interfaces/currentRoundResponse';
+import { CarouselModule } from 'primeng/carousel';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import { CurrentRoundResponse } from './interfaces/currentRoundResponse';
     CardModule,
     HttpClientModule,
     DialogModule,
+    CarouselModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
