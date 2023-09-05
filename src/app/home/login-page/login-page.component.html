@@ -1,0 +1,28 @@
+<main *ngIf="isSignedIn" (isLogout)="handleLogOut()">
+  <!-- sign up form -->
+  <div
+    *ngIf="!isSignedIn"
+    class="card flex flex-column align-items-center gap-3"
+  >
+    <h2>Sign Up</h2>
+    <input pInputText type="text" placeholder="email" #emailSignUp />
+    <input pInputText type="password" placeholder="password" #passwordSignUp />
+    <p-button
+      (click)="onSignUp(emailSignUp.value, passwordSignUp.value)"
+      label="Sign Up"
+    ></p-button>
+  </div>
+  <hr />
+  <div
+    *ngIf="!isSignedIn"
+    class="card flex flex-column align-items-center gap-3"
+  >
+    <h2>Sign In</h2>
+    <input pInputText type="text" placeholder="email" #emailSignIn />
+    <input pInputText type="password" placeholder="password" #passwordSignIn />
+    <p-button
+      (click)="onSignIn(emailSignIn.value, passwordSignIn.value)"
+      label="Log in"
+    ></p-button>
+  </div>
+</main>

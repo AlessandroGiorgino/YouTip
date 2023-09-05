@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "youtip-b83d1": {
+      "hosting": {
+        "YouTip": [
+          "youtip-b83d1"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "youtip-b83d1"
+  }
+}

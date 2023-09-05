@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home/home.component';
 import { StartComponent } from './tipsPage/start/start.component';
 import { MatchListComponent } from './modals/match-list/match-list.component';
+import { LoginPageComponent } from './home/login-page/login-page.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'start/:id',
     component: MatchListComponent,
+  },
+  {
+    path: 'login',
+    component: LoginPageComponent,
   },
 ];
 

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
+import { environmentD } from 'src/environments/environment.development';
 import { Fixtures } from './interfaces/fixtures';
 import { Predictions, PredictionsById } from './interfaces/predictions-by-id';
 import { CurrentRoundResponse } from './interfaces/currentRoundResponse';
@@ -10,12 +10,12 @@ import { CurrentRoundResponse } from './interfaces/currentRoundResponse';
 })
 export class FetchesService {
   //footpred
-  pssApiFootPred: string = environment.API_KEY_FOOT_PRED;
+  pssApiFootPred: string = environmentD.API_KEY_FOOT_PRED;
 
   //apifoot
-  pssApiFootNew: string = environment.API_KEY_AP_FOOT;
+  pssApiFootNew: string = environmentD.API_KEY_AP_FOOT;
   //firebase
-  pssApiFirebase: string = environment.API_KEY_FIREBASE;
+  pssApiFirebase: string = environmentD.API_KEY_FIREBASE;
 
   //url per fixtures
   urlApiFootballFixtures: string =
