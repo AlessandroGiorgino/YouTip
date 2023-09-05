@@ -1,6 +1,13 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnInit,
+  Output,
+  ViewEncapsulation,
+} from '@angular/core';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
+import { AuthenticationService } from 'src/app/authentication.service';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -8,6 +15,13 @@ import { MenuItem } from 'primeng/api';
   encapsulation: ViewEncapsulation.None,
 })
 export class NavbarComponent implements OnInit {
+  @Output() isLogout = new EventEmitter<void>();
+  constructor(private auth: AuthenticationService) {}
+
+  logout() {
+    this.auth.logout();
+    this.isLogout.emit();
+  }
   items: MenuItem[] | undefined;
 
   ngOnInit() {
