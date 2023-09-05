@@ -1,7 +1,7 @@
-<main *ngIf="isSignedIn" (isLogout)="handleLogOut()">
+<main>
   <!-- sign up form -->
   <div
-    *ngIf="!isSignedIn"
+    *ngIf="isRegistered"
     class="card flex flex-column align-items-center gap-3"
   >
     <h2>Sign Up</h2>
@@ -24,5 +24,9 @@
       (click)="onSignIn(emailSignIn.value, passwordSignIn.value)"
       label="Log in"
     ></p-button>
+  </div>
+  <div *ngIf="isSignedIn" class="alreadyLogged">
+    <p>You are already logged in.</p>
+    <p-button routerLink="" label="Home"></p-button>
   </div>
 </main>

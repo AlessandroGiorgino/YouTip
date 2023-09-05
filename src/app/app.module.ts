@@ -79,7 +79,12 @@ firebase.initializeApp(environmentD.firebase);
     provideRemoteConfig(() => getRemoteConfig()),
     provideStorage(() => getStorage()),
   ],
-  providers: [ScreenTrackingService, UserTrackingService, NavbarComponent],
+  providers: [
+    ScreenTrackingService,
+    UserTrackingService,
+    NavbarComponent,
+    LoginPageComponent,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,9 +1,11 @@
+import { async } from '@angular/core/testing';
 import { Response, Fixtures } from '../../interfaces/fixtures';
 import { Component, ViewEncapsulation } from '@angular/core';
 import { FetchesService } from 'src/app/fetches.service';
 import { MatchListComponent } from 'src/app/modals/match-list/match-list.component';
 import { CurrentRoundResponse } from 'src/app/interfaces/currentRoundResponse';
-
+import { LoginPageComponent } from 'src/app/home/login-page/login-page.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
@@ -15,7 +17,12 @@ export class StartComponent {
   currentRound!: string;
   fixturesSerieA: Response[] = [];
   fixturesSerieB: Response[] = [];
-  constructor(private srv: FetchesService) {}
+  constructor(
+    private srv: FetchesService,
+    private login: LoginPageComponent,
+    private route: Router
+  ) {}
+  //check se è loggato
 
   getCurrentRound(): void {
     //qui abbiamo  il current round
@@ -46,7 +53,12 @@ export class StartComponent {
   }
 
   ngOnInit() {
-    this.getCurrentRound();
+    if (localStorage.getItem('user') === null) {
+      this.route.navigate(['login']);
+    } else {
+      this.getCurrentRound();
+    }
+    console.log(this.login.isSignedIn);
   }
   // seriaA modal
   visibleSerieA: boolean = false;
