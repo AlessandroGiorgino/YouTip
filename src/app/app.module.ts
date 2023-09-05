@@ -69,6 +69,7 @@ firebase.initializeApp(environmentD.firebase);
     CarouselModule,
     InputTextModule,
     FormsModule,
+
     provideFirebaseApp(() => initializeApp(environmentD.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
