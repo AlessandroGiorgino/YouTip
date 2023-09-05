@@ -15,6 +15,9 @@ export class AuthenticationService {
       .then((res) => {
         this.isLoggedIn = true;
         localStorage.setItem('user', JSON.stringify(res.user));
+      })
+      .catch((err) => {
+        alert('hai sbagliato qualcosa');
       });
   }
   //sign up

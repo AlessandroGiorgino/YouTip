@@ -8,14 +8,14 @@ body {
   font-family: graphik-semiBold;
   padding: 1rem;
   margin: 0;
+  -webkit-animation: fade-in 1000ms ease-out both;
+  animation: fade-in 1500ms ease-out both;
 
   h1 {
     font-size: 2.8rem;
   }
   h2 {
     font-size: 5rem;
-    span {
-    }
   }
 }
 article {
@@ -28,5 +28,28 @@ article {
   }
   #howDoesItWork {
     background-color: $greenForBody;
+  }
+}
+.fade {
+  -webkit-animation: fade-in 3000ms ease-out both;
+  animation: fade-in 4500ms ease-out both;
+}
+
+//keyframes
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
