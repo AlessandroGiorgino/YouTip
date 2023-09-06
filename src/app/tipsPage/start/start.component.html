@@ -5,8 +5,10 @@
       <h3>
         First off, choose a league to see scheduled matches for next tourn
       </h3>
+
+      <!-- div con serie a e serie b -->
       <div class="flex justify-content-center">
-        <!-- appears only if this week there will be serie a matches -->
+        <!-- serie a -->
         <div
           *ngIf="fixturesSerieA.length > 0"
           class="card flex justify-content-center"
@@ -25,8 +27,7 @@
             </ng-template>
           </p-card>
         </div>
-        <!-- appears only if this week there will be serie b matches -->
-
+        <!-- serie b -->
         <div
           *ngIf="fixturesSerieB.length > 0"
           class="card flex justify-content-center"
@@ -44,8 +45,50 @@
           </p-card>
         </div>
       </div>
-      <!-- modal serieA -->
-      <div id="cardListMatch" class="card flex justify-content-center">
+      <!-- div con premier league e championship  -->
+      <!-- premier -->
+      <div class="flex justify-content-center">
+        <div
+          *ngIf="fixturesPremierLeague.length > 0"
+          class="card flex justify-content-center"
+          id="flagCard"
+        >
+          <p-card class="p-card-content">
+            <ng-template pTemplate="content">
+              <img
+                id="flag"
+                alt="Card"
+                src="https://media.api-sports.io/football/leagues/39.png"
+                (click)="showDialogPremierLeague()"
+              />
+            </ng-template>
+          </p-card>
+        </div>
+        <div
+          *ngIf="fixturesChampionship.length > 0"
+          class="card flex justify-content-center"
+          id="flagCard"
+        >
+          <p-card class="p-card-content">
+            <ng-template pTemplate="content">
+              <img
+                id="flag"
+                alt="Card"
+                src="https://media.api-sports.io/football/leagues/40.png"
+                (click)="showDialogChampionship()"
+              />
+            </ng-template>
+          </p-card>
+        </div>
+      </div>
+
+      <!-- DA QUI I MODALI CHE SI APRONO -->
+      <!-- ------------------------- -->
+      <!-- Modale serieA -->
+
+      <!-- Modale serieB -->
+
+      <div class="card flex justify-content-center">
         <p-dialog
           [header]="'Serie A matches of this turn'"
           [(visible)]="visibleSerieA"
@@ -56,33 +99,44 @@
           [showHeader]="true"
         >
           <ul class="ulMatchList">
-            <li
-              (click)="showModalSingleSeriebMatch()"
-              class="matchList"
-              *ngFor="let serieAmatch of fixturesSerieA"
+            <ng-container
+              *ngFor="let serieAmatch of fixturesSerieA; let i = index"
             >
-              <img
-                [src]="serieAmatch.teams.home.logo"
-                alt="SerieAHomeTeamLogo"
-                width="25px"
-                height="25px"
-              />
+              <a routerLink="/start/{{ serieAmatch.fixture.id }}">
+                <img
+                  [src]="serieAmatch.teams.home.logo"
+                  alt="SerieBHomeTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
 
-              {{ serieAmatch.teams.home.name }} -
+                {{ serieAmatch.teams.home.name }} -
 
-              {{ serieAmatch.teams.away.name }}
-              <img
-                [src]="serieAmatch.teams.away.logo"
-                alt="SerieAAwayTeamLogo"
-                width="25px"
-                height="25px"
-              />
-            </li>
+                {{ serieAmatch.teams.away.name }}
+                <img
+                  [src]="serieAmatch.teams.away.logo"
+                  alt="SerieBAwayTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
+              </a>
+              <p-dialog
+                [header]="''"
+                [(visible)]="modalMatches"
+                [breakpoints]="{ '960px': '75vw' }"
+                [style]="{ height: '50vh' }"
+                [draggable]="false"
+                [resizable]="false"
+                [showHeader]="true"
+              >
+                <p>
+                  {{ serieAmatch.teams.home.name }}
+                </p>
+              </p-dialog>
+            </ng-container>
           </ul>
         </p-dialog>
       </div>
-
-      <!-- modal for serieB matches -->
       <div class="card flex justify-content-center">
         <p-dialog
           [header]="'Serie B matches of this turn'"
@@ -117,7 +171,7 @@
               </a>
               <p-dialog
                 [header]="''"
-                [(visible)]="modalSingleSeriebMatch"
+                [(visible)]="modalMatches"
                 [breakpoints]="{ '960px': '75vw' }"
                 [style]="{ height: '50vh' }"
                 [draggable]="false"
@@ -131,8 +185,112 @@
             </ng-container>
           </ul>
         </p-dialog>
+      </div>
+      <!-- modal for premier league -->
+      <div class="card flex justify-content-center">
+        <p-dialog
+          [header]="'Premier League matches of this turn'"
+          [(visible)]="visiblePremierLeague"
+          [breakpoints]="{ '960px': '75vw' }"
+          [style]="{ height: '50vh' }"
+          [draggable]="false"
+          [resizable]="false"
+          [showHeader]="true"
+        >
+          <ul class="ulMatchList">
+            <ng-container
+              *ngFor="
+                let premierLeagueMatch of fixturesPremierLeague;
+                let i = index
+              "
+            >
+              <a routerLink="/start/{{ premierLeagueMatch.fixture.id }}">
+                <img
+                  [src]="premierLeagueMatch.teams.home.logo"
+                  alt="SerieBHomeTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
 
-        <!-- modal single match serie B -->
+                {{ premierLeagueMatch.teams.home.name }} -
+
+                {{ premierLeagueMatch.teams.away.name }}
+                <img
+                  [src]="premierLeagueMatch.teams.away.logo"
+                  alt="SerieBAwayTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
+              </a>
+              <p-dialog
+                [header]="''"
+                [(visible)]="modalMatches"
+                [breakpoints]="{ '960px': '75vw' }"
+                [style]="{ height: '50vh' }"
+                [draggable]="false"
+                [resizable]="false"
+                [showHeader]="true"
+              >
+                <p>
+                  {{ premierLeagueMatch.teams.home.name }}
+                </p>
+              </p-dialog>
+            </ng-container>
+          </ul>
+        </p-dialog>
+      </div>
+      <!-- modal for championship -->
+      <div class="card flex justify-content-center">
+        <p-dialog
+          [header]="'Championship matches of this turn'"
+          [(visible)]="visibleChampionship"
+          [breakpoints]="{ '960px': '75vw' }"
+          [style]="{ height: '50vh' }"
+          [draggable]="false"
+          [resizable]="false"
+          [showHeader]="true"
+        >
+          <ul class="ulMatchList">
+            <ng-container
+              *ngFor="
+                let ChampionshipMatch of fixturesChampionship;
+                let i = index
+              "
+            >
+              <a routerLink="/start/{{ ChampionshipMatch.fixture.id }}">
+                <img
+                  [src]="ChampionshipMatch.teams.home.logo"
+                  alt="SerieBHomeTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
+
+                {{ ChampionshipMatch.teams.home.name }} -
+
+                {{ ChampionshipMatch.teams.away.name }}
+                <img
+                  [src]="ChampionshipMatch.teams.away.logo"
+                  alt="SerieBAwayTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
+              </a>
+              <p-dialog
+                [header]="''"
+                [(visible)]="modalMatches"
+                [breakpoints]="{ '960px': '75vw' }"
+                [style]="{ height: '50vh' }"
+                [draggable]="false"
+                [resizable]="false"
+                [showHeader]="true"
+              >
+                <p>
+                  {{ ChampionshipMatch.teams.home.name }}
+                </p>
+              </p-dialog>
+            </ng-container>
+          </ul>
+        </p-dialog>
       </div>
     </section>
 

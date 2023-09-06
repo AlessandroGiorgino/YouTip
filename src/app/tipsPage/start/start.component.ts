@@ -17,6 +17,9 @@ export class StartComponent {
   currentRound!: string;
   fixturesSerieA: Response[] = [];
   fixturesSerieB: Response[] = [];
+  fixturesPremierLeague: Response[] = [];
+  fixturesChampionship: Response[] = [];
+
   constructor(
     private srv: FetchesService,
     private login: LoginPageComponent,
@@ -24,7 +27,8 @@ export class StartComponent {
   ) {}
   //check se è loggato
 
-  getCurrentRound(): void {
+  getCurrentRoundSerieA(): void {
+    //serie a
     //qui abbiamo  il current round
     this.srv.getCurrentRoundSerieA().subscribe((res) => {
       // console.log(res.response);
@@ -44,10 +48,59 @@ export class StartComponent {
         this.fixturesSerieA = res.response;
         console.log(this.fixturesSerieA);
       });
-      //qui la get serie b
+    });
+  }
+  getCurrentRoundSerieB(): void {
+    //serie a
+    //qui abbiamo  il current round
+    this.srv.getCurrentRoundSerieB().subscribe((res) => {
+      this.currentRound = res.response[0];
+      this.srv.currentRoundRes = this.currentRound;
+      console.log(this.srv.currentRoundRes);
+      this.srv.currentRoundRes = this.currentRound;
+      console.log(this.srv.currentRoundRes);
+
       this.srv.getFixturesSerieB().subscribe((res) => {
+        console.log(this.srv.currentRoundRes);
+
         this.fixturesSerieB = res.response;
         console.log(this.fixturesSerieB);
+      });
+    });
+  }
+  getCurrentRoundPremierLeague(): void {
+    //serie a
+    //qui abbiamo  il current round
+    this.srv.getCurrentRoundPremierLeague().subscribe((res) => {
+      this.currentRound = res.response[0];
+      this.srv.currentRoundRes = this.currentRound;
+      console.log(this.srv.currentRoundRes);
+      this.srv.currentRoundRes = this.currentRound;
+      console.log(this.srv.currentRoundRes);
+
+      this.srv.getFixturesPremierLeague().subscribe((res) => {
+        console.log(this.srv.currentRoundRes);
+
+        this.fixturesPremierLeague = res.response;
+        console.log(this.fixturesPremierLeague);
+      });
+    });
+  }
+  getCurrentRoundChampionship(): void {
+    //serie a
+    //qui abbiamo  il current round
+    this.srv.getCurrentRoundChampionship().subscribe((res) => {
+      this.currentRound = res.response[0];
+      this.srv.currentRoundRes = this.currentRound;
+      console.log(this.srv.currentRoundRes);
+      this.srv.currentRoundRes = this.currentRound;
+      console.log(this.srv.currentRoundRes);
+
+      this.srv.getFixturesChampionship().subscribe((res) => {
+        console.log(this.srv.currentRoundRes);
+
+        this.fixturesChampionship = res.response;
+        console.log(this.fixturesChampionship);
       });
     });
   }
@@ -56,26 +109,40 @@ export class StartComponent {
     if (localStorage.getItem('user') === null) {
       this.route.navigate(['login']);
     } else {
-      this.getCurrentRound();
+      this.getCurrentRoundSerieA();
+      this.getCurrentRoundSerieB();
+      this.getCurrentRoundPremierLeague();
+      this.getCurrentRoundChampionship();
     }
     console.log(this.login.isSignedIn);
   }
+
+  //unico per tutti
+  modalMatches: boolean = false;
   // seriaA modal
   visibleSerieA: boolean = false;
 
   showDialogSerieA() {
     this.visibleSerieA = true;
   }
+
   // serie b modal
   visibleSerieB: boolean = false;
 
   showDialogSerieB() {
     this.visibleSerieB = true;
   }
-  //serieB single match modal
 
-  modalSingleSeriebMatch: boolean = false;
-  showModalSingleSeriebMatch() {
-    this.modalSingleSeriebMatch = true;
+  // Premier League modal
+  visiblePremierLeague: boolean = false;
+
+  showDialogPremierLeague() {
+    this.visiblePremierLeague = true;
+  }
+  // Championship modal
+  visibleChampionship: boolean = false;
+
+  showDialogChampionship() {
+    this.visibleChampionship = true;
   }
 }

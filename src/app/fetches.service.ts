@@ -22,7 +22,7 @@ export class FetchesService {
     'https://api-football-v1.p.rapidapi.com/v3/fixtures/';
 
   //url per current round
-  urlCurrentRoundSerieA: string = this.urlApiFootballFixtures + 'rounds';
+  urlCurrentRound: string = this.urlApiFootballFixtures + 'rounds';
   //variabile per il current round
   currentRoundRes: string = '';
 
@@ -36,7 +36,7 @@ export class FetchesService {
   //metodo per get current round
   //options
 
-  //getCurrentRound
+  //SERIE A
   getCurrentRoundSerieA() {
     let optionsCurrentRoundSerieA = {
       params: {
@@ -51,13 +51,10 @@ export class FetchesService {
     };
 
     return this.http.get<CurrentRoundResponse>(
-      this.urlCurrentRoundSerieA,
+      this.urlCurrentRound,
       optionsCurrentRoundSerieA
     );
   }
-
-  //metodo get su api foot nuova per serie a
-
   //get per le fixtures serie a
   getFixturesSerieA() {
     const optionsFixtureSerieA = {
@@ -76,14 +73,34 @@ export class FetchesService {
       optionsFixtureSerieA
     );
   }
+  //SERIE B
+
+  getCurrentRoundSerieB() {
+    let optionsCurrentRoundSerieB = {
+      params: {
+        league: '136',
+        season: '2023',
+        current: 'true',
+      },
+      headers: {
+        'X-RapidAPI-Key': this.pssApiFootNew,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+      },
+    };
+
+    return this.http.get<CurrentRoundResponse>(
+      this.urlCurrentRound,
+      optionsCurrentRoundSerieB
+    );
+  }
+
   //get per le fixtures serie b
   getFixturesSerieB() {
     let optionsFixtureSerieB = {
       params: {
         league: '136',
         season: '2023',
-        from: '2023-09-01',
-        to: '2023-09-03',
+        round: this.currentRoundRes,
       },
       headers: {
         'X-RapidAPI-Key': this.pssApiFootNew,
@@ -93,6 +110,80 @@ export class FetchesService {
     return this.http.get<Fixtures>(
       this.urlApiFootballFixtures,
       optionsFixtureSerieB
+    );
+  }
+
+  getCurrentRoundPremierLeague() {
+    let optionsCurrentRoundPremierLeague = {
+      params: {
+        league: '39',
+        season: '2023',
+        current: 'true',
+      },
+      headers: {
+        'X-RapidAPI-Key': this.pssApiFootNew,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+      },
+    };
+
+    return this.http.get<CurrentRoundResponse>(
+      this.urlCurrentRound,
+      optionsCurrentRoundPremierLeague
+    );
+  }
+
+  getFixturesPremierLeague() {
+    let optionsFixturePremierLeague = {
+      params: {
+        league: '39',
+        season: '2023',
+        round: this.currentRoundRes,
+      },
+      headers: {
+        'X-RapidAPI-Key': this.pssApiFootNew,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+      },
+    };
+    return this.http.get<Fixtures>(
+      this.urlApiFootballFixtures,
+      optionsFixturePremierLeague
+    );
+  }
+  //championship
+  getCurrentRoundChampionship() {
+    let optionsCurrentRoundChampionship = {
+      params: {
+        league: '40',
+        season: '2023',
+        current: 'true',
+      },
+      headers: {
+        'X-RapidAPI-Key': this.pssApiFootNew,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+      },
+    };
+
+    return this.http.get<CurrentRoundResponse>(
+      this.urlCurrentRound,
+      optionsCurrentRoundChampionship
+    );
+  }
+
+  getFixturesChampionship() {
+    let optionsFixtureChampionship = {
+      params: {
+        league: '40',
+        season: '2023',
+        round: this.currentRoundRes,
+      },
+      headers: {
+        'X-RapidAPI-Key': this.pssApiFootNew,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+      },
+    };
+    return this.http.get<Fixtures>(
+      this.urlApiFootballFixtures,
+      optionsFixtureChampionship
     );
   }
 

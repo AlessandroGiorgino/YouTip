@@ -13,8 +13,10 @@ export class LoginPageComponent {
   constructor(private auth: AuthenticationService, private route: Router) {}
   //initial check
   ngOnInit() {
-    if (localStorage.getItem('user') !== null) this.isSignedIn = true;
-    else {
+    if (localStorage.getItem('user') !== null) {
+      this.isSignedIn = true;
+      this.isRegistered = true;
+    } else {
       this.isSignedIn = false;
     }
     console.log(this.isSignedIn);
