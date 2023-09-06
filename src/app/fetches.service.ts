@@ -187,6 +187,80 @@ export class FetchesService {
     );
   }
 
+  //Liga
+  getCurrentRoundLiga() {
+    let optionsCurrentRoundLiga = {
+      params: {
+        league: '140',
+        season: '2023',
+        current: 'true',
+      },
+      headers: {
+        'X-RapidAPI-Key': this.pssApiFootNew,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+      },
+    };
+
+    return this.http.get<CurrentRoundResponse>(
+      this.urlCurrentRound,
+      optionsCurrentRoundLiga
+    );
+  }
+
+  getFixturesLiga() {
+    let optionsFixtureLiga = {
+      params: {
+        league: '140',
+        season: '2023',
+        round: this.currentRoundRes,
+      },
+      headers: {
+        'X-RapidAPI-Key': this.pssApiFootNew,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+      },
+    };
+    return this.http.get<Fixtures>(
+      this.urlApiFootballFixtures,
+      optionsFixtureLiga
+    );
+  }
+  //Liga
+  getCurrentRoundSegundaDivision() {
+    let optionsCurrentRoundSegundaDivision = {
+      params: {
+        league: '140',
+        season: '2023',
+        current: 'true',
+      },
+      headers: {
+        'X-RapidAPI-Key': this.pssApiFootNew,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+      },
+    };
+
+    return this.http.get<CurrentRoundResponse>(
+      this.urlCurrentRound,
+      optionsCurrentRoundSegundaDivision
+    );
+  }
+
+  getFixturesSegundaDivision() {
+    let optionsFixtureSegundaDivision = {
+      params: {
+        league: '141',
+        season: '2023',
+        round: this.currentRoundRes,
+      },
+      headers: {
+        'X-RapidAPI-Key': this.pssApiFootNew,
+        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+      },
+    };
+    return this.http.get<Fixtures>(
+      this.urlApiFootballFixtures,
+      optionsFixtureSegundaDivision
+    );
+  }
   //get per partita singola tramite id
   getPredictionByMatchId() {
     //options per partita singola tramite id

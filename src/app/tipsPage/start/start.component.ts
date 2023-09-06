@@ -19,13 +19,15 @@ export class StartComponent {
   fixturesSerieB: Response[] = [];
   fixturesPremierLeague: Response[] = [];
   fixturesChampionship: Response[] = [];
+  fixturesLiga: Response[] = [];
+  fixturesSegundaDivision: Response[] = [];
 
   constructor(
     private srv: FetchesService,
     private login: LoginPageComponent,
     private route: Router
   ) {}
-  //check se è loggato
+  //check se è loggato e autologut
 
   getCurrentRoundSerieA(): void {
     //serie a
@@ -104,6 +106,40 @@ export class StartComponent {
       });
     });
   }
+  getCurrentRoundLiga(): void {
+    //qui abbiamo  il current round
+    this.srv.getCurrentRoundLiga().subscribe((res) => {
+      this.currentRound = res.response[0];
+      this.srv.currentRoundRes = this.currentRound;
+      console.log(this.srv.currentRoundRes);
+      this.srv.currentRoundRes = this.currentRound;
+      console.log(this.srv.currentRoundRes);
+
+      this.srv.getFixturesLiga().subscribe((res) => {
+        console.log(this.srv.currentRoundRes);
+
+        this.fixturesLiga = res.response;
+        console.log(this.fixturesLiga);
+      });
+    });
+  }
+  getCurrentRoundSegundaDivision(): void {
+    //qui abbiamo  il current round
+    this.srv.getCurrentRoundSegundaDivision().subscribe((res) => {
+      this.currentRound = res.response[0];
+      this.srv.currentRoundRes = this.currentRound;
+      console.log(this.srv.currentRoundRes);
+      this.srv.currentRoundRes = this.currentRound;
+      console.log(this.srv.currentRoundRes);
+
+      this.srv.getFixturesSegundaDivision().subscribe((res) => {
+        console.log(this.srv.currentRoundRes);
+
+        this.fixturesSegundaDivision = res.response;
+        console.log(this.fixturesSegundaDivision);
+      });
+    });
+  }
 
   ngOnInit() {
     if (localStorage.getItem('user') === null) {
@@ -113,8 +149,11 @@ export class StartComponent {
       this.getCurrentRoundSerieB();
       this.getCurrentRoundPremierLeague();
       this.getCurrentRoundChampionship();
+      this.getCurrentRoundLiga();
+      this.getCurrentRoundSegundaDivision();
     }
     console.log(this.login.isSignedIn);
+    //auto logout fuori dopo tot tempo
   }
 
   //unico per tutti
@@ -144,5 +183,18 @@ export class StartComponent {
 
   showDialogChampionship() {
     this.visibleChampionship = true;
+  }
+
+  //La liga modal
+  visibleLiga: boolean = false;
+
+  showDialogLiga() {
+    this.visibleLiga = true;
+  }
+  //segunda division modal
+  visibleSegundaDivision: boolean = false;
+
+  showDialogSegundaDivision() {
+    this.visibleSegundaDivision = true;
   }
 }

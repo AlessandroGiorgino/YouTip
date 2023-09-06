@@ -30,7 +30,7 @@ export class AuthenticationService {
       });
   }
   //log out
-  logout() {
+  logout(): void {
     this.firebaseAuth.signOut();
     localStorage.removeItem('user');
   }

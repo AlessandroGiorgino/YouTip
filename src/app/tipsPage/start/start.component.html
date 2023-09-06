@@ -81,6 +81,41 @@
           </p-card>
         </div>
       </div>
+      <!-- Qui la liga e segunda division -->
+      <div class="flex justify-content-center">
+        <div
+          *ngIf="fixturesLiga.length > 0"
+          class="card flex justify-content-center"
+          id="flagCard"
+        >
+          <p-card class="p-card-content">
+            <ng-template pTemplate="content">
+              <img
+                id="flag"
+                alt="Card"
+                src="https://media.api-sports.io/football/leagues/140.png"
+                (click)="showDialogLiga()"
+              />
+            </ng-template>
+          </p-card>
+        </div>
+        <div
+          *ngIf="fixturesSegundaDivision.length > 0"
+          class="card flex justify-content-center"
+          id="flagCard"
+        >
+          <p-card class="p-card-content">
+            <ng-template pTemplate="content">
+              <img
+                id="flag"
+                alt="Card"
+                src="https://media.api-sports.io/football/leagues/141.png"
+                (click)="showDialogSegundaDivision()"
+              />
+            </ng-template>
+          </p-card>
+        </div>
+      </div>
 
       <!-- DA QUI I MODALI CHE SI APRONO -->
       <!-- ------------------------- -->
@@ -286,6 +321,107 @@
               >
                 <p>
                   {{ ChampionshipMatch.teams.home.name }}
+                </p>
+              </p-dialog>
+            </ng-container>
+          </ul>
+        </p-dialog>
+      </div>
+      <!-- modal for La liga  -->
+      <div class="card flex justify-content-center">
+        <p-dialog
+          [header]="'La Liga matches of this turn'"
+          [(visible)]="visibleLiga"
+          [breakpoints]="{ '960px': '75vw' }"
+          [style]="{ height: '50vh' }"
+          [draggable]="false"
+          [resizable]="false"
+          [showHeader]="true"
+        >
+          <ul class="ulMatchList">
+            <ng-container *ngFor="let ligaMatch of fixturesLiga; let i = index">
+              <a routerLink="/start/{{ ligaMatch.fixture.id }}">
+                <img
+                  [src]="ligaMatch.teams.home.logo"
+                  alt="LaligaHomeTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
+
+                {{ ligaMatch.teams.home.name }} -
+
+                {{ ligaMatch.teams.away.name }}
+                <img
+                  [src]="ligaMatch.teams.away.logo"
+                  alt="LaligaAwayTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
+              </a>
+              <p-dialog
+                [header]="''"
+                [(visible)]="modalMatches"
+                [breakpoints]="{ '960px': '75vw' }"
+                [style]="{ height: '50vh' }"
+                [draggable]="false"
+                [resizable]="false"
+                [showHeader]="true"
+              >
+                <p>
+                  {{ ligaMatch.teams.home.name }}
+                </p>
+              </p-dialog>
+            </ng-container>
+          </ul>
+        </p-dialog>
+      </div>
+      <!-- modal for segunda division -->
+      <div class="card flex justify-content-center">
+        <p-dialog
+          [header]="'Segunda División matches of this turn'"
+          [(visible)]="visibleSegundaDivision"
+          [breakpoints]="{ '960px': '75vw' }"
+          [style]="{ height: '50vh' }"
+          [draggable]="false"
+          [resizable]="false"
+          [showHeader]="true"
+        >
+          <ul class="ulMatchList">
+            <ng-container
+              *ngFor="
+                let segundaDivisionMatch of fixturesSegundaDivision;
+                let i = index
+              "
+            >
+              <a routerLink="/start/{{ segundaDivisionMatch.fixture.id }}">
+                <img
+                  [src]="segundaDivisionMatch.teams.home.logo"
+                  alt="LaligaHomeTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
+
+                {{ segundaDivisionMatch.teams.home.name }} -
+
+                {{ segundaDivisionMatch.teams.away.name }}
+                <img
+                  [src]="segundaDivisionMatch.teams.away.logo"
+                  alt="LaligaAwayTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
+              </a>
+              <p-dialog
+                [header]="''"
+                [(visible)]="modalMatches"
+                [breakpoints]="{ '960px': '75vw' }"
+                [style]="{ height: '50vh' }"
+                [draggable]="false"
+                [resizable]="false"
+                [showHeader]="true"
+              >
+                <p>
+                  {{ segundaDivisionMatch.teams.home.name }}
                 </p>
               </p-dialog>
             </ng-container>

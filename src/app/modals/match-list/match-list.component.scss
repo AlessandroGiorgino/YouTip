@@ -1,0 +1,23 @@
+@import "../../scss/partials";
+body,
+html {
+  background-image: $greenForBody;
+  // background-repeat: no-repeat;
+}
+#externalContainer {
+  color: #f1f6f4 !important;
+  font-family: graphik-semiBold;
+}
+#pronostico {
+  color: #f1f6f4 !important;
+  font-family: graphik-semiBold;
+  h1 {
+    text-align: center;
+  }
+  ul {
+    list-style-type: none;
+    li {
+      line-height: 2.5rem;
+    }
+  }
+}
