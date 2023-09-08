@@ -142,6 +142,7 @@ export class StartComponent {
   }
 
   ngOnInit() {
+    window.scroll(0, 0);
     if (localStorage.getItem('user') === null) {
       this.route.navigate(['login']);
     } else {

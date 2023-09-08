@@ -2,6 +2,7 @@
 @import "primeng/resources/themes/lara-light-blue/theme.css";
 @import "primeng/resources/primeng.css";
 @import "/src/app/scss/partials";
+
 @font-face {
   font-family: graphik-black;
   src: url(./assets/fonts/graphik/GraphikBlack.otf);
@@ -40,7 +41,10 @@
   src: url(./assets/fonts/graphik/GraphikSuper.otf);
 }
 
+html,
 body {
+  min-height: 100%;
   margin: 0;
   min-width: 300px;
+  background: $greenForBody;
 }

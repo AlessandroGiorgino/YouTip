@@ -1,8 +1,9 @@
 @import "../../scss/partials";
 
-body {
-  background-image: $greenForBody;
-  height: 100vh;
+body,
+html {
+  background: $greenForBody;
+  background-size: cover;
 }
 #externalContainer {
   padding: 1rem;

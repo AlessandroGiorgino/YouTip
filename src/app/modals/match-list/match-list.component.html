@@ -1,5 +1,5 @@
 <!-- inizio tabella comparison -->
-<main>
+<!-- <main>
   <section id="externalContainer" class="grid mt-3 mx-0">
     <div id="colonna1diesterno" class="col">
       <div class="grid flex-column" id="gridInterno">
@@ -69,4 +69,41 @@
       </div>
     </article>
   </section>
-</main>
+</main> -->
+
+<div id="suggests">
+  <h1>The algorithm suggests</h1>
+  <h2>{{ (predictionsById[0]?.predictions)!.advice }}</h2>
+</div>
+
+<div class="campo">
+  <div class="corner">
+    <div class="corner1"></div>
+    <div class="corner2"></div>
+  </div>
+  <div class="semi1"></div>
+  <div class="semi2"></div>
+  <div class="divisoria"></div>
+  <div class="interior">
+    <div
+      style="background-image: url('{{ predictionsById[0]?.teams!.home.logo }}')"
+      id="home"
+    ></div>
+    <div
+      id="away"
+      style="background-image: url('{{ predictionsById[0]?.teams!.away.logo }}')"
+    ></div>
+  </div>
+  <div class="penalty"></div>
+</div>
+<section class="grid">
+  <p class="col"></p>
+  <p class="col">1</p>
+  <p class="col">2</p>
+  <p class="col">3</p>
+  <p class="col">4</p>
+  <p class="col">5</p>
+  <p class="col">6</p>
+  <p class="col"></p>
+  <p class="col"></p>
+</section>
