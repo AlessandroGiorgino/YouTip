@@ -1,0 +1,51 @@
+body {
+  background: linear-gradient(to bottom right, #058c42, #023b1c);
+}
+
+#externalContainer {
+  color: #f1f6f4 !important;
+  font-family: graphik-semiBold;
+  padding: 1rem;
+  margin: 0;
+  -webkit-animation: fade-in 1000ms ease-out both;
+  animation: fade-in 1500ms ease-out both;
+}
+#externalContainer h1 {
+  font-size: 2.8rem;
+}
+#externalContainer h2 {
+  font-size: 5rem;
+}
+
+article p {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+article p span {
+  font-style: italic;
+}
+article #howDoesItWork {
+  background-color: linear-gradient(to bottom right, #058c42, #023b1c);
+}
+
+.fade {
+  -webkit-animation: fade-in 3000ms ease-out both;
+  animation: fade-in 4500ms ease-out both;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=home.component.css.map */

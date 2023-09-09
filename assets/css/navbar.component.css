@@ -1,0 +1,48 @@
+.p-icon {
+  color: white !important;
+}
+
+#logo:hover {
+  cursor: pointer;
+}
+
+#menuBar a {
+  background: transparent;
+}
+#menuBar ul {
+  background: transparent;
+}
+#menuBar span {
+  font-size: 2rem;
+  font-family: graphik-semiBold;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 960px) {
+  #menuBar {
+    height: 100vh;
+  }
+  #menuBar a {
+    background: transparent;
+  }
+  #menuBar ul {
+    background: linear-gradient(to bottom right, #058c42, #023b1c);
+    z-index: 99999999;
+  }
+}
+#menuBar > div {
+  border: none !important;
+  background: transparent;
+  border-radius: 0;
+}
+
+.p-menuitem-text {
+  color: #f1f6f4 !important;
+}
+
+@media (max-width: 960px) {
+  #logo {
+    display: none;
+  }
+}/*# sourceMappingURL=navbar.component.css.map */
