@@ -1,7 +1,6 @@
 @import "../../scss/partials";
 body {
   background: $greenForBody;
-  // background-repeat: no-repeat;
 }
 #externalContainer {
   color: #f1f6f4 !important;
@@ -34,9 +33,6 @@ article {
   -webkit-animation: fade-in 3000ms ease-out both;
   animation: fade-in 4500ms ease-out both;
 }
-
-//keyframes
-
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0;

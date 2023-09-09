@@ -1,4 +1,4 @@
-import { Predictions, Response } from './../../interfaces/predictions-by-id';
+import { Response } from './../../interfaces/predictions-by-id';
 import { Component } from '@angular/core';
 import { StartComponent } from 'src/app/tipsPage/start/start.component';
 import { ActivatedRoute } from '@angular/router';
