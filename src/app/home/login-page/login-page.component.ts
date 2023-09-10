@@ -19,7 +19,6 @@ export class LoginPageComponent {
     } else {
       this.isSignedIn = false;
     }
-    console.log(this.isSignedIn);
   }
   //sign up
   async onSignUp(email: string, password: string) {

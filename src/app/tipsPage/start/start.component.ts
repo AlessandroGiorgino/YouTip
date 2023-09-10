@@ -39,16 +39,12 @@ export class StartComponent {
       this.currentRound = res.response[0];
 
       this.srv.currentRoundRes = this.currentRound;
-      console.log(this.srv.currentRoundRes);
 
       this.srv.currentRoundRes = this.currentRound;
-      console.log(this.srv.currentRoundRes);
       //qui la get serieA
       this.srv.getFixturesSerieA().subscribe((res) => {
-        console.log(this.srv.currentRoundRes);
 
         this.fixturesSerieA = res.response;
-        console.log(this.fixturesSerieA);
       });
     });
   }
@@ -58,15 +54,11 @@ export class StartComponent {
     this.srv.getCurrentRoundSerieB().subscribe((res) => {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
-      console.log(this.srv.currentRoundRes);
       this.srv.currentRoundRes = this.currentRound;
-      console.log(this.srv.currentRoundRes);
 
       this.srv.getFixturesSerieB().subscribe((res) => {
-        console.log(this.srv.currentRoundRes);
 
         this.fixturesSerieB = res.response;
-        console.log(this.fixturesSerieB);
       });
     });
   }
@@ -76,15 +68,11 @@ export class StartComponent {
     this.srv.getCurrentRoundPremierLeague().subscribe((res) => {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
-      console.log(this.srv.currentRoundRes);
       this.srv.currentRoundRes = this.currentRound;
-      console.log(this.srv.currentRoundRes);
 
       this.srv.getFixturesPremierLeague().subscribe((res) => {
-        console.log(this.srv.currentRoundRes);
 
         this.fixturesPremierLeague = res.response;
-        console.log(this.fixturesPremierLeague);
       });
     });
   }
@@ -94,15 +82,11 @@ export class StartComponent {
     this.srv.getCurrentRoundChampionship().subscribe((res) => {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
-      console.log(this.srv.currentRoundRes);
       this.srv.currentRoundRes = this.currentRound;
-      console.log(this.srv.currentRoundRes);
 
       this.srv.getFixturesChampionship().subscribe((res) => {
-        console.log(this.srv.currentRoundRes);
 
         this.fixturesChampionship = res.response;
-        console.log(this.fixturesChampionship);
       });
     });
   }
@@ -111,15 +95,10 @@ export class StartComponent {
     this.srv.getCurrentRoundLiga().subscribe((res) => {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
-      console.log(this.srv.currentRoundRes);
       this.srv.currentRoundRes = this.currentRound;
-      console.log(this.srv.currentRoundRes);
-
       this.srv.getFixturesLiga().subscribe((res) => {
-        console.log(this.srv.currentRoundRes);
 
         this.fixturesLiga = res.response;
-        console.log(this.fixturesLiga);
       });
     });
   }
@@ -128,15 +107,11 @@ export class StartComponent {
     this.srv.getCurrentRoundSegundaDivision().subscribe((res) => {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
-      console.log(this.srv.currentRoundRes);
       this.srv.currentRoundRes = this.currentRound;
-      console.log(this.srv.currentRoundRes);
 
       this.srv.getFixturesSegundaDivision().subscribe((res) => {
-        console.log(this.srv.currentRoundRes);
 
         this.fixturesSegundaDivision = res.response;
-        console.log(this.fixturesSegundaDivision);
       });
     });
   }
@@ -153,7 +128,6 @@ export class StartComponent {
       this.getCurrentRoundLiga();
       this.getCurrentRoundSegundaDivision();
     }
-    console.log(this.login.isSignedIn);
     //auto logout fuori dopo tot tempo
   }
 

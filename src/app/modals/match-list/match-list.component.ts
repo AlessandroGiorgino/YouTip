@@ -17,22 +17,18 @@ export class MatchListComponent {
     //ogni volta carica pagina prende id in alto
     this.route.paramMap.subscribe((params) => {
       this.id = params.get('id');
-      console.log(this.id);
     });
     //get della partita
     //prima facciamo combaciare l'id nel service con quesllo effettivo della partita
     this.srv.idForSingleMatch = this.id;
 
     this.srv.getPredictionByMatchId().subscribe((res) => {
-      console.log(res);
 
       this.predictionsById = res.response;
 
-      console.log(this.predictionsById);
     });
     //qui abbiamo  il current round che usiamo poi vediamo per cosa
     this.srv.getCurrentRoundSerieA().subscribe((res) => {
-      console.log(res);
     });
   }
   //richiamare service e fare nuova get sull'id
