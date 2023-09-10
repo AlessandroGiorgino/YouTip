@@ -24,22 +24,14 @@ export class StartComponent {
 
   constructor(
     private srv: FetchesService,
-    private login: LoginPageComponent,
     private route: Router
   ) {}
   //check se è loggato e autologut
 
   getCurrentRoundSerieA(): void {
-    //serie a
-    //qui abbiamo  il current round
+
     this.srv.getCurrentRoundSerieA().subscribe((res) => {
-      // console.log(res.response);
-      // console.log(res.response[0]);
-
       this.currentRound = res.response[0];
-
-      this.srv.currentRoundRes = this.currentRound;
-
       this.srv.currentRoundRes = this.currentRound;
       //qui la get serieA
       this.srv.getFixturesSerieA().subscribe((res) => {
@@ -54,39 +46,28 @@ export class StartComponent {
     this.srv.getCurrentRoundSerieB().subscribe((res) => {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
-      this.srv.currentRoundRes = this.currentRound;
-
       this.srv.getFixturesSerieB().subscribe((res) => {
-
         this.fixturesSerieB = res.response;
       });
     });
   }
   getCurrentRoundPremierLeague(): void {
-    //serie a
-    //qui abbiamo  il current round
+
     this.srv.getCurrentRoundPremierLeague().subscribe((res) => {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
-      this.srv.currentRoundRes = this.currentRound;
-
       this.srv.getFixturesPremierLeague().subscribe((res) => {
-
         this.fixturesPremierLeague = res.response;
       });
     });
   }
   getCurrentRoundChampionship(): void {
-    //serie a
-    //qui abbiamo  il current round
+
     this.srv.getCurrentRoundChampionship().subscribe((res) => {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
-      this.srv.currentRoundRes = this.currentRound;
-
       this.srv.getFixturesChampionship().subscribe((res) => {
-
-        this.fixturesChampionship = res.response;
+      this.fixturesChampionship = res.response;
       });
     });
   }
@@ -95,10 +76,8 @@ export class StartComponent {
     this.srv.getCurrentRoundLiga().subscribe((res) => {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
-      this.srv.currentRoundRes = this.currentRound;
       this.srv.getFixturesLiga().subscribe((res) => {
-
-        this.fixturesLiga = res.response;
+      this.fixturesLiga = res.response;
       });
     });
   }
@@ -107,8 +86,6 @@ export class StartComponent {
     this.srv.getCurrentRoundSegundaDivision().subscribe((res) => {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
-      this.srv.currentRoundRes = this.currentRound;
-
       this.srv.getFixturesSegundaDivision().subscribe((res) => {
 
         this.fixturesSegundaDivision = res.response;
@@ -117,7 +94,7 @@ export class StartComponent {
   }
 
   ngOnInit() {
-    window.scroll(0, 0);
+
     if (localStorage.getItem('user') === null) {
       this.route.navigate(['login']);
     } else {
@@ -128,7 +105,6 @@ export class StartComponent {
       this.getCurrentRoundLiga();
       this.getCurrentRoundSegundaDivision();
     }
-    //auto logout fuori dopo tot tempo
   }
 
   //unico per tutti

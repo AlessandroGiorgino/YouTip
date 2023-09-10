@@ -5,6 +5,7 @@ import { environmentD } from 'src/environments/environment.development';
 import { Fixtures } from './interfaces/fixtures';
 import { Predictions, PredictionsById } from './interfaces/predictions-by-id';
 import { CurrentRoundResponse } from './interfaces/currentRoundResponse';
+import { Standings } from './interfaces/standings';
 @Injectable({
   providedIn: 'root',
 })
@@ -16,7 +17,10 @@ export class FetchesService {
   pssApiFootNew: string = environmentD.API_KEY_AP_FOOT;
   //firebase
   pssApiFirebase: string = environmentD.API_KEY_FIREBASE;
-
+  headers = {
+    'X-RapidAPI-Key': this.pssApiFootNew,
+    'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
+  };
   //url per fixtures
   urlApiFootballFixtures: string =
     'https://api-football-v1.p.rapidapi.com/v3/fixtures/';
@@ -31,6 +35,10 @@ export class FetchesService {
     'https://api-football-v1.p.rapidapi.com/v3/predictions';
   idForSingleMatch!: any;
 
+  //get per standings
+  urlStandings: string = 'https://api-football-v1.p.rapidapi.com/v3/standings';
+  idLeague!: number;
+
   constructor(private http: HttpClient) {}
 
   //metodo per get current round
@@ -44,10 +52,7 @@ export class FetchesService {
         season: '2023',
         current: 'true',
       },
-      headers: {
-        'X-RapidAPI-Key': this.pssApiFootNew,
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-      },
+      headers: this.headers,
     };
 
     return this.http.get<CurrentRoundResponse>(
@@ -63,10 +68,7 @@ export class FetchesService {
         season: '2023',
         round: this.currentRoundRes,
       },
-      headers: {
-        'X-RapidAPI-Key': this.pssApiFootNew,
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-      },
+      headers: this.headers,
     };
     return this.http.get<Fixtures>(
       this.urlApiFootballFixtures,
@@ -82,10 +84,7 @@ export class FetchesService {
         season: '2023',
         current: 'true',
       },
-      headers: {
-        'X-RapidAPI-Key': this.pssApiFootNew,
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-      },
+      headers: this.headers,
     };
 
     return this.http.get<CurrentRoundResponse>(
@@ -102,10 +101,7 @@ export class FetchesService {
         season: '2023',
         round: this.currentRoundRes,
       },
-      headers: {
-        'X-RapidAPI-Key': this.pssApiFootNew,
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-      },
+      headers: this.headers,
     };
     return this.http.get<Fixtures>(
       this.urlApiFootballFixtures,
@@ -120,10 +116,7 @@ export class FetchesService {
         season: '2023',
         current: 'true',
       },
-      headers: {
-        'X-RapidAPI-Key': this.pssApiFootNew,
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-      },
+      headers: this.headers,
     };
 
     return this.http.get<CurrentRoundResponse>(
@@ -139,10 +132,7 @@ export class FetchesService {
         season: '2023',
         round: this.currentRoundRes,
       },
-      headers: {
-        'X-RapidAPI-Key': this.pssApiFootNew,
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-      },
+      headers: this.headers,
     };
     return this.http.get<Fixtures>(
       this.urlApiFootballFixtures,
@@ -157,10 +147,7 @@ export class FetchesService {
         season: '2023',
         current: 'true',
       },
-      headers: {
-        'X-RapidAPI-Key': this.pssApiFootNew,
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-      },
+      headers: this.headers,
     };
 
     return this.http.get<CurrentRoundResponse>(
@@ -176,10 +163,7 @@ export class FetchesService {
         season: '2023',
         round: this.currentRoundRes,
       },
-      headers: {
-        'X-RapidAPI-Key': this.pssApiFootNew,
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-      },
+      headers: this.headers,
     };
     return this.http.get<Fixtures>(
       this.urlApiFootballFixtures,
@@ -195,10 +179,7 @@ export class FetchesService {
         season: '2023',
         current: 'true',
       },
-      headers: {
-        'X-RapidAPI-Key': this.pssApiFootNew,
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-      },
+      headers: this.headers,
     };
 
     return this.http.get<CurrentRoundResponse>(
@@ -214,10 +195,7 @@ export class FetchesService {
         season: '2023',
         round: this.currentRoundRes,
       },
-      headers: {
-        'X-RapidAPI-Key': this.pssApiFootNew,
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-      },
+      headers: this.headers,
     };
     return this.http.get<Fixtures>(
       this.urlApiFootballFixtures,
@@ -232,10 +210,7 @@ export class FetchesService {
         season: '2023',
         current: 'true',
       },
-      headers: {
-        'X-RapidAPI-Key': this.pssApiFootNew,
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-      },
+      headers: this.headers,
     };
 
     return this.http.get<CurrentRoundResponse>(
@@ -251,10 +226,7 @@ export class FetchesService {
         season: '2023',
         round: this.currentRoundRes,
       },
-      headers: {
-        'X-RapidAPI-Key': this.pssApiFootNew,
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-      },
+      headers: this.headers,
     };
     return this.http.get<Fixtures>(
       this.urlApiFootballFixtures,
@@ -266,14 +238,22 @@ export class FetchesService {
     //options per partita singola tramite id
     let optionsMatchById = {
       params: { fixture: this.idForSingleMatch },
-      headers: {
-        'X-RapidAPI-Key': this.pssApiFootNew,
-        'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-      },
+      headers: this.headers,
     };
     return this.http.get<PredictionsById>(
       this.urlPredictionsById,
       optionsMatchById
     );
+  }
+  //get per standing
+  getStandingsByLeagueId() {
+    let optionsStandings = {
+      params: {
+        league: this.idLeague,
+        season: '2023',
+      },
+      headers: this.headers,
+    };
+    return this.http.get<Standings>(this.urlStandings, optionsStandings);
   }
 }

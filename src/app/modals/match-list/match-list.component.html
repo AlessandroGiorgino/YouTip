@@ -1,28 +1,80 @@
-
-<div id="suggests">
+<header class="grid mb-2">
+  <h3 class="col-12 text-center mb-0">
+    {{ predictionsById[0].teams.home.name }} -
+    {{ predictionsById[0].teams.away.name }}
+  </h3>
+  <h4 class="col-12 text-center mt-0">
+    {{ predictionsById[0].league.country }},
+    {{ predictionsById[0].league.name }} ,
+    {{ predictionsById[0].league.season }}
+  </h4>
+</header>
+<section class="grid">
+  <div class="campo">
+    <div class="corner">
+      <div class="corner1"></div>
+      <div class="corner2"></div>
+    </div>
+    <div class="semi1"></div>
+    <div class="semi2"></div>
+    <div class="divisoria"></div>
+    <div class="interior">
+      <div id="home">
+        <img
+          height="80"
+          width="90"
+          src="{{ predictionsById[0].teams.home.logo }}"
+          alt="homeTeam"
+        />
+      </div>
+      <div id="away">
+        <img
+          height="80"
+          width="90"
+          src="{{ predictionsById[0].teams.away.logo }}"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="penalty"></div>
+  </div>
+</section>
+<section id="suggests">
   <h1>The algorithm suggests</h1>
   <h2>{{ (predictionsById[0]?.predictions)!.advice }}</h2>
-</div>
-
-<div class="campo">
-  <div class="corner">
-    <div class="corner1"></div>
-    <div class="corner2"></div>
+</section>
+<section id="standings">
+  <div
+    class="main-container"
+    *ngFor="let standing of standings[0].league.standings[0]; let i = index"
+  >
+    <div class="table-container">
+      <div class="table-row heading">
+        <div class="row-item">Team</div>
+        <div class="row-item">W</div>
+        <div class="row-item">D</div>
+        <div class="row-item">L</div>
+        <div class="row-item">Scored</div>
+        <div class="row-item">Conceded</div>
+        <div class="row-item">Pt</div>
+      </div>
+      <div class="table-row">
+        <div class="row-item">
+          <img
+            width="30"
+            height="30"
+            src="{{ standing.team.logo }}"
+            alt="team"
+            class="me-1"
+          />
+        </div>
+        <div class="row-item">{{ standing.all.win }}</div>
+        <div class="row-item">{{ standing.all.draw }}</div>
+        <div class="row-item">{{ standing.all.lose }}</div>
+        <div class="row-item">{{ standing.all.goals.for }}</div>
+        <div class="row-item">{{ standing.all.goals.against }}</div>
+        <div class="row-item">{{ standing.points }}</div>
+      </div>
+    </div>
   </div>
-  <div class="semi1"></div>
-  <div class="semi2"></div>
-  <div class="divisoria"></div>
-  <div class="interior">
-    <div
-      style="background-image: url('{{ predictionsById[0]?.teams!.home.logo }}')"
-      id="home"
-    ></div>
-    <div
-      id="away"
-      style="background-image: url('{{ predictionsById[0]?.teams!.away.logo }}')"
-    ></div>
-  </div>
-  <div class="penalty"></div>
-</div>
-<section class="grid">
-
+</section>

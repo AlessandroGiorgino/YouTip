@@ -33,7 +33,7 @@ export class LoginPageComponent {
     await this.auth.signIn(email, password);
     if (this.auth.isLoggedIn) {
       this.isSignedIn = true;
-      this.route.navigate(['']);
+      this.route.navigate(['start']);
     }
   }
 
