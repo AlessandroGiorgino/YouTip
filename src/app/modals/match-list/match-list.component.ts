@@ -1,5 +1,5 @@
 import { Response } from './../../interfaces/predictions-by-id';
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FetchesService } from 'src/app/fetches.service';
 import {
@@ -12,6 +12,7 @@ import {
   selector: 'app-match-list',
   templateUrl: './match-list.component.html',
   styleUrls: ['./match-list.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class MatchListComponent {
   predictionsById: Response[] = [];
@@ -19,6 +20,8 @@ export class MatchListComponent {
   pssApiFootPred = this.srv.pssApiFootPred;
   id!: string | null;
   standings: ResponseStandings[] = [];
+  homeTeam!: string;
+  awayTeam!: string;
 
   ngOnInit() {
     //ogni volta carica pagina prende id in alto
@@ -32,9 +35,13 @@ export class MatchListComponent {
     this.srv.getPredictionByMatchId().subscribe((res) => {
       this.predictionsById = res.response;
       this.srv.idLeague = this.predictionsById[0].league.id;
+      this.homeTeam = this.predictionsById[0].teams.home.name;
+      this.awayTeam = this.predictionsById[0].teams.away.name;
+      console.log('Predictions: ', this.predictionsById);
+
       this.srv.getStandingsByLeagueId().subscribe((resStandings) => {
         this.standings = resStandings.response;
-        console.log(this.standings);
+        console.log('Standings: ', this.standings);
       });
     });
   }

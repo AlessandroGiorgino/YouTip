@@ -44,37 +44,153 @@
   <h2>{{ (predictionsById[0]?.predictions)!.advice }}</h2>
 </section>
 <section id="standings">
-  <div
-    class="main-container"
-    *ngFor="let standing of standings[0].league.standings[0]; let i = index"
+  <p-panel
+    header="{{ predictionsById[0].league.name }} {{
+      predictionsById[0].league.season
+    }} Standings"
+    [toggleable]="true"
   >
-    <div class="table-container">
-      <div class="table-row heading">
-        <div class="row-item">Team</div>
-        <div class="row-item">W</div>
-        <div class="row-item">D</div>
-        <div class="row-item">L</div>
-        <div class="row-item">Scored</div>
-        <div class="row-item">Conceded</div>
-        <div class="row-item">Pt</div>
-      </div>
-      <div class="table-row">
-        <div class="row-item">
-          <img
-            width="30"
-            height="30"
-            src="{{ standing.team.logo }}"
-            alt="team"
-            class="me-1"
-          />
+    <div class="main-container">
+      <div class="table-container">
+        <div class="table-row heading">
+          <div class="row-item">Team</div>
+          <div class="row-item">Pt</div>
+          <div class="row-item">Gs</div>
+          <div class="row-item">Gc</div>
+          <div class="row-item">W</div>
+          <div class="row-item">D</div>
+          <div class="row-item">L</div>
         </div>
-        <div class="row-item">{{ standing.all.win }}</div>
-        <div class="row-item">{{ standing.all.draw }}</div>
-        <div class="row-item">{{ standing.all.lose }}</div>
-        <div class="row-item">{{ standing.all.goals.for }}</div>
-        <div class="row-item">{{ standing.all.goals.against }}</div>
-        <div class="row-item">{{ standing.points }}</div>
+        <div
+          class="table-row"
+          *ngFor="
+            let standing of standings[0].league.standings[0];
+            let i = index
+          "
+        >
+          <div
+            class="row-item"
+            [ngStyle]="{
+              'background-color':
+                homeTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : '' || awayTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : ''
+            }"
+          >
+            <img
+              width="30"
+              height="30"
+              src="{{ standing.team.logo }}"
+              alt="team"
+              class="me-1"
+            />
+          </div>
+          <div
+            class="row-item"
+            [ngStyle]="{
+              'background-color':
+                homeTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : '' || awayTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : ''
+            }"
+          >
+            {{ standing.points }}
+          </div>
+          <div
+            class="row-item"
+            [ngStyle]="{
+              'background-color':
+                homeTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : '' || awayTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : '',
+              'font-size':
+                homeTeam === standing.team.name
+                  ? '1.8rem'
+                  : '' || awayTeam === standing.team.name
+                  ? '1.4rem'
+                  : '',
+              color:
+                homeTeam === standing.team.name
+                  ? 'green'
+                  : '' || awayTeam === standing.team.name
+                  ? 'green'
+                  : ''
+            }"
+          >
+            {{ standing.all.goals.for }}
+          </div>
+          <div
+            class="row-item"
+            [ngStyle]="{
+              'background-color':
+                homeTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : '' || awayTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : '',
+              'font-size':
+                homeTeam === standing.team.name
+                  ? '1.8rem'
+                  : '' || awayTeam === standing.team.name
+                  ? '1.4rem'
+                  : '',
+              color:
+                homeTeam === standing.team.name
+                  ? 'red'
+                  : '' || awayTeam === standing.team.name
+                  ? 'red'
+                  : ''
+            }"
+          >
+            {{ standing.all.goals.against }}
+          </div>
+          <div
+            class="row-item"
+            [ngStyle]="{
+              'background-color':
+                homeTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : '' || awayTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : ''
+            }"
+          >
+            {{ standing.all.win }}
+          </div>
+          <div
+            class="row-item"
+            [ngStyle]="{
+              'background-color':
+                homeTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : '' || awayTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : ''
+            }"
+          >
+            {{ standing.all.draw }}
+          </div>
+          <div
+            class="row-item"
+            [ngStyle]="{
+              'background-color':
+                homeTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : '' || awayTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : ''
+            }"
+          >
+            {{ standing.all.lose }}
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </p-panel>
 </section>

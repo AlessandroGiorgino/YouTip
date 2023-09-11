@@ -45,6 +45,7 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 import { LoginPageComponent } from './home/login-page/login-page.component';
 import { collection, getDocs } from 'firebase/firestore/lite';
 import { InputTextModule } from 'primeng/inputtext';
+import { PanelModule } from 'primeng/panel';
 firebase.initializeApp(environmentD.firebase);
 @NgModule({
   declarations: [
@@ -69,7 +70,7 @@ firebase.initializeApp(environmentD.firebase);
     CarouselModule,
     InputTextModule,
     FormsModule,
-
+    PanelModule,
     provideFirebaseApp(() => initializeApp(environmentD.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
