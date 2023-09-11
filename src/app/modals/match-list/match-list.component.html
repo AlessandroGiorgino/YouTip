@@ -1,4 +1,4 @@
-<header class="grid mb-2">
+<header class="grid mb-2" *ngIf="predictionsById">
   <h3 class="col-12 text-center mb-0">
     {{ predictionsById[0].teams.home.name }} -
     {{ predictionsById[0].teams.away.name }}
@@ -9,7 +9,7 @@
     {{ predictionsById[0].league.season }}
   </h4>
 </header>
-<section class="grid">
+<section class="grid" *ngIf="predictionsById">
   <div class="campo">
     <div class="corner">
       <div class="corner1"></div>
@@ -23,7 +23,7 @@
         <img
           height="80"
           width="90"
-          src="{{ predictionsById[0].teams.home.logo }}"
+          src="{{ (predictionsById[0]?.teams)!.home.logo }}"
           alt="homeTeam"
         />
       </div>
@@ -31,7 +31,7 @@
         <img
           height="80"
           width="90"
-          src="{{ predictionsById[0].teams.away.logo }}"
+          src="{{ (predictionsById[0]?.teams)!.away.logo }}"
           alt=""
         />
       </div>
@@ -39,16 +39,18 @@
     <div class="penalty"></div>
   </div>
 </section>
-<section id="suggests">
+<section id="suggests" *ngIf="predictionsById">
   <h1>The algorithm suggests</h1>
   <h2>{{ (predictionsById[0]?.predictions)!.advice }}</h2>
 </section>
-<section id="standings">
+<!-- standings -->
+<section id="standings" *ngIf="predictionsById && standings">
   <p-panel
     header="{{ predictionsById[0].league.name }} {{
       predictionsById[0].league.season
     }} Standings"
     [toggleable]="true"
+    [collapsed]="true"
   >
     <div class="main-container">
       <div class="table-container">
@@ -60,21 +62,19 @@
           <div class="row-item">W</div>
           <div class="row-item">D</div>
           <div class="row-item">L</div>
+          <div class="row-item hidden md:flex">GD</div>
         </div>
         <div
           class="table-row"
-          *ngFor="
-            let standing of standings[0].league.standings[0];
-            let i = index
-          "
+          *ngFor="let standing of standings[0].league.standings[0]"
         >
           <div
             class="row-item"
             [ngStyle]="{
               'background-color':
-                homeTeam === standing.team.name
+                homeTeam === (standing?.team)!.name
                   ? 'rgba(60, 60, 60, 0.1)'
-                  : '' || awayTeam === standing.team.name
+                  : '' || awayTeam === (standing?.team)!.name
                   ? 'rgba(60, 60, 60, 0.1)'
                   : ''
             }"
@@ -82,7 +82,7 @@
             <img
               width="30"
               height="30"
-              src="{{ standing.team.logo }}"
+              src="{{ (standing?.team)!.logo }}"
               alt="team"
               class="me-1"
             />
@@ -91,64 +91,64 @@
             class="row-item"
             [ngStyle]="{
               'background-color':
-                homeTeam === standing.team.name
+                homeTeam === (standing?.team)!.name
                   ? 'rgba(60, 60, 60, 0.1)'
-                  : '' || awayTeam === standing.team.name
+                  : '' || awayTeam === (standing?.team)!.name
                   ? 'rgba(60, 60, 60, 0.1)'
                   : ''
             }"
           >
-            {{ standing.points }}
+            {{ standing?.points }}
           </div>
           <div
             class="row-item"
             [ngStyle]="{
               'background-color':
-                homeTeam === standing.team.name
+                homeTeam === (standing?.team)!.name
                   ? 'rgba(60, 60, 60, 0.1)'
-                  : '' || awayTeam === standing.team.name
+                  : '' || awayTeam === (standing?.team)!.name
                   ? 'rgba(60, 60, 60, 0.1)'
                   : '',
               'font-size':
-                homeTeam === standing.team.name
+                homeTeam === (standing?.team)!.name
                   ? '1.8rem'
-                  : '' || awayTeam === standing.team.name
+                  : '' || awayTeam === (standing?.team)!.name
                   ? '1.4rem'
                   : '',
               color:
-                homeTeam === standing.team.name
+                homeTeam === (standing?.team)!.name
                   ? 'green'
-                  : '' || awayTeam === standing.team.name
+                  : '' || awayTeam === (standing?.team)!.name
                   ? 'green'
                   : ''
             }"
           >
-            {{ standing.all.goals.for }}
+            {{ (standing?.all)!.goals.for }}
           </div>
           <div
             class="row-item"
             [ngStyle]="{
               'background-color':
-                homeTeam === standing.team.name
+                homeTeam === (standing?.team)!.name
                   ? 'rgba(60, 60, 60, 0.1)'
-                  : '' || awayTeam === standing.team.name
+                  : '' || awayTeam === (standing?.team)!.name
                   ? 'rgba(60, 60, 60, 0.1)'
                   : '',
               'font-size':
-                homeTeam === standing.team.name
+                homeTeam === (standing?.team)!.name
                   ? '1.8rem'
-                  : '' || awayTeam === standing.team.name
+                  : '' || awayTeam === (standing?.team)!.name
                   ? '1.4rem'
                   : '',
               color:
-                homeTeam === standing.team.name
+                homeTeam === (standing?.team)!.name
                   ? 'red'
-                  : '' || awayTeam === standing.team.name
+                  : '' || awayTeam === (standing?.team)!.name
                   ? 'red'
                   : ''
             }"
           >
-            {{ standing.all.goals.against }}
+            {{ (standing?.all)!.goals.against }}
           </div>
           <div
             class="row-item"
@@ -189,8 +189,42 @@
           >
             {{ standing.all.lose }}
           </div>
+          <div
+            class="row-item hidden md:flex"
+            [ngStyle]="{
+              'background-color':
+                homeTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : '' || awayTeam === standing.team.name
+                  ? 'rgba(60, 60, 60, 0.1)'
+                  : ''
+            }"
+          >
+            {{ standing.goalsDiff }}
+          </div>
         </div>
       </div>
     </div>
   </p-panel>
 </section>
+<section id="stats" class="mt-3">
+  <p-chart type="doughnut" [data]="data" [options]="options"> </p-chart>
+  <p class="mt-5">Head to head matches</p>
+  <div class="grid justify-content-center" *ngIf="predictionsById">
+    <div class="card flex" *ngFor="let match of predictionsById[0].h2h">
+      <!-- <li>{{ match.teams.away.name }} {{ match.score.fulltime.away }}</li>
+    <li>{{ match.teams.home.name }} {{ match.score.fulltime.home }}</li> -->
+      <p-card
+        header="Advanced Card"
+        subheader="Card Subheader"
+        [style]="{ width: '10rem' }"
+        class="col-6"
+      >
+        <li>{{ match.teams.away.name }} {{ match.score.fulltime.away }}</li>
+        <li>{{ match.teams.home.name }} {{ match.score.fulltime.home }}</li>
+      </p-card>
+    </div>
+  </div>
+</section>
+
+<!--  -->

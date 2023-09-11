@@ -24,6 +24,7 @@ import { DialogModule } from 'primeng/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CurrentRoundResponse } from './interfaces/currentRoundResponse';
 import { CarouselModule } from 'primeng/carousel';
+import { ChartModule } from 'primeng/chart';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import {
   provideAnalytics,
@@ -71,6 +72,7 @@ firebase.initializeApp(environmentD.firebase);
     InputTextModule,
     FormsModule,
     PanelModule,
+    ChartModule,
     provideFirebaseApp(() => initializeApp(environmentD.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),

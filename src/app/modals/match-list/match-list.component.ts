@@ -15,13 +15,15 @@ import {
   encapsulation: ViewEncapsulation.None,
 })
 export class MatchListComponent {
-  predictionsById: Response[] = [];
+  predictionsById!: Response[];
   constructor(private route: ActivatedRoute, private srv: FetchesService) {}
   pssApiFootPred = this.srv.pssApiFootPred;
   id!: string | null;
-  standings: ResponseStandings[] = [];
+  standings!: ResponseStandings[];
   homeTeam!: string;
   awayTeam!: string;
+  data: any;
+  options: any;
 
   ngOnInit() {
     //ogni volta carica pagina prende id in alto
@@ -38,12 +40,53 @@ export class MatchListComponent {
       this.homeTeam = this.predictionsById[0].teams.home.name;
       this.awayTeam = this.predictionsById[0].teams.away.name;
       console.log('Predictions: ', this.predictionsById);
+      //qui chart
+      //chart da qui
+      //prima chart
+      const documentStyle = getComputedStyle(document.documentElement);
+      const textColor = documentStyle.getPropertyValue('--text-color');
 
+      this.data = {
+        labels: [
+          this.predictionsById[0].teams.home.name,
+          'Draw',
+          this.predictionsById[0].teams.away.name,
+        ],
+        datasets: [
+          {
+            data: [
+              this.predictionsById[0].predictions.percent.home.slice(0, 2),
+              this.predictionsById[0].predictions.percent.draw.slice(0, 2),
+              this.predictionsById[0].predictions.percent.away.slice(0, 2),
+            ],
+            backgroundColor: [
+              documentStyle.getPropertyValue('--blue-500'),
+              documentStyle.getPropertyValue('--yellow-500'),
+              documentStyle.getPropertyValue('--green-500'),
+            ],
+            hoverBackgroundColor: [
+              documentStyle.getPropertyValue('--blue-400'),
+              documentStyle.getPropertyValue('--yellow-400'),
+              documentStyle.getPropertyValue('--green-400'),
+            ],
+          },
+        ],
+      };
+
+      this.options = {
+        cutout: '60%',
+        plugins: {
+          legend: {
+            labels: {
+              color: textColor,
+            },
+          },
+        },
+      };
       this.srv.getStandingsByLeagueId().subscribe((resStandings) => {
         this.standings = resStandings.response;
         console.log('Standings: ', this.standings);
       });
     });
   }
-  //richiamare service e fare nuova get sull'id
 }

@@ -6,6 +6,13 @@ body {
   min-height: 100%;
 }
 
+header h3,
+header h4 {
+  color: #f1f6f4 !important;
+  text-align: center;
+  font-family: graphik-semiBold;
+}
+
 /* Campo */
 .campo {
   position: relative;
@@ -168,11 +175,11 @@ body {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  left: 12%;
-  top: 4.3rem;
+  left: 14%;
+  top: 3.7rem;
   z-index: 99;
-  width: 100px;
-  height: 120px;
+  width: 80px;
+  height: 100px;
 }
 
 #away {
@@ -181,14 +188,82 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   left: 61%;
-  top: 4.3rem;
+  top: 3.7rem;
   z-index: 99;
-  width: 100px;
-  height: 120px;
+  width: 80px;
+  height: 100px;
 }
 
 #suggests {
   color: #f1f6f4 !important;
   font-family: graphik-semiBold;
   text-align: center;
+}
+
+#standings .ng-tns-c2655002852-0 {
+  background: linear-gradient(to bottom right, #058c42, #023b1c);
+  border: none;
+}
+#standings .ng-tns-c2655002852-0 span {
+  color: #f1f6f4 !important;
+  background: transparent;
+}
+#standings .ng-tns-c2655002852-0 minusicon,
+#standings .ng-tns-c2655002852-0 plusicon {
+  background: transparent;
+}
+#standings .ng-tns-c2655002852-0 .main-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+}
+#standings .ng-tns-c2655002852-0 .table-container {
+  display: flex;
+  flex-flow: column nowrap;
+  background-color: white;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 4px;
+  border: 1px solid #dadada;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.08);
+}
+#standings .ng-tns-c2655002852-0 .table-row {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+  border-bottom: 1px solid #dadada;
+}
+#standings .ng-tns-c2655002852-0 .heading {
+  background-color: #ececec;
+  color: #3e3e3e;
+  font-weight: bold;
+}
+#standings .ng-tns-c2655002852-0 .row-item {
+  display: flex;
+  flex: 1;
+  font-size: 14px;
+  padding: 8px 0;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.15s ease-in-out;
+}
+#standings .ng-tns-c2655002852-0 .row-item:hover {
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+#standings .ng-tns-c2655002852-0 .row-sub-container {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+}
+#standings .ng-tns-c2655002852-0 .row-sub-container .row-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #dadada;
+}
+#standings .ng-tns-c2655002852-0 .table-row:last-child,
+#standings .ng-tns-c2655002852-0 .row-sub-container .row-item:last-child {
+  border-bottom: 0;
 }/*# sourceMappingURL=match-list.component.css.map */
