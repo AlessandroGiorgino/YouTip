@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Storage, StorageReference, getStorage } from '@angular/fire/storage';
+
 @Injectable({
   providedIn: 'root',
 })
-export class DatabaseServiceService {}
+export class DatabaseServiceService {
+  databaseURL: string =
+    'https://console.firebase.google.com/project/youtip-b83d1/database/youtip-b83d1-default-rtdb/data/~2F';
+}

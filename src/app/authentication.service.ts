@@ -20,6 +20,7 @@ export class AuthenticationService {
         alert('hai sbagliato qualcosa');
       });
   }
+
   //sign up
   async signUp(email: string, password: string) {
     await this.firebaseAuth

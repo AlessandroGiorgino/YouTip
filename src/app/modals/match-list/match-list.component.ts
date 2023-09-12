@@ -8,7 +8,10 @@ import {
   Standing,
   Standings,
 } from 'src/app/interfaces/standings';
-import { AverageColorService } from 'src/app/average-color.service';
+import { Database, set, ref, update } from '@angular/fire/database';
+import * as firebase from 'firebase/compat';
+import { toArray } from 'rxjs';
+
 @Component({
   selector: 'app-match-list',
   templateUrl: './match-list.component.html',
@@ -20,8 +23,9 @@ export class MatchListComponent {
   constructor(
     private route: ActivatedRoute,
     private srv: FetchesService,
-    private avg: AverageColorService
+    public db: Database
   ) {}
+  uidLocalStorage: [] = [];
   pssApiFootPred = this.srv.pssApiFootPred;
   id!: string | null;
   standings!: ResponseStandings[];
@@ -49,7 +53,7 @@ export class MatchListComponent {
       //chart da qui
       //prima chart
       //richiamo il service average color per prendere i colori
-      this.avg.onLoad();
+
       const documentStyle = getComputedStyle(document.documentElement);
 
       this.data = {
@@ -65,11 +69,7 @@ export class MatchListComponent {
               this.predictionsById[0].predictions.percent.draw.slice(0, 2),
               this.predictionsById[0].predictions.percent.away.slice(0, 2),
             ],
-            backgroundColor: [
-              this.avg.colorHomeTeam,
-              '#9E9E9E',
-              this.avg.colorAwayTeam,
-            ],
+            backgroundColor: ['green', '#9E9E9E', 'red'],
             borderColor: ['transparent'],
           },
         ],
@@ -90,5 +90,17 @@ export class MatchListComponent {
         console.log('Standings: ', this.standings);
       });
     });
+  }
+
+  addTip() {
+    let storedValue = JSON.parse(localStorage['user']);
+    console.log(storedValue);
+    //now i retrieve the uid for the post for the database
+
+    set(ref(this.db, '/user ' + storedValue[Object.keys(storedValue)[0]]), {
+      match: this.predictionsById[0].teams.home.name,
+      bet: this.predictionsById[0].predictions.advice,
+    });
+    alert('bet added');
   }
 }

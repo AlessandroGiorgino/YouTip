@@ -33,6 +33,7 @@ import {
   UserTrackingService,
 } from '@angular/fire/analytics';
 import { provideAuth, getAuth } from '@angular/fire/auth';
+
 import { provideDatabase, getDatabase } from '@angular/fire/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideFunctions, getFunctions } from '@angular/fire/functions';
