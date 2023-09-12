@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FetchesService } from './fetches.service';
+import { AverageColorService } from './average-color.service';
 
-describe('FetchesService', () => {
-  let service: FetchesService;
+describe('AverageColorService', () => {
+  let service: AverageColorService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(FetchesService);
+    service = TestBed.inject(AverageColorService);
   });
 
   it('should be created', () => {

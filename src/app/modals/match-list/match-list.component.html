@@ -208,7 +208,15 @@
   </p-panel>
 </section>
 <section id="stats" class="mt-3">
-  <p-chart type="doughnut" [data]="data" [options]="options"> </p-chart>
+  <div id="avgColor"></div>
+  <p-chart
+    type="doughnut"
+    [data]="data"
+    [options]="options"
+    height="30vh"
+    width="100vw"
+  >
+  </p-chart>
   <p class="mt-5">Head to head matches</p>
   <div class="grid justify-content-center" *ngIf="predictionsById">
     <div class="card flex" *ngFor="let match of predictionsById[0].h2h">

@@ -47,6 +47,7 @@ import { LoginPageComponent } from './home/login-page/login-page.component';
 import { collection, getDocs } from 'firebase/firestore/lite';
 import { InputTextModule } from 'primeng/inputtext';
 import { PanelModule } from 'primeng/panel';
+import { FastAverageColor } from 'fast-average-color';
 firebase.initializeApp(environmentD.firebase);
 @NgModule({
   declarations: [

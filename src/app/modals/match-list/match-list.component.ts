@@ -8,6 +8,7 @@ import {
   Standing,
   Standings,
 } from 'src/app/interfaces/standings';
+import { AverageColorService } from 'src/app/average-color.service';
 @Component({
   selector: 'app-match-list',
   templateUrl: './match-list.component.html',
@@ -16,7 +17,11 @@ import {
 })
 export class MatchListComponent {
   predictionsById!: Response[];
-  constructor(private route: ActivatedRoute, private srv: FetchesService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private srv: FetchesService,
+    private avg: AverageColorService
+  ) {}
   pssApiFootPred = this.srv.pssApiFootPred;
   id!: string | null;
   standings!: ResponseStandings[];
@@ -43,8 +48,9 @@ export class MatchListComponent {
       //qui chart
       //chart da qui
       //prima chart
+      //richiamo il service average color per prendere i colori
+      this.avg.onLoad();
       const documentStyle = getComputedStyle(document.documentElement);
-      const textColor = documentStyle.getPropertyValue('--text-color');
 
       this.data = {
         labels: [
@@ -60,15 +66,11 @@ export class MatchListComponent {
               this.predictionsById[0].predictions.percent.away.slice(0, 2),
             ],
             backgroundColor: [
-              documentStyle.getPropertyValue('--blue-500'),
-              documentStyle.getPropertyValue('--yellow-500'),
-              documentStyle.getPropertyValue('--green-500'),
+              this.avg.colorHomeTeam,
+              '#9E9E9E',
+              this.avg.colorAwayTeam,
             ],
-            hoverBackgroundColor: [
-              documentStyle.getPropertyValue('--blue-400'),
-              documentStyle.getPropertyValue('--yellow-400'),
-              documentStyle.getPropertyValue('--green-400'),
-            ],
+            borderColor: ['transparent'],
           },
         ],
       };
@@ -78,7 +80,7 @@ export class MatchListComponent {
         plugins: {
           legend: {
             labels: {
-              color: textColor,
+              color: 'white',
             },
           },
         },
