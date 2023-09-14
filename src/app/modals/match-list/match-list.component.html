@@ -207,33 +207,71 @@
     </div>
   </p-panel>
 </section>
-<section id="stats" class="mt-3">
-  <div id="avgColor"></div>
-  <p-chart
-    type="doughnut"
-    [data]="data"
-    [options]="options"
-    height="30vh"
-    width="100vw"
-  >
-  </p-chart>
-  <p class="mt-5">Head to head matches</p>
+<section id="stats" class="mt-3 grid">
+  <div class="col-12 sm:col-4">
+    <h4 class="mt-1">Possiblity of winning - losing - drawing (%)</h4>
+    <p-chart
+      type="doughnut"
+      [data]="dataWinLoseDraw"
+      [options]="optionsWinLoseDraw"
+      height="30vh"
+    >
+    </p-chart>
+  </div>
+  <div class="col-12 sm:col-4">
+    <h4 class="mt-1">Possiblity of scoring at least one goal (%)</h4>
+
+    <p-chart
+      type="doughnut"
+      [data]="dataPercentageGoal"
+      [options]="optionsPercentageGoal"
+      height="30vh"
+    >
+    </p-chart>
+  </div>
+  <div class="col-12 sm:col-4">
+    <h4 class="mt-1">Potential ball possession (%)</h4>
+
+    <p-chart
+      type="doughnut"
+      [data]="dataPercentageBallPossession"
+      [options]="optionsPercentageBallPossession"
+      height="30vh"
+    >
+    </p-chart>
+  </div>
+</section>
+<section id="lastMatches">
+  <p class="mt-5">Last three head to head matches</p>
   <div class="grid justify-content-center" *ngIf="predictionsById">
-    <div class="card flex" *ngFor="let match of predictionsById[0].h2h">
+    <div
+      class="card flex col-12 justify-content-center"
+      *ngFor="let match of predictionsById[0].h2h.slice(0, 3)"
+    >
       <!-- <li>{{ match.teams.away.name }} {{ match.score.fulltime.away }}</li>
     <li>{{ match.teams.home.name }} {{ match.score.fulltime.home }}</li> -->
-      <p-card
-        header="Advanced Card"
-        subheader="Card Subheader"
-        [style]="{ width: '10rem' }"
-        class="col-6"
-      >
+      <p-card [style]="{ width: '10rem' }">
+        <p>{{ match.fixture.venue.city }},{{ match.fixture.venue.name }}</p>
+        <p class="mt-1">{{ match.fixture.date.slice(0, 10) }}</p>
         <li>{{ match.teams.away.name }} {{ match.score.fulltime.away }}</li>
         <li>{{ match.teams.home.name }} {{ match.score.fulltime.home }}</li>
+        <p
+          *ngIf="
+            (match.score.penalty.home + match.score.penalty.away <= 4 &&
+              match.score.penalty.home != null) ||
+            (match.score.penalty.home + match.score.penalty.away <= 4 &&
+              match.score.penalty.away != null)
+          "
+        >
+          Penalties in the game:{{
+            match.score.penalty.home + match.score.penalty.away
+          }}
+        </p>
       </p-card>
     </div>
   </div>
 </section>
+
 <button (click)="addTip()">aggiungingiocata</button>
 
 <!--  -->

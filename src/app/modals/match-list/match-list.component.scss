@@ -273,8 +273,14 @@ header {
   }
 }
 
+canvas {
+  margin: 0;
+  padding: 0;
+}
+
 // qui stats
-#stats {
+#stats,
+#lastMatches {
   color: $whiteForText;
   font-family: graphik-semiBold;
   text-align: center;

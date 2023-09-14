@@ -9,8 +9,6 @@ import {
   Standings,
 } from 'src/app/interfaces/standings';
 import { Database, set, ref, update } from '@angular/fire/database';
-import * as firebase from 'firebase/compat';
-import { toArray } from 'rxjs';
 
 @Component({
   selector: 'app-match-list',
@@ -31,8 +29,13 @@ export class MatchListComponent {
   standings!: ResponseStandings[];
   homeTeam!: string;
   awayTeam!: string;
-  data: any;
-  options: any;
+  //charts
+  dataWinLoseDraw: any;
+  optionsWinLoseDraw: any;
+  dataPercentageGoal: any;
+  optionsPercentageGoal: any;
+  dataPercentageBallPossession: any;
+  optionsPercentageBallPossession: any;
 
   ngOnInit() {
     //ogni volta carica pagina prende id in alto
@@ -49,6 +52,8 @@ export class MatchListComponent {
       this.homeTeam = this.predictionsById[0].teams.home.name;
       this.awayTeam = this.predictionsById[0].teams.away.name;
       console.log('Predictions: ', this.predictionsById);
+      console.log(this.predictionsById[0].h2h.slice(0, 3));
+
       //qui chart
       //chart da qui
       //prima chart
@@ -56,7 +61,7 @@ export class MatchListComponent {
 
       const documentStyle = getComputedStyle(document.documentElement);
 
-      this.data = {
+      this.dataWinLoseDraw = {
         labels: [
           this.predictionsById[0].teams.home.name,
           'Draw',
@@ -75,7 +80,7 @@ export class MatchListComponent {
         ],
       };
 
-      this.options = {
+      this.optionsWinLoseDraw = {
         cutout: '60%',
         plugins: {
           legend: {
@@ -85,6 +90,71 @@ export class MatchListComponent {
           },
         },
       };
+      this.dataPercentageGoal = {
+        labels: [
+          this.predictionsById[0].teams.home.name,
+
+          this.predictionsById[0].teams.away.name,
+        ],
+        datasets: [
+          {
+            data: [
+              this.predictionsById[0].comparison.goals.home?.slice(0, 2),
+
+              this.predictionsById[0].comparison.goals.away?.slice(0, 2),
+            ],
+            backgroundColor: ['green', 'red'],
+            borderColor: ['transparent'],
+          },
+        ],
+      };
+
+      this.optionsPercentageGoal = {
+        cutout: '30%',
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white',
+            },
+          },
+        },
+      };
+      this.dataPercentageBallPossession = {
+        labels: [
+          this.predictionsById[0].teams.home.name,
+
+          this.predictionsById[0].teams.away.name,
+        ],
+        datasets: [
+          {
+            data: [
+              this.predictionsById[0].comparison.poisson_distribution.home?.slice(
+                0,
+                2
+              ),
+
+              this.predictionsById[0].comparison.poisson_distribution.away?.slice(
+                0,
+                2
+              ),
+            ],
+            backgroundColor: ['green', 'red'],
+            borderColor: ['transparent'],
+          },
+        ],
+      };
+
+      this.optionsPercentageBallPossession = {
+        cutout: '0%',
+        plugins: {
+          legend: {
+            labels: {
+              color: 'white',
+            },
+          },
+        },
+      };
+
       this.srv.getStandingsByLeagueId().subscribe((resStandings) => {
         this.standings = resStandings.response;
         console.log('Standings: ', this.standings);
@@ -94,11 +164,16 @@ export class MatchListComponent {
 
   addTip() {
     let storedValue = JSON.parse(localStorage['user']);
+    storedValue = storedValue[Object.keys(storedValue)[0]];
     console.log(storedValue);
+
     //now i retrieve the uid for the post for the database
 
-    set(ref(this.db, '/user ' + storedValue[Object.keys(storedValue)[0]]), {
-      match: this.predictionsById[0].teams.home.name,
+    set(ref(this.db, `user/${storedValue}/` + this.id), {
+      match:
+        this.predictionsById[0].teams.home.name +
+        ' vs ' +
+        this.predictionsById[0].teams.away.name,
       bet: this.predictionsById[0].predictions.advice,
     });
     alert('bet added');
