@@ -12,51 +12,113 @@
     <div id="hoeDoesItWork" class="card flex justify-content-center mt-3">
       <p-button label="How does it work"></p-button>
     </div>
-    <!-- Carousel -->
-
-    <p-carousel
-      [numVisible]="3"
-      [numScroll]="3"
-      [circular]="false"
-      [autoplayInterval]="3000"
-      [responsiveOptions]="responsiveOptions"
-    >
-      <ng-template pTemplate="header"> </ng-template>
-      <ng-template let-product pTemplate="item">
-        <div class="product-item">
-          <div class="product-item-content">
-            <div class="p-mb-3">
-              <img
-                class="product-image"
-                src="../../../assets/Serie_A.png"
-                alt=""
-              />
-            </div>
-            <div>
-              <h4 class="p-mb-1">gatto</h4>
-              <h6 class="p-mt-0 p-mb-3">gatto</h6>
-              <div class="car-buttons p-mt-5">
-                <p-button
-                  type="button"
-                  styleClass="p-button p-button-rounded p-mr-2"
-                  icon="pi pi-search"
-                ></p-button>
-                <p-button
-                  type="button"
-                  styleClass="p-button-success p-button-rounded p-mr-2"
-                  icon="pi pi-star"
-                ></p-button>
-                <p-button
-                  type="button"
-                  styleClass="p-button-help p-button-rounded"
-                  icon="pi pi-cog"
-                ></p-button>
-              </div>
-            </div>
+    <!-- carosello -->
+    <!-- <section>
+      <div class="outer-wrapper">
+        <h1>Demo 1</h1>
+        <div class="s-wrap s-type-1" role="slider">
+          <input
+            type="radio"
+            id="s-1"
+            name="slider-control"
+            checked="checked"
+          />
+          <input type="radio" id="s-2" name="slider-control" />
+          <input type="radio" id="s-3" name="slider-control" />
+          <input type="radio" id="s-4" name="slider-control" />
+          <input type="radio" id="s-5" name="slider-control" />
+          <ul class="s-content">
+            <li class="s-item s-item-1"></li>
+            <li class="s-item s-item-2"></li>
+            <li class="s-item s-item-3"></li>
+            <li class="s-item s-item-4"></li>
+            <li class="s-item s-item-5"></li>
+          </ul>
+          <div class="s-control">
+            <label class="s-c-1" for="s-1"></label>
+            <label class="s-c-2" for="s-2"></label>
+            <label class="s-c-3" for="s-3"></label>
+            <label class="s-c-4" for="s-4"></label>
+            <label class="s-c-5" for="s-5"></label>
+          </div>
+          <div class="s-nav">
+            <label class="s-nav-1 right" for="s-2"></label>
+            <label class="s-nav-2 left" for="s-1"></label>
+            <label class="s-nav-2 right" for="s-3"></label>
+            <label class="s-nav-3 left" for="s-2"></label>
+            <label class="s-nav-3 right" for="s-4"></label>
+            <label class="s-nav-4 left" for="s-3"></label>
+            <label class="s-nav-4 right" for="s-5"></label>
+            <label class="s-nav-5 left" for="s-4"></label>
           </div>
         </div>
-      </ng-template>
-    </p-carousel>
+      </div>
+    </section> -->
+    <!-- fine carosello -->
+    <article id="instructions" class="grid">
+      <div class="col-12 mt-5 grid align-items-center">
+        <h4 class="col-6">
+          The trip to your bets begin with something that you already have...
+          Passion for football
+        </h4>
+        <img
+          src="../../../assets/kidPlaying.svg"
+          alt="kidPlayingFooball"
+          id="kidPlayingFooball"
+          class="col-6"
+        />
+      </div>
+      <div class="col-12 mt-5 grid align-items-center">
+        <h4 class="col-6">
+          You like to take advantage of your knowledge of footbal, but lately
+          you fell into the trap of Instagram and TikTok tipsters..
+        </h4>
+        <img
+          src="../../../assets/influencer.svg"
+          alt="kidPlayingFooball"
+          id="kidPlayingFooball"
+          class="col-6"
+        />
+      </div>
+      <div class="col-12 mt-5 grid align-items-center">
+        <h4 class="col-6">
+          It is time for you to re-think again. In the start section you'll find
+          the popolar tournaments. Select one and youll'find all matches for the
+          next round. Navigate to one match to find all the information and our
+          algorithm suggestion. There'll you have all data you'll need to
+          evaluate our algorithm suggestion, to finally decide if taking or
+          modifying our suggestion.
+        </h4>
+        <img
+          src="../../../assets/chart.svg"
+          alt="kidPlayingFooball"
+          id="kidPlayingFooball"
+          class="col-6"
+        />
+      </div>
+      <div class="col-12 mt-5 grid align-items-center">
+        <h4 class="col-6">
+          Congratulations! You stand out from the corwd and you have your bets.
+          now you can: send it to you vua email, print it or set a reminder with
+          your bets
+        </h4>
+        <img
+          src="../../../assets/standOut.svg"
+          alt="kidPlayingFooball"
+          id="kidPlayingFooball"
+          class="col-6"
+        />
+      </div>
+      <div class="col-12 mt-5 grid align-items-center">
+        <h4 class="col-6">Enjoy the games!</h4>
+        <img
+          src="../../../assets/sofaFootball.svg"
+          alt="kidPlayingFooball"
+          id="kidPlayingFooball"
+          class="col-6"
+        />
+      </div>
+    </article>
     <article class="info">
       <p class="fade">
         Now that you have yout tips it is just a matter of play them! You can
