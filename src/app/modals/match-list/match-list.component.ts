@@ -172,7 +172,7 @@ export class MatchListComponent {
     set(ref(this.db, `user/${storedValue}/` + this.id), {
       match:
         this.predictionsById[0].teams.home.name +
-        ' vs ' +
+        ' - ' +
         this.predictionsById[0].teams.away.name,
       bet: this.predictionsById[0].predictions.advice,
     });

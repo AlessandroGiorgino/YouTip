@@ -1,1 +1,27 @@
 @import "../../scss/partials";
+// body {
+//   height: 100vh;
+// }
+#externalBetContainer {
+  margin: 2rem 0.5rem;
+  background-color: $whiteForText;
+  border-radius: 5px;
+  h4 {
+    font-family: graphik-semiBold;
+    text-transform: uppercase;
+  }
+  p {
+    font-family: graphik-regular;
+  }
+  button {
+    font-family: graphik-regular;
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+
+  #rule {
+    border: none;
+    height: 0.4px;
+    background-color: #3333;
+  }
+}

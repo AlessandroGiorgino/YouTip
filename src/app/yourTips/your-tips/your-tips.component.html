@@ -1,23 +1,20 @@
-<main>
+<main id="externalBetContainer" class="mt-4">
   <section>
-    <div class="grid" *ngFor="let bet of tips">
-      <div class="card flex justify-content-center mb-4 m-auto">
-        <p-card
-          header="Advanced Card"
-          subheader="Card Subheader"
-          [style]="{ width: '360px' }"
-        >
-          <p>{{ bet.match }} : {{ bet.bet }}</p>
-          <ng-template pTemplate="footer">
-            <p-button label="Save" icon="pi pi-check"></p-button>
-            <p-button
-              label="Cancel"
-              icon="pi pi-times"
-              styleClass="p-button-secondary"
-              [style]="{ 'margin-left': '.5em' }"
-            ></p-button>
-          </ng-template>
-        </p-card>
+    <div class="grid card flex justify-content-center p-2 mt-2">
+      <div class="col-12 ml-3" *ngFor="let bet of tips">
+        <h4 class="m-0">{{ bet.match }}</h4>
+        <div class="grid align-items-center">
+          <p class="col-3">Your Tip:</p>
+          <p class="col-6">{{ bet.bet }}</p>
+          <p-button
+            class="col-2 col-offset-1 align-items-end"
+            icon="pi pi-times"
+            styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"
+            >X</p-button
+          >
+          <!-- <input id type="text"> -->
+        </div>
+        <hr id="rule" />
       </div>
     </div>
   </section>

@@ -6,7 +6,9 @@ import {
   update,
   onValue,
   getDatabase,
+  remove,
 } from '@angular/fire/database';
+import { Router } from '@angular/router';
 import { AllUserBets, UserBets } from 'src/app/interfaces/userBets';
 
 @Component({
@@ -18,18 +20,44 @@ import { AllUserBets, UserBets } from 'src/app/interfaces/userBets';
 export class YourTipsComponent {
   //array di tutte le scommesse
   tips: AllUserBets[] = [];
-  constructor(private db: Database) {}
+  tipsId: any = [];
+  storedValue = JSON.parse(localStorage['user']);
+  storedValueId = this.storedValue[Object.keys(this.storedValue)[0]];
+  tipsInDb = ref(this.db, `user/${this.storedValueId}/`);
+
+  constructor(private db: Database, private route: Router) {}
   // richiamo all'id in localstorage
-  ngOnInit() {
-    let storedValue = JSON.parse(localStorage['user']);
-    storedValue = storedValue[Object.keys(storedValue)[0]];
-    //richiamo al db
-    const tipsInDb = ref(this.db, `user/${storedValue}/`);
-    onValue(tipsInDb, (snapshot) => {
+  getData() {
+    onValue(this.tipsInDb, (snapshot) => {
       const data = snapshot.val();
       console.log(data);
+      this.tipsId.push(data);
+      console.log(this.tipsId);
+
       this.tips = Object.values(data);
       console.log(this.tips);
     });
   }
+  ngOnInit() {
+    if (localStorage.getItem('user') === null) {
+      this.route.navigate(['login']);
+    } else {
+      this.getData();
+    }
+  }
+  //update data
+  // updatData(){
+  // update(ref(this.db, `user/${this.storedValue}/` + this.tips), {
+  //   match:
+  //     this.tips +
+  //     ' - ' +
+  //     this.predictionsById[0].teams.away.name,
+  //   bet: this.predictionsById[0].predictions.advice,
+  // });
+  // alert('bet updated');
+  // }
+
+  // deleteData() {
+  //   remove(ref(this.db, `user/${this.storedValueId}/` + this.tipsId[0]));
+  // }
 }
