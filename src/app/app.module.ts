@@ -49,6 +49,7 @@ import { collection, getDocs } from 'firebase/firestore/lite';
 import { InputTextModule } from 'primeng/inputtext';
 import { PanelModule } from 'primeng/panel';
 import { FastAverageColor } from 'fast-average-color';
+import { YourTipsComponent } from './yourTips/your-tips/your-tips.component';
 firebase.initializeApp(environmentD.firebase);
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ firebase.initializeApp(environmentD.firebase);
     StartComponent,
     MatchListComponent,
     LoginPageComponent,
+    YourTipsComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environmentD.firebase),

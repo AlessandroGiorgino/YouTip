@@ -39,7 +39,7 @@ export class NavbarComponent implements OnInit {
       {
         label: 'YouR Tips',
         icon: 'pi pi-fw pi-calendar',
-        routerLink: ['start'],
+        routerLink: ['yourTips'],
       },
       {
         label: 'Log out',
