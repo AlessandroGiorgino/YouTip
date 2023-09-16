@@ -25,6 +25,9 @@ export class YourTipsComponent {
   storedValueId = this.storedValue[Object.keys(this.storedValue)[0]];
   tipsInDb = ref(this.db, `user/${this.storedValueId}/`);
 
+  // value toinput
+  newBet!: string;
+
   constructor(private db: Database, private route: Router) {}
   // richiamo all'id in localstorage
   getData() {
@@ -45,19 +48,16 @@ export class YourTipsComponent {
       this.getData();
     }
   }
-  //update data
-  // updatData(){
-  // update(ref(this.db, `user/${this.storedValue}/` + this.tips), {
-  //   match:
-  //     this.tips +
-  //     ' - ' +
-  //     this.predictionsById[0].teams.away.name,
-  //   bet: this.predictionsById[0].predictions.advice,
-  // });
-  // alert('bet updated');
-  // }
+  // update data
+  updateData(matchId: number, betChosen: string) {
+    this.newBet = betChosen;
+    update(ref(this.db, `user/${this.storedValueId}/` + matchId), {
+      bet: this.newBet,
+    });
+    alert('bet updated');
+  }
 
-  // deleteData() {
-  //   remove(ref(this.db, `user/${this.storedValueId}/` + this.tipsId[0]));
-  // }
+  deleteData(matchId: number) {
+    remove(ref(this.db, `user/${this.storedValueId}/` + matchId));
+  }
 }

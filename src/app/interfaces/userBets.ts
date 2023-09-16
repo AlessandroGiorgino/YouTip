@@ -4,4 +4,5 @@ export interface UserBets {
 export interface AllUserBets {
   bet: string;
   match: string;
+  matchId: number;
 }

@@ -1,12 +1,13 @@
 <main id="externalBetContainer" class="mt-4">
   <section>
     <div class="grid card flex justify-content-center p-2 mt-2">
-      <div class="col-12 ml-3" *ngFor="let bet of tips">
+      <div class="col-12 ml-3" *ngFor="let bet of tips; let i = index">
         <h4 class="m-0">{{ bet.match }}</h4>
         <div class="grid align-items-center">
           <p class="col-3">Your Tip:</p>
           <p class="col-6">{{ bet.bet }}</p>
           <p-button
+            (click)="deleteData(bet.matchId)"
             class="col-2 col-offset-1 align-items-end"
             icon="pi pi-times"
             styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"
@@ -14,6 +15,12 @@
           >
           <!-- <input id type="text"> -->
         </div>
+
+        <form>
+          <label for="{{ bet.matchId }}">Choose your new tip</label>
+          <input name="{{ bet.matchId }}" [(ngModel)]="newBet" type="text" />
+          <button (click)="updateData(bet.matchId, newBet)">Update</button>
+        </form>
         <hr id="rule" />
       </div>
     </div>

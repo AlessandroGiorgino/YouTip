@@ -175,6 +175,7 @@ export class MatchListComponent {
         ' - ' +
         this.predictionsById[0].teams.away.name,
       bet: this.predictionsById[0].predictions.advice,
+      matchId: this.id,
     });
     alert('bet added');
   }
