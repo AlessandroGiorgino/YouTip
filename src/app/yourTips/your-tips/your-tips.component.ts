@@ -26,7 +26,7 @@ export class YourTipsComponent {
   tipsInDb = ref(this.db, `user/${this.storedValueId}/`);
 
   // value toinput
-  newBet!: string;
+  newBet: string[] = [];
 
   constructor(private db: Database, private route: Router) {}
   // richiamo all'id in localstorage
@@ -39,6 +39,9 @@ export class YourTipsComponent {
 
       this.tips = Object.values(data);
       console.log(this.tips);
+      this.tips.forEach((i) => {
+        this.newBet.push('');
+      });
     });
   }
   ngOnInit() {
@@ -49,10 +52,10 @@ export class YourTipsComponent {
     }
   }
   // update data
-  updateData(matchId: number, betChosen: string) {
-    this.newBet = betChosen;
+  updateData(matchId: number, i: number) {
+    const betChosen: string = this.newBet[i];
     update(ref(this.db, `user/${this.storedValueId}/` + matchId), {
-      bet: this.newBet,
+      bet: betChosen,
     });
     alert('bet updated');
   }

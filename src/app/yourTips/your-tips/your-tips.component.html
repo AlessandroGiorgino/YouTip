@@ -18,8 +18,8 @@
 
         <form>
           <label for="{{ bet.matchId }}">Choose your new tip</label>
-          <input name="{{ bet.matchId }}" [(ngModel)]="newBet" type="text" />
-          <button (click)="updateData(bet.matchId, newBet)">Update</button>
+          <input name="{{ bet.matchId }}" [(ngModel)]="newBet[i]" type="text" />
+          <button (click)="updateData(bet.matchId, i)">Update</button>
         </form>
         <hr id="rule" />
       </div>
