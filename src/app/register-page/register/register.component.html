@@ -1,23 +1,34 @@
 <main class="grid justify-content-center">
-  <div
-    id="signUpContainer"
-    *ngIf="!isRegistered"
-    class="card flex flex-column align-items-center gap-3"
-  >
-    <h2>Register</h2>
-    <form>
-      <input pInputText type="text" placeholder="email" #emailSignUp />
-      <input
-        pInputText
-        type="password"
-        placeholder="password"
-        #passwordSignUp
-      />
-      <p-button
-        (click)="onSignUp(emailSignUp.value, passwordSignUp.value)"
-        label="Sign Up"
-        class="mt-3"
-      ></p-button>
-    </form>
-  </div>
+  <section class="grid justify-content-center">
+    <div
+      id="signUpContainer"
+      *ngIf="!isRegistered"
+      class="card flex flex-column align-items-center gap-3 col-12 sm:col-6"
+    >
+      <h2>Register</h2>
+      <form class="grid">
+        <input
+          class="col-12 mt-5"
+          pInputText
+          type="text"
+          placeholder="email"
+          #emailSignUp
+        />
+        <input
+          class="col-12 mt-5 mb-5"
+          pInputText
+          type="password"
+          placeholder="password"
+          #passwordSignUp
+        />
+        <div class="mx-auto">
+          <p-button
+            class="col-12 mx-auto mt-5"
+            (click)="onSignUp(emailSignUp.value, passwordSignUp.value)"
+            label="Sign Up"
+          ></p-button>
+        </div>
+      </form>
+    </div>
+  </section>
 </main>

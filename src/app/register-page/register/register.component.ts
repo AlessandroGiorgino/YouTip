@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication.service';
 
@@ -6,6 +6,7 @@ import { AuthenticationService } from 'src/app/authentication.service';
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class RegisterComponent {
   isRegistered: boolean = false;

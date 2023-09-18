@@ -3,14 +3,16 @@
 * {
   font-family: graphik-semiBold;
 }
-
+main {
+  min-width: 320px;
+}
 @media screen and (min-width: 320px) {
   main {
     margin-top: 1.5rem !important;
     height: 90vh;
     #signUpContainer {
       h2 {
-        color: red;
+        color: #03632f;
       }
       padding: 3rem;
       height: 35rem;
@@ -20,14 +22,24 @@
       box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.15),
         inset 0px 4px 8px rgba(0, 0, 0, 0.15),
         inset 0px 8px 16px rgba(0, 0, 0, 0.15);
-    }
-    button {
-      width: 12.5rem;
-      height: 2.3rem;
+
+      form {
+        input {
+          border-top: none;
+          border-right: none;
+          border-left: none;
+          border-radius: 0;
+        }
+        button {
+          text-align: center;
+          width: 12.5rem;
+          height: 2.3rem;
+        }
+      }
     }
   }
 }
-@media screen and (min-width: 601px) {
+@media screen and (min-width: 576px) {
   main {
     margin-top: 1.5rem !important;
     height: 90vh;
@@ -35,6 +47,7 @@
       h2 {
         color: green;
       }
+      margin-left: 4rem;
       padding: 3rem;
       height: 35rem;
       width: 35rem;
@@ -43,12 +56,19 @@
       box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.15),
         inset 0px 4px 8px rgba(0, 0, 0, 0.15),
         inset 0px 8px 16px rgba(0, 0, 0, 0.15);
-    }
-    form {
-      button {
-        text-align: center;
-        width: 12.5rem;
-        height: 2.3rem;
+
+      form {
+        input {
+          border-top: none;
+          border-right: none;
+          border-left: none;
+          border-radius: 0;
+        }
+        button {
+          text-align: center;
+          width: 12.5rem;
+          height: 2.3rem;
+        }
       }
     }
   }

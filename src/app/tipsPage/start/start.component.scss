@@ -4,6 +4,7 @@ body,
 html {
   background: $greenForBody;
   background-size: cover;
+  height: 105vh;
 }
 #externalContainer {
   padding: 1rem;
@@ -13,6 +14,7 @@ h1,
 h3 {
   color: #f1f6f4 !important;
   font-family: graphik-semiBold;
+  text-align: center;
 }
 
 .p-card.p-component {

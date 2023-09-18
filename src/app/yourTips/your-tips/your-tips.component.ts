@@ -11,7 +11,6 @@ import {
 import { Router } from '@angular/router';
 import { AllUserBets, UserBets } from 'src/app/interfaces/userBets';
 import jsPDF from 'jspdf';
-import * as fileSaver from 'file-saver';
 import * as FileSaver from 'file-saver';
 @Component({
   selector: 'app-your-tips',

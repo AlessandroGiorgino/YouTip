@@ -1,120 +1,116 @@
 <main id="externalContainer">
+  <h1>Your Tip starts here!</h1>
+  <h3>First off, choose a league to see scheduled matches for next tourn</h3>
   <div class="grid text-center">
-    <section class="col">
-      <h1>Your Tip starts here!</h1>
-      <h3>
-        First off, choose a league to see scheduled matches for next tourn
-      </h3>
-
+    <section class="col-12 grid">
       <!-- div con serie a e serie b -->
-      <div class="flex justify-content-center ">
-        <!-- serie a -->
-        <div
-          *ngIf="fixturesSerieA.length > 0"
-          class="card flex justify-content-center cursor-pointer"
-          id="flagCard"
-        >
-          <p-card class="p-card-content">
-            <ng-template pTemplate="content">
-              <img
-                id="flag"
-                (click)="showDialogSerieA()"
-                icon="pi pi-external-link"
-                label="Show"
-                alt="Card"
-                src="https://media.api-sports.io/football/leagues/135.png"
-              />
-            </ng-template>
-          </p-card>
-        </div>
-        <!-- serie b -->
-        <div
-          *ngIf="fixturesSerieB.length > 0"
-          class="card flex justify-content-center cursor-pointer"
-          id="flagCard"
-        >
-          <p-card class="p-card-content">
-            <ng-template pTemplate="content">
-              <img
-                id="flag"
-                alt="Card"
-                src="https://media.api-sports.io/football/leagues/136.png"
-                (click)="showDialogSerieB()"
-              />
-            </ng-template>
-          </p-card>
-        </div>
+
+      <!-- serie a -->
+      <div
+        *ngIf="fixturesSerieA.length > 0"
+        class="card flex justify-content-center cursor-pointer col-6 sm:col-3"
+        id="flagCard"
+      >
+        <p-card class="p-card-content">
+          <ng-template pTemplate="content">
+            <img
+              id="flag"
+              (click)="showDialogSerieA()"
+              icon="pi pi-external-link"
+              label="Show"
+              alt="Card"
+              src="https://media.api-sports.io/football/leagues/135.png"
+            />
+          </ng-template>
+        </p-card>
       </div>
+      <!-- serie b -->
+      <div
+        *ngIf="fixturesSerieB.length > 0"
+        class="card flex justify-content-center cursor-pointer col-6 sm:col-3"
+        id="flagCard"
+      >
+        <p-card class="p-card-content">
+          <ng-template pTemplate="content">
+            <img
+              id="flag"
+              alt="Card"
+              src="https://media.api-sports.io/football/leagues/136.png"
+              (click)="showDialogSerieB()"
+            />
+          </ng-template>
+        </p-card>
+      </div>
+
       <!-- div con premier league e championship  -->
       <!-- premier -->
-      <div class="flex justify-content-center">
-        <div
-          *ngIf="fixturesPremierLeague.length > 0"
-          class="card flex justify-content-center cursor-pointer"
-          id="flagCard"
-        >
-          <p-card class="p-card-content">
-            <ng-template pTemplate="content">
-              <img
-                id="flag"
-                alt="Card"
-                src="https://media.api-sports.io/football/leagues/39.png"
-                (click)="showDialogPremierLeague()"
-              />
-            </ng-template>
-          </p-card>
-        </div>
-        <div
-          *ngIf="fixturesChampionship.length > 0"
-          class="card flex justify-content-center cursor-pointer"
-          id="flagCard"
-        >
-          <p-card class="p-card-content">
-            <ng-template pTemplate="content">
-              <img
-                id="flag"
-                alt="Card"
-                src="https://media.api-sports.io/football/leagues/40.png"
-                (click)="showDialogChampionship()"
-              />
-            </ng-template>
-          </p-card>
-        </div>
+
+      <div
+        *ngIf="fixturesPremierLeague.length > 0"
+        class="card flex justify-content-center cursor-pointer col-6 sm:col-3"
+        id="flagCard"
+      >
+        <p-card class="p-card-content">
+          <ng-template pTemplate="content">
+            <img
+              id="flag"
+              alt="Card"
+              src="https://media.api-sports.io/football/leagues/39.png"
+              (click)="showDialogPremierLeague()"
+            />
+          </ng-template>
+        </p-card>
       </div>
+      <div
+        *ngIf="fixturesChampionship.length > 0"
+        class="card flex justify-content-center cursor-pointer col-6 sm:col-3"
+        id="flagCard"
+      >
+        <p-card class="p-card-content">
+          <ng-template pTemplate="content">
+            <img
+              id="flag"
+              alt="Card"
+              src="https://media.api-sports.io/football/leagues/40.png"
+              (click)="showDialogChampionship()"
+            />
+          </ng-template>
+        </p-card>
+      </div>
+
       <!-- Qui la liga e segunda division -->
-      <div class="flex justify-content-center">
-        <div
-          *ngIf="fixturesLiga.length > 0"
-          class="card flex justify-content-center cursor-pointer"
-          id="flagCard"
-        >
-          <p-card class="p-card-content">
-            <ng-template pTemplate="content">
-              <img
-                id="flag"
-                alt="Card"
-                src="https://media.api-sports.io/football/leagues/140.png"
-                (click)="showDialogLiga()"
-              />
-            </ng-template>
-          </p-card>
-        </div>
-        <div
-          *ngIf="fixturesSegundaDivision.length > 0"
-          class="card flex justify-content-center cursor-pointer"
-          id="flagCard"
-        >
-          <p-card class="p-card-content">
-            <ng-template pTemplate="content">
-              <img
-                id="flag"
-                alt="Card"
-                src="https://media.api-sports.io/football/leagues/141.png"
-                (click)="showDialogSegundaDivision()"
-              />
-            </ng-template>
-          </p-card>
-        </div>
+
+      <div
+        *ngIf="fixturesLiga.length > 0"
+        class="card flex justify-content-center cursor-pointer col-6 sm:col-3"
+        id="flagCard"
+      >
+        <p-card class="p-card-content">
+          <ng-template pTemplate="content">
+            <img
+              id="flag"
+              alt="Card"
+              src="https://media.api-sports.io/football/leagues/140.png"
+              (click)="showDialogLiga()"
+            />
+          </ng-template>
+        </p-card>
+      </div>
+      <div
+        *ngIf="fixturesSegundaDivision.length > 0"
+        class="card flex justify-content-center cursor-pointer col-6 sm:col-3"
+        id="flagCard"
+      >
+        <p-card class="p-card-content">
+          <ng-template pTemplate="content">
+            <img
+              id="flag"
+              alt="Card"
+              src="https://media.api-sports.io/football/leagues/141.png"
+              (click)="showDialogSegundaDivision()"
+            />
+          </ng-template>
+        </p-card>
       </div>
 
       <!-- DA QUI I MODALI CHE SI APRONO -->
@@ -429,8 +425,5 @@
         </p-dialog>
       </div>
     </section>
-
-    <!-- Mi tengo questa col sotto tante volte volessi inserire una colonna per le ads -->
-    <!-- <div class="col">2</div> -->
   </div>
 </main>
