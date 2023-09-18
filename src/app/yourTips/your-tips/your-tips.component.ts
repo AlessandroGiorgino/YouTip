@@ -67,7 +67,7 @@ export class YourTipsComponent {
   }
   //generate opdf
   generatePDF() {
-    const doc = new jsPDF();
+    const doc = new jsPDF('p', 'mm', [297, 210]);
     //   const content = this.tips.forEach((tip, i) => {
     //     `
     // <p>${tip.match}</p>
@@ -75,9 +75,12 @@ export class YourTipsComponent {
     // <p>${tip.bet}</p>`;
     //   });
     let list: [] | any = [];
-    let allTips = this.tips.forEach((tip, i) => {
-      list.push(`${tip.match} - ${tip.bet}`);
+    this.tips.forEach((tip, i) => {
+      list.push(` ${tip.match} --------------- ${tip.bet}
+      `);
     });
+    //fare html
+    // doc.html()
     doc.text(list, 10, 10);
     const pdf = doc.output('blob');
     FileSaver.saveAs(pdf, 'Your Tips');

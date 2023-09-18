@@ -7,6 +7,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class AuthenticationService {
   isLoggedIn: boolean = false;
+  emailConfirmed: boolean = false;
   constructor(private firebaseAuth: AngularFireAuth) {}
   //sign in
   async signIn(email: string, password: string) {
@@ -15,6 +16,9 @@ export class AuthenticationService {
       .then((res) => {
         this.isLoggedIn = true;
         localStorage.setItem('user', JSON.stringify(res.user));
+        if (res.user?.emailVerified === true) {
+          this.emailConfirmed = true;
+        }
       })
       .catch((err) => {
         alert('hai sbagliato qualcosa');
@@ -26,6 +30,7 @@ export class AuthenticationService {
     await this.firebaseAuth
       .createUserWithEmailAndPassword(email, password)
       .then((res) => {
+        res.user?.sendEmailVerification();
         this.isLoggedIn = true;
         localStorage.setItem('user', JSON.stringify(res.user));
       });

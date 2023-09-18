@@ -1,31 +1,45 @@
 <main class="grid justify-content-center">
   <!-- sign up form -->
-  <!-- <div
+  <div
     *ngIf="!isRegistered"
     class="card flex flex-column align-items-center gap-3"
   >
     <h2>Sign Up</h2>
-    <input pInputText type="text" placeholder="email" #emailSignUp />
-    <input pInputText type="password" placeholder="password" #passwordSignUp />
-    <p-button
-      (click)="onSignUp(emailSignUp.value, passwordSignUp.value)"
-      label="Sign Up"
-    ></p-button>
+    <form>
+      <input pInputText type="text" placeholder="email" #emailSignUp />
+      <input
+        pInputText
+        type="password"
+        placeholder="password"
+        #passwordSignUp
+      />
+      <p-button
+        (click)="onSignUp(emailSignUp.value, passwordSignUp.value)"
+        label="Sign Up"
+      ></p-button>
+    </form>
   </div>
-  <hr /> -->
+  <hr />
   <div
     id="signInContainer"
-    *ngIf="!isSignedIn"
+    *ngIf="(!isSignedIn && isRegistered) || !isSignedIn"
     class="card flex flex-column align-items-center gap-3"
   >
     <h2>Login</h2>
-    <input pInputText type="text" placeholder="email" #emailSignIn />
-    <input pInputText type="password" placeholder="password" #passwordSignIn />
-    <p-button
-      (click)="onSignIn(emailSignIn.value, passwordSignIn.value)"
-      label="Log in"
-      class="mt-3"
-    ></p-button>
+    <form>
+      <input pInputText type="text" placeholder="email" #emailSignIn />
+      <input
+        pInputText
+        type="password"
+        placeholder="password"
+        #passwordSignIn
+      />
+      <p-button
+        (click)="onSignIn(emailSignIn.value, passwordSignIn.value)"
+        label="Log in"
+        class="mt-3"
+      ></p-button>
+    </form>
   </div>
   <div *ngIf="isSignedIn" class="alreadyLogged">
     <p>You are already logged in.</p>

@@ -6,6 +6,7 @@ import { MatchListComponent } from 'src/app/modals/match-list/match-list.compone
 import { CurrentRoundResponse } from 'src/app/interfaces/currentRoundResponse';
 import { LoginPageComponent } from 'src/app/home/login-page/login-page.component';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/authentication.service';
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
@@ -24,18 +25,17 @@ export class StartComponent {
 
   constructor(
     private srv: FetchesService,
-    private route: Router
+    private route: Router,
+    private auth: AuthenticationService
   ) {}
   //check se è loggato e autologut
 
   getCurrentRoundSerieA(): void {
-
     this.srv.getCurrentRoundSerieA().subscribe((res) => {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
       //qui la get serieA
       this.srv.getFixturesSerieA().subscribe((res) => {
-
         this.fixturesSerieA = res.response;
       });
     });
@@ -52,7 +52,6 @@ export class StartComponent {
     });
   }
   getCurrentRoundPremierLeague(): void {
-
     this.srv.getCurrentRoundPremierLeague().subscribe((res) => {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
@@ -62,12 +61,11 @@ export class StartComponent {
     });
   }
   getCurrentRoundChampionship(): void {
-
     this.srv.getCurrentRoundChampionship().subscribe((res) => {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
       this.srv.getFixturesChampionship().subscribe((res) => {
-      this.fixturesChampionship = res.response;
+        this.fixturesChampionship = res.response;
       });
     });
   }
@@ -77,7 +75,7 @@ export class StartComponent {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
       this.srv.getFixturesLiga().subscribe((res) => {
-      this.fixturesLiga = res.response;
+        this.fixturesLiga = res.response;
       });
     });
   }
@@ -87,15 +85,16 @@ export class StartComponent {
       this.currentRound = res.response[0];
       this.srv.currentRoundRes = this.currentRound;
       this.srv.getFixturesSegundaDivision().subscribe((res) => {
-
         this.fixturesSegundaDivision = res.response;
       });
     });
   }
 
   ngOnInit() {
-
-    if (localStorage.getItem('user') === null) {
+    if (
+      localStorage.getItem('user') === null &&
+      this.auth.emailConfirmed === false
+    ) {
       this.route.navigate(['login']);
     } else {
       this.getCurrentRoundSerieA();

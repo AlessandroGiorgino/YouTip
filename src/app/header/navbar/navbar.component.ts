@@ -42,8 +42,9 @@ export class NavbarComponent implements OnInit {
         routerLink: ['yourTips'],
       },
       {
-        label: 'Log out',
+        label: 'Register/Login-out',
         icon: 'pi pi-fw pi-power-off',
+        routerLink: ['login'],
       },
     ];
   }

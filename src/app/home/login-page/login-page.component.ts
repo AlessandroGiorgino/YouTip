@@ -27,6 +27,8 @@ export class LoginPageComponent {
     if (this.auth.isLoggedIn) {
       this.isSignedIn = true;
       this.isRegistered = true;
+      alert('Sign Up successfully completed');
+      this.route.navigate(['']);
     }
   }
   //sign in
@@ -34,7 +36,8 @@ export class LoginPageComponent {
     await this.auth.signIn(email, password);
     if (this.auth.isLoggedIn) {
       this.isSignedIn = true;
-      this.route.navigate(['start']);
+      alert('Your are now logged in');
+      this.route.navigate(['']);
     }
   }
 
