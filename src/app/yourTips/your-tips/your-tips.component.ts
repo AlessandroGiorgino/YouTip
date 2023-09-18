@@ -10,7 +10,9 @@ import {
 } from '@angular/fire/database';
 import { Router } from '@angular/router';
 import { AllUserBets, UserBets } from 'src/app/interfaces/userBets';
-
+import jsPDF from 'jspdf';
+import * as fileSaver from 'file-saver';
+import * as FileSaver from 'file-saver';
 @Component({
   selector: 'app-your-tips',
   templateUrl: './your-tips.component.html',
@@ -62,5 +64,22 @@ export class YourTipsComponent {
 
   deleteData(matchId: number) {
     remove(ref(this.db, `user/${this.storedValueId}/` + matchId));
+  }
+  //generate opdf
+  generatePDF() {
+    const doc = new jsPDF();
+    //   const content = this.tips.forEach((tip, i) => {
+    //     `
+    // <p>${tip.match}</p>
+    // -
+    // <p>${tip.bet}</p>`;
+    //   });
+    let list: [] | any = [];
+    let allTips = this.tips.forEach((tip, i) => {
+      list.push(`${tip.match} - ${tip.bet}`);
+    });
+    doc.text(list, 10, 10);
+    const pdf = doc.output('blob');
+    FileSaver.saveAs(pdf, 'Your Tips');
   }
 }
