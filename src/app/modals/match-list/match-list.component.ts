@@ -37,6 +37,9 @@ export class MatchListComponent {
   dataPercentageBallPossession: any;
   optionsPercentageBallPossession: any;
 
+  //betchosen by user
+  userBet!: string;
+
   ngOnInit() {
     //ogni volta carica pagina prende id in alto
     this.route.paramMap.subscribe((params) => {
@@ -174,7 +177,7 @@ export class MatchListComponent {
         this.predictionsById[0].teams.home.name +
         ' - ' +
         this.predictionsById[0].teams.away.name,
-      bet: this.predictionsById[0].predictions.advice,
+      bet: this.userBet,
       matchId: this.id,
     });
     alert('bet added');
