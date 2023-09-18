@@ -5,6 +5,7 @@ import { StartComponent } from './tipsPage/start/start.component';
 import { MatchListComponent } from './modals/match-list/match-list.component';
 import { LoginPageComponent } from './home/login-page/login-page.component';
 import { YourTipsComponent } from './yourTips/your-tips/your-tips.component';
+import { RegisterComponent } from './register-page/register/register.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginPageComponent,
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
   },
   {
     path: 'yourTips',

@@ -1,0 +1,23 @@
+<main class="grid justify-content-center">
+  <div
+    id="signUpContainer"
+    *ngIf="!isRegistered"
+    class="card flex flex-column align-items-center gap-3"
+  >
+    <h2>Register</h2>
+    <form>
+      <input pInputText type="text" placeholder="email" #emailSignUp />
+      <input
+        pInputText
+        type="password"
+        placeholder="password"
+        #passwordSignUp
+      />
+      <p-button
+        (click)="onSignUp(emailSignUp.value, passwordSignUp.value)"
+        label="Sign Up"
+        class="mt-3"
+      ></p-button>
+    </form>
+  </div>
+</main>

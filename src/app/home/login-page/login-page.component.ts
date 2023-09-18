@@ -21,16 +21,7 @@ export class LoginPageComponent {
       this.isSignedIn = false;
     }
   }
-  //sign up
-  async onSignUp(email: string, password: string) {
-    await this.auth.signUp(email, password);
-    if (this.auth.isLoggedIn) {
-      this.isSignedIn = true;
-      this.isRegistered = true;
-      alert('Sign Up successfully completed');
-      this.route.navigate(['']);
-    }
-  }
+
   //sign in
   async onSignIn(email: string, password: string) {
     await this.auth.signIn(email, password);

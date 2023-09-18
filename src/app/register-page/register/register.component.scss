@@ -3,16 +3,14 @@
 * {
   font-family: graphik-semiBold;
 }
-main {
-  min-width: 320px;
-}
+
 @media screen and (min-width: 320px) {
   main {
     margin-top: 1.5rem !important;
     height: 90vh;
-    #signInContainer {
+    #signUpContainer {
       h2 {
-        color: #03632f;
+        color: red;
       }
       padding: 3rem;
       height: 35rem;
@@ -22,32 +20,18 @@ main {
       box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.15),
         inset 0px 4px 8px rgba(0, 0, 0, 0.15),
         inset 0px 8px 16px rgba(0, 0, 0, 0.15);
-
-      form {
-        input {
-          border-top: none;
-          border-right: none;
-          border-left: none;
-          border-radius: 0;
-        }
-        button {
-          text-align: center;
-          width: 12.5rem;
-          height: 2.3rem;
-        }
-      }
     }
-    #noAccount {
-      text-align: center;
-      color: #495057;
+    button {
+      width: 12.5rem;
+      height: 2.3rem;
     }
   }
 }
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 601px) {
   main {
     margin-top: 1.5rem !important;
     height: 90vh;
-    #signInContainer {
+    #signUpContainer {
       h2 {
         color: green;
       }
@@ -59,28 +43,13 @@ main {
       box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.15),
         inset 0px 4px 8px rgba(0, 0, 0, 0.15),
         inset 0px 8px 16px rgba(0, 0, 0, 0.15);
-
-      form {
-        input {
-          border-top: none;
-          border-right: none;
-          border-left: none;
-          border-radius: 0;
-        }
-        button {
-          text-align: center;
-          width: 12.5rem;
-          height: 2.3rem;
-        }
+    }
+    form {
+      button {
+        text-align: center;
+        width: 12.5rem;
+        height: 2.3rem;
       }
     }
-    #noAccount {
-      text-align: center;
-      color: #495057;
-    }
-  }
-  #loginImage {
-    width: 20rem;
-    height: 20rem;
   }
 }
