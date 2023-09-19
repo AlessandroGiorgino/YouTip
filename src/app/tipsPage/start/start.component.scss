@@ -10,11 +10,19 @@
     font-family: graphik-semiBold;
     text-align: center;
   }
+  #flagCard {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .p-card-body {
+    padding: 0;
+  }
 
   .p-card.p-component {
     background-color: transparent;
     border: none;
     box-shadow: none;
+    padding-right: 0;
   }
   #flag {
     background-color: transparent;

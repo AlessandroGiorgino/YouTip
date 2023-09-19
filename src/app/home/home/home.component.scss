@@ -30,12 +30,18 @@
 
     #instructions {
       margin: 0;
-      h4 {
-        padding-left: 1rem;
-      }
-      #kidPlayingFooball {
-        width: 10rem;
-        height: 15rem;
+      div {
+        p {
+          padding-left: 1rem;
+          padding-bottom: 0;
+          font-size: 1.3rem;
+          margin-bottom: 0;
+        }
+        .storyPhoto {
+          padding-top: 0;
+          width: 15rem;
+          height: 15rem;
+        }
       }
     }
   }
