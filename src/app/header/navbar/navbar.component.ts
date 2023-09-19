@@ -12,7 +12,7 @@ import { AuthenticationService } from 'src/app/authentication.service';
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class NavbarComponent implements OnInit {
   @Output() isLogout = new EventEmitter<void>();

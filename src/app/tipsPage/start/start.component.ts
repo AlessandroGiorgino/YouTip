@@ -11,7 +11,7 @@ import { AuthenticationService } from 'src/app/authentication.service';
   selector: 'app-start',
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class StartComponent {
   //qui

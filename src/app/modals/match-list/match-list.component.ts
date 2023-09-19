@@ -14,7 +14,7 @@ import { Database, set, ref, update } from '@angular/fire/database';
   selector: 'app-match-list',
   templateUrl: './match-list.component.html',
   styleUrls: ['./match-list.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class MatchListComponent {
   predictionsById!: Response[];

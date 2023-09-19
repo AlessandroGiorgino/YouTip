@@ -41,6 +41,9 @@
   src: url(./assets/fonts/graphik/GraphikSuper.otf);
 }
 
-body {
+body,
+html,
+app-root {
   background: $greenForBody;
+  min-height: 100vh !important;
 }

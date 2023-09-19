@@ -6,7 +6,7 @@ import { AuthenticationService } from 'src/app/authentication.service';
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class RegisterComponent {
   isRegistered: boolean = false;

@@ -6,7 +6,7 @@ import { AuthenticationService } from 'src/app/authentication.service';
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.Emulated,
 })
 export class LoginPageComponent {
   isSignedIn: boolean = false;

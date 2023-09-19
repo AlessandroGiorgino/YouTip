@@ -16,7 +16,6 @@ import * as FileSaver from 'file-saver';
   selector: 'app-your-tips',
   templateUrl: './your-tips.component.html',
   styleUrls: ['./your-tips.component.scss'],
-  encapsulation: ViewEncapsulation.None,
 })
 export class YourTipsComponent {
   //array di tutte le scommesse

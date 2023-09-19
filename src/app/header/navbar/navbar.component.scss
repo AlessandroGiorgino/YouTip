@@ -1,61 +1,63 @@
 @import "../../scss/partials";
-.p-icon {
-  color: white !important;
-}
-#logo:hover {
-  cursor: pointer;
-}
-#menuBar {
-  a {
-    background: transparent;
+:host ::ng-deep {
+  .p-icon {
+    color: white !important;
   }
-  ul {
-    background: transparent;
+  #logo:hover {
+    cursor: pointer;
   }
-  span {
-    font-size: 2rem;
-    font-family: graphik-semiBold;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-  }
-}
-@media screen and (max-width: 960px) {
   #menuBar {
-    height: 100vh;
     a {
       background: transparent;
     }
     ul {
-      background: $greenForBody;
-      z-index: 99999999;
+      background: transparent;
+    }
+    span {
+      font-size: 2rem;
+      font-family: graphik-semiBold;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
     }
   }
-}
-#menuBar > div {
-  border: none !important;
-  background: transparent;
-  border-radius: 0;
-}
+  @media screen and (max-width: 960px) {
+    #menuBar {
+      height: 100vh;
+      a {
+        background: transparent;
+      }
+      ul {
+        background: $greenForBody;
+        z-index: 99999999;
+      }
+    }
+  }
+  #menuBar > div {
+    border: none !important;
+    background: transparent;
+    border-radius: 0;
+  }
 
-//qui scritte dentro alla navbar  tocca inserire important per sovrascrivere il framework
-.p-menuitem-text {
-  color: #f1f6f4 !important;
-}
+  //qui scritte dentro alla navbar  tocca inserire important per sovrascrivere il framework
+  .p-menuitem-text {
+    color: #f1f6f4 !important;
+  }
 
-// tentativo di selezionare solo il primo link che però ne seleziona due perché li crea uguali
-// div.p-menubar.p-component
-//   > p-menubarsub.p-element
-//   > ul
-//   > li
-//   > div.p-menuitem-content
-//   > a.p-ripple.p-element.p-menuitem-link.p-menuitem-link-active
-//   > span.p-menuitem-text {
-//   font-size: 2rem;
-// }
+  // tentativo di selezionare solo il primo link che però ne seleziona due perché li crea uguali
+  // div.p-menubar.p-component
+  //   > p-menubarsub.p-element
+  //   > ul
+  //   > li
+  //   > div.p-menuitem-content
+  //   > a.p-ripple.p-element.p-menuitem-link.p-menuitem-link-active
+  //   > span.p-menuitem-text {
+  //   font-size: 2rem;
+  // }
 
-//media query che toglie il logo in mobile
-@media (max-width: 846px) {
-  #logo {
-    display: none;
+  //media query che toglie il logo in mobile
+  @media (max-width: 846px) {
+    #logo {
+      display: none;
+    }
   }
 }

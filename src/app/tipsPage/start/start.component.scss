@@ -1,32 +1,33 @@
 @import "../../scss/partials";
+:host ::ng-deep {
+  #externalContainer {
+    padding: 1rem;
+    margin: 0;
+  }
+  h1,
+  h3 {
+    color: #f1f6f4 !important;
+    font-family: graphik-semiBold;
+    text-align: center;
+  }
 
-#externalContainer {
-  padding: 1rem;
-  margin: 0;
-}
-h1,
-h3 {
-  color: #f1f6f4 !important;
-  font-family: graphik-semiBold;
-  text-align: center;
-}
+  .p-card.p-component {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+  #flag {
+    background-color: transparent;
+    height: 100px;
+  }
 
-.p-card.p-component {
-  background-color: transparent;
-  border: none;
-  box-shadow: none;
-}
-#flag {
-  background-color: transparent;
-  height: 100px;
-}
+  .ulMatchList {
+    padding: 0.1rem;
+  }
+  .matchList {
+    line-height: 1rem;
+    list-style-type: none;
 
-.ulMatchList {
-  padding: 0.1rem;
-}
-.matchList {
-  line-height: 1rem;
-  list-style-type: none;
-
-  margin: 0 0 5.5px 0;
+    margin: 0 0 5.5px 0;
+  }
 }

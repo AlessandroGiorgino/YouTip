@@ -1,284 +1,285 @@
 @import "../../scss/partials";
-
-header {
-  h3,
-  h4 {
-    color: $whiteForText;
-    text-align: center;
-    font-family: graphik-semiBold;
+:host ::ng-deep {
+  header {
+    h3,
+    h4 {
+      color: $whiteForText;
+      text-align: center;
+      font-family: graphik-semiBold;
+    }
+    h3 {
+      font-size: 2rem;
+    }
   }
-  h3 {
-    font-size: 2rem;
-  }
-}
-/* Campo */
-.campo {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  width: 90%;
-  height: 0;
-  margin: 0;
-  margin-left: 5vw;
-  padding: 0 0 60% 0;
-}
-/* Marcas interiores */
-.interior,
-.divisoria,
-.semi1,
-.semi2,
-.corner {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 94%;
-  height: 90%;
-  margin: auto;
-  border: 2px solid #eee;
-}
-/* Línea divisoria */
-.divisoria:after,
-.divisoria:before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  display: block;
-  width: 0;
-  height: 100%;
-  margin-left: 0.5px;
-  border: 1px solid #eee;
-}
-/* Circulo central */
-.divisoria:before {
-  top: 50%;
-  width: 16%;
-  height: 0;
-  margin: -8% 0 0 -8%;
-  margin-top: calc(-8% - 4px);
-  margin-left: calc(-8% - 0.5px);
-  padding-bottom: 16%;
-  border-radius: 50%;
-  border: 2px solid #eee;
-}
-/* Porterias */
-.campo:before,
-.campo:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 3%;
-  margin: -8% 0 0 -2px;
-  display: block;
-  width: 6%;
-  height: 24%;
-  border: 2px solid #eee;
-  z-index: 2;
-}
-/* Porteria derecha */
-.campo:after {
-  left: auto;
-  right: 3%;
-  margin-right: -2px;
-}
-/* Area penalty */
-.interior:before,
-.interior:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  margin: -16% 0 0 -2px;
-  display: block;
-  width: 16%;
-  height: 50%;
-  border: 2px solid #eee;
-}
-/* Area penalty derecha*/
-.interior:after {
-  left: auto;
-  right: 0;
-  margin: -16% -2px 0 0;
-}
-/* Punto penalty */
-.semi1:before,
-.semi2:before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 12%;
-  display: block;
-  width: 1%;
-  height: 1.5%;
-  margin: -0.75% 0 0 0;
-  background: #eee;
-  border-radius: 50%;
-  z-index: 2;
-}
-.semi2:before {
-  left: auto;
-  right: 12%;
-}
-/* Semicirculos porterias */
-
-.corner {
-  overflow: hidden;
-}
-.corner1:before,
-.corner2:before,
-.corner1:after,
-.corner2:after {
-  content: "";
-  position: absolute;
-  top: -6%;
-  left: -4%;
-  width: 6%;
-  height: 0;
-  margin: 0 0 0 0;
-  padding-bottom: 6%;
-  border: 2px solid #eee;
-  border-radius: 50%;
-}
-.corner1:after {
-  left: auto;
-  right: -4%;
-}
-.corner2:before {
-  top: auto;
-  bottom: -6%;
-}
-.corner2:after {
-  top: auto;
-  bottom: -6%;
-  left: auto;
-  right: -4%;
-}
-#home {
-  position: absolute;
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  left: 14%;
-  top: 3.7rem;
-  z-index: 99;
-  width: 80px;
-  height: 100px;
-}
-#away {
-  position: absolute;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  left: 61%;
-  top: 3.7rem;
-  z-index: 99;
-  width: 80px;
-  height: 100px;
-}
-
-#suggests {
-  color: $whiteForText;
-  font-family: graphik-semiBold;
-  text-align: center;
-}
-
-#standings {
-  div.p-panel-header {
-    background: $greenForBody;
-  }
-  div.p-panel-content {
-    background: $greenForBody;
-  }
-
-  background: $greenForBody;
-  border: none;
-  span {
-    color: $whiteForText;
-    background: transparent;
-  }
-  minusicon,
-  plusicon {
-    background: transparent;
-  }
-
-  .main-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
+  /* Campo */
+  .campo {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    width: 90%;
+    height: 0;
     margin: 0;
-    justify-content: center;
-    align-items: center;
+    margin-left: 5vw;
+    padding: 0 0 60% 0;
+  }
+  /* Marcas interiores */
+  .interior,
+  .divisoria,
+  .semi1,
+  .semi2,
+  .corner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 94%;
+    height: 90%;
+    margin: auto;
+    border: 2px solid #eee;
+  }
+  /* Línea divisoria */
+  .divisoria:after,
+  .divisoria:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    display: block;
+    width: 0;
+    height: 100%;
+    margin-left: 0.5px;
+    border: 1px solid #eee;
+  }
+  /* Circulo central */
+  .divisoria:before {
+    top: 50%;
+    width: 16%;
+    height: 0;
+    margin: -8% 0 0 -8%;
+    margin-top: calc(-8% - 4px);
+    margin-left: calc(-8% - 0.5px);
+    padding-bottom: 16%;
+    border-radius: 50%;
+    border: 2px solid #eee;
+  }
+  /* Porterias */
+  .campo:before,
+  .campo:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    margin: -8% 0 0 -2px;
+    display: block;
+    width: 6%;
+    height: 24%;
+    border: 2px solid #eee;
+    z-index: 2;
+  }
+  /* Porteria derecha */
+  .campo:after {
+    left: auto;
+    right: 3%;
+    margin-right: -2px;
+  }
+  /* Area penalty */
+  .interior:before,
+  .interior:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin: -16% 0 0 -2px;
+    display: block;
+    width: 16%;
+    height: 50%;
+    border: 2px solid #eee;
+  }
+  /* Area penalty derecha*/
+  .interior:after {
+    left: auto;
+    right: 0;
+    margin: -16% -2px 0 0;
+  }
+  /* Punto penalty */
+  .semi1:before,
+  .semi2:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 12%;
+    display: block;
+    width: 1%;
+    height: 1.5%;
+    margin: -0.75% 0 0 0;
+    background: #eee;
+    border-radius: 50%;
+    z-index: 2;
+  }
+  .semi2:before {
+    left: auto;
+    right: 12%;
+  }
+  /* Semicirculos porterias */
+
+  .corner {
+    overflow: hidden;
+  }
+  .corner1:before,
+  .corner2:before,
+  .corner1:after,
+  .corner2:after {
+    content: "";
+    position: absolute;
+    top: -6%;
+    left: -4%;
+    width: 6%;
+    height: 0;
+    margin: 0 0 0 0;
+    padding-bottom: 6%;
+    border: 2px solid #eee;
+    border-radius: 50%;
+  }
+  .corner1:after {
+    left: auto;
+    right: -4%;
+  }
+  .corner2:before {
+    top: auto;
+    bottom: -6%;
+  }
+  .corner2:after {
+    top: auto;
+    bottom: -6%;
+    left: auto;
+    right: -4%;
+  }
+  #home {
+    position: absolute;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: 14%;
+    top: 3.7rem;
+    z-index: 99;
+    width: 80px;
+    height: 100px;
+  }
+  #away {
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: 61%;
+    top: 3.7rem;
+    z-index: 99;
+    width: 80px;
+    height: 100px;
   }
 
-  .table-container {
-    display: flex;
-    flex-flow: column nowrap;
-    background-color: white;
-    width: 80%;
-    margin: 0 auto;
-    border-radius: 4px;
-    border: 1px solid #dadada;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.08);
+  #suggests {
+    color: $whiteForText;
+    font-family: graphik-semiBold;
+    text-align: center;
   }
 
-  .table-row {
-    display: flex;
-    flex-flow: row nowrap;
-    width: 100%;
-    border-bottom: 1px solid #dadada;
+  #standings {
+    div.p-panel-header {
+      background: $greenForBody;
+    }
+    div.p-panel-content {
+      background: $greenForBody;
+    }
+
+    background: $greenForBody;
+    border: none;
+    span {
+      color: $whiteForText;
+      background: transparent;
+    }
+    minusicon,
+    plusicon {
+      background: transparent;
+    }
+
+    .main-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      margin: 0;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .table-container {
+      display: flex;
+      flex-flow: column nowrap;
+      background-color: white;
+      width: 80%;
+      margin: 0 auto;
+      border-radius: 4px;
+      border: 1px solid #dadada;
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.08);
+    }
+
+    .table-row {
+      display: flex;
+      flex-flow: row nowrap;
+      width: 100%;
+      border-bottom: 1px solid #dadada;
+    }
+
+    .heading {
+      background-color: #ececec;
+      color: #3e3e3e;
+      font-weight: bold;
+    }
+
+    .row-item {
+      display: flex;
+      flex: 1;
+      font-size: 14px;
+      padding: 8px 0;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.15s ease-in-out;
+    }
+
+    .row-item:hover {
+      cursor: pointer;
+      background-color: #f0f0f0;
+    }
+
+    .row-sub-container {
+      display: flex;
+      flex-flow: column nowrap;
+      flex: 1;
+    }
+
+    .row-sub-container .row-item {
+      padding: 8px 0;
+      border-bottom: 1px solid #dadada;
+    }
+
+    .table-row:last-child,
+    .row-sub-container .row-item:last-child {
+      border-bottom: 0;
+    }
   }
 
-  .heading {
-    background-color: #ececec;
-    color: #3e3e3e;
-    font-weight: bold;
+  canvas {
+    margin: 0;
+    padding: 0;
   }
 
-  .row-item {
-    display: flex;
-    flex: 1;
-    font-size: 14px;
-    padding: 8px 0;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.15s ease-in-out;
-  }
-
-  .row-item:hover {
-    cursor: pointer;
-    background-color: #f0f0f0;
-  }
-
-  .row-sub-container {
-    display: flex;
-    flex-flow: column nowrap;
-    flex: 1;
-  }
-
-  .row-sub-container .row-item {
-    padding: 8px 0;
-    border-bottom: 1px solid #dadada;
-  }
-
-  .table-row:last-child,
-  .row-sub-container .row-item:last-child {
-    border-bottom: 0;
-  }
-}
-
-canvas {
-  margin: 0;
-  padding: 0;
-}
-
-// qui stats
-#stats,
-#lastMatches {
-  color: $whiteForText;
-  font-family: graphik-semiBold;
-  text-align: center;
-  li {
-    list-style-type: none;
+  // qui stats
+  #stats,
+  #lastMatches {
+    color: $whiteForText;
+    font-family: graphik-semiBold;
+    text-align: center;
+    li {
+      list-style-type: none;
+    }
   }
 }
