@@ -16,6 +16,8 @@ import { AuthenticationService } from 'src/app/authentication.service';
 export class StartComponent {
   //qui
   currentRound!: string;
+  fixturesChampionsLeague: Response[] = [];
+  fixturesEuropaLeague: Response[] = [];
   fixturesSerieA: Response[] = [];
   fixturesSerieB: Response[] = [];
   fixturesPremierLeague: Response[] = [];
@@ -30,6 +32,25 @@ export class StartComponent {
   ) {}
   //check se è loggato e autologut
 
+  getCurrentRoundChampionsLeague(): void {
+    this.srv.getCurrentRoundChampionsLeague().subscribe((res) => {
+      this.currentRound = res.response[0];
+      this.srv.currentRoundRes = this.currentRound;
+      //qui la get serieA
+      this.srv.getFixturesChampionsLeague().subscribe((res) => {
+        this.fixturesChampionsLeague = res.response;
+      });
+    });
+  }
+  getCurrentRoundEuropaLeague(): void {
+    this.srv.getCurrentRoundEuropaLeague().subscribe((res) => {
+      this.currentRound = res.response[0];
+      this.srv.currentRoundRes = this.currentRound;
+      this.srv.getFixturesEuropaLeague().subscribe((res) => {
+        this.fixturesEuropaLeague = res.response;
+      });
+    });
+  }
   getCurrentRoundSerieA(): void {
     this.srv.getCurrentRoundSerieA().subscribe((res) => {
       this.currentRound = res.response[0];
@@ -97,6 +118,8 @@ export class StartComponent {
     ) {
       this.route.navigate(['login']);
     } else {
+      this.getCurrentRoundChampionsLeague();
+      this.getCurrentRoundEuropaLeague();
       this.getCurrentRoundSerieA();
       this.getCurrentRoundSerieB();
       this.getCurrentRoundPremierLeague();
@@ -109,6 +132,16 @@ export class StartComponent {
   //unico per tutti
   modalMatches: boolean = false;
   // seriaA modal
+  visibleChampionsLeague: boolean = false;
+
+  showDialogChampionsLeague() {
+    this.visibleChampionsLeague = true;
+  }
+  visibleEuropaLeague: boolean = false;
+
+  showDialogEuropaLeague() {
+    this.visibleEuropaLeague = true;
+  }
   visibleSerieA: boolean = false;
 
   showDialogSerieA() {

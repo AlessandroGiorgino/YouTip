@@ -5,6 +5,42 @@
     <section class="col-12 grid">
       <!-- div con serie a e serie b -->
 
+      <!-- CHAMPIONS -->
+      <div
+        *ngIf="fixturesChampionsLeague.length > 0"
+        class="card flex justify-content-around cursor-pointer col-6 sm:col-3"
+        id="flagCard"
+      >
+        <p-card class="p-card-content">
+          <ng-template pTemplate="content">
+            <img
+              id="flag"
+              (click)="showDialogChampionsLeague()"
+              icon="pi pi-external-link"
+              label="Show"
+              alt="Card"
+              src="https://media.api-sports.io/football/leagues/2.png"
+            />
+          </ng-template>
+        </p-card>
+      </div>
+      <!-- EUROPA LEAGUE-->
+      <div
+        *ngIf="fixturesEuropaLeague.length > 0"
+        class="card flex justify-content-around cursor-pointer col-6 sm:col-3"
+        id="flagCard"
+      >
+        <p-card class="p-card-content">
+          <ng-template pTemplate="content">
+            <img
+              id="flag"
+              alt="Card"
+              src="https://media.api-sports.io/football/leagues/3.png"
+              (click)="showDialogEuropaLeague()"
+            />
+          </ng-template>
+        </p-card>
+      </div>
       <!-- serie a -->
       <div
         *ngIf="fixturesSerieA.length > 0"

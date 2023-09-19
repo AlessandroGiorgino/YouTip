@@ -43,6 +43,67 @@ export class FetchesService {
 
   //metodo per get current round
   //options
+  //Champions
+  getCurrentRoundChampionsLeague() {
+    let optionsCurrentRoundChampionsLeague = {
+      params: {
+        league: '2',
+        season: '2023',
+        current: 'true',
+      },
+      headers: this.headers,
+    };
+
+    return this.http.get<CurrentRoundResponse>(
+      this.urlCurrentRound,
+      optionsCurrentRoundChampionsLeague
+    );
+  }
+
+  getFixturesEuropaLeague() {
+    const optionsFixtureEuropaLeague = {
+      params: {
+        league: '2',
+        season: '2023',
+        round: this.currentRoundRes,
+      },
+      headers: this.headers,
+    };
+    return this.http.get<Fixtures>(
+      this.urlApiFootballFixtures,
+      optionsFixtureEuropaLeague
+    );
+  }
+  getCurrentRoundEuropaLeague() {
+    let optionsCurrentRoundEuropaLeague = {
+      params: {
+        league: '3',
+        season: '2023',
+        current: 'true',
+      },
+      headers: this.headers,
+    };
+
+    return this.http.get<CurrentRoundResponse>(
+      this.urlCurrentRound,
+      optionsCurrentRoundEuropaLeague
+    );
+  }
+
+  getFixturesChampionsLeague() {
+    const optionsFixtureChampionsLeague = {
+      params: {
+        league: '3',
+        season: '2023',
+        round: this.currentRoundRes,
+      },
+      headers: this.headers,
+    };
+    return this.http.get<Fixtures>(
+      this.urlApiFootballFixtures,
+      optionsFixtureChampionsLeague
+    );
+  }
 
   //SERIE A
   getCurrentRoundSerieA() {
