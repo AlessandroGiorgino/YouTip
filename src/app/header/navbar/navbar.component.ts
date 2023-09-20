@@ -8,6 +8,7 @@ import {
 import { MenubarModule } from 'primeng/menubar';
 import { MenuItem } from 'primeng/api';
 import { AuthenticationService } from 'src/app/authentication.service';
+import { LoginPageComponent } from 'src/app/home/login-page/login-page.component';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -16,7 +17,10 @@ import { AuthenticationService } from 'src/app/authentication.service';
 })
 export class NavbarComponent implements OnInit {
   @Output() isLogout = new EventEmitter<void>();
-  constructor(private auth: AuthenticationService) {}
+  constructor(
+    private auth: AuthenticationService,
+    private log: LoginPageComponent
+  ) {}
 
   logout() {
     this.auth.logout();
@@ -42,9 +46,14 @@ export class NavbarComponent implements OnInit {
         routerLink: ['yourTips'],
       },
       {
-        label: 'Register/Login-out',
+        label: 'Login/Register',
         icon: 'pi pi-fw pi-power-off',
         routerLink: ['login'],
+      },
+      {
+        label: 'Log Out',
+        icon: 'pi pi-fw pi-power-off',
+        command: () => this.log.handleLogOut(),
       },
     ];
   }

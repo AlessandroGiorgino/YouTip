@@ -294,6 +294,66 @@ export class FetchesService {
       optionsFixtureSegundaDivision
     );
   }
+  getCurrentRoundBundesliga() {
+    let optionsCurrentRoundBundesliga = {
+      params: {
+        league: '78',
+        season: '2023',
+        current: 'true',
+      },
+      headers: this.headers,
+    };
+
+    return this.http.get<CurrentRoundResponse>(
+      this.urlCurrentRound,
+      optionsCurrentRoundBundesliga
+    );
+  }
+
+  getFixturesBundesliga() {
+    let optionsFixtureBundesliga = {
+      params: {
+        league: '78',
+        season: '2023',
+        round: this.currentRoundRes,
+      },
+      headers: this.headers,
+    };
+    return this.http.get<Fixtures>(
+      this.urlApiFootballFixtures,
+      optionsFixtureBundesliga
+    );
+  }
+  getCurrentRoundFusballBundesliga() {
+    let optionsCurrentRoundFusballBundesliga = {
+      params: {
+        league: '79',
+        season: '2023',
+        current: 'true',
+      },
+      headers: this.headers,
+    };
+
+    return this.http.get<CurrentRoundResponse>(
+      this.urlCurrentRound,
+      optionsCurrentRoundFusballBundesliga
+    );
+  }
+
+  getFixturesFusballBundesliga() {
+    let optionsFixtureFusballBundesliga = {
+      params: {
+        league: '79',
+        season: '2023',
+        round: this.currentRoundRes,
+      },
+      headers: this.headers,
+    };
+    return this.http.get<Fixtures>(
+      this.urlApiFootballFixtures,
+      optionsFixtureFusballBundesliga
+    );
+  }
   //get per partita singola tramite id
   getPredictionByMatchId() {
     //options per partita singola tramite id

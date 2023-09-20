@@ -1,7 +1,7 @@
 <main id="externalContainer">
   <h1>Your Tip starts here!</h1>
   <h3>First off, choose a league to see scheduled matches for next tourn</h3>
-  <div class="grid text-center">
+  <div class="grid text-center mt-5">
     <section class="col-12 grid">
       <!-- div con serie a e serie b -->
 
@@ -144,6 +144,39 @@
               alt="Card"
               src="https://media.api-sports.io/football/leagues/141.png"
               (click)="showDialogSegundaDivision()"
+            />
+          </ng-template>
+        </p-card>
+      </div>
+
+      <div
+        *ngIf="fixturesBundesliga.length > 0"
+        class="card flex justify-content-around cursor-pointer col-6 sm:col-3"
+        id="flagCard"
+      >
+        <p-card class="p-card-content">
+          <ng-template pTemplate="content">
+            <img
+              id="flag"
+              alt="Card"
+              src="https://media.api-sports.io/football/leagues/78.png"
+              (click)="showDialogBundesliga()"
+            />
+          </ng-template>
+        </p-card>
+      </div>
+      <div
+        *ngIf="fixturesFusballBundesliga.length > 0"
+        class="card flex justify-content-around cursor-pointer col-6 sm:col-3"
+        id="flagCard"
+      >
+        <p-card class="p-card-content">
+          <ng-template pTemplate="content">
+            <img
+              id="flag"
+              alt="Card"
+              src="https://media.api-sports.io/football/leagues/79.png"
+              (click)="showDialogFusballBundseliga()"
             />
           </ng-template>
         </p-card>
@@ -454,6 +487,107 @@
               >
                 <p>
                   {{ segundaDivisionMatch.teams.home.name }}
+                </p>
+              </p-dialog>
+            </ng-container>
+          </ul>
+        </p-dialog>
+      </div>
+      <div class="card flex justify-content-center">
+        <p-dialog
+          [header]="'Bundesliga matches of this turn'"
+          [(visible)]="visibleBundesliga"
+          [breakpoints]="{ '960px': '75vw' }"
+          [style]="{ height: '50vh' }"
+          [draggable]="false"
+          [resizable]="false"
+          [showHeader]="true"
+        >
+          <ul class="ulMatchList">
+            <ng-container
+              *ngFor="let bundesligaMatch of fixturesBundesliga; let i = index"
+            >
+              <a routerLink="/start/{{ bundesligaMatch.fixture.id }}">
+                <img
+                  [src]="bundesligaMatch.teams.home.logo"
+                  alt="LaligaHomeTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
+
+                {{ bundesligaMatch.teams.home.name }} -
+
+                {{ bundesligaMatch.teams.away.name }}
+                <img
+                  [src]="bundesligaMatch.teams.away.logo"
+                  alt="LaligaAwayTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
+              </a>
+              <p-dialog
+                [header]="''"
+                [(visible)]="modalMatches"
+                [breakpoints]="{ '960px': '75vw' }"
+                [style]="{ height: '50vh' }"
+                [draggable]="false"
+                [resizable]="false"
+                [showHeader]="true"
+              >
+                <p>
+                  {{ bundesligaMatch.teams.home.name }}
+                </p>
+              </p-dialog>
+            </ng-container>
+          </ul>
+        </p-dialog>
+      </div>
+      <div class="card flex justify-content-center">
+        <p-dialog
+          [header]="'Bundesliga 2 matches of this turn'"
+          [(visible)]="visibleFusballBundesliga"
+          [breakpoints]="{ '960px': '75vw' }"
+          [style]="{ height: '50vh' }"
+          [draggable]="false"
+          [resizable]="false"
+          [showHeader]="true"
+        >
+          <ul class="ulMatchList">
+            <ng-container
+              *ngFor="
+                let fusballBundesligamatch of fixturesFusballBundesliga;
+                let i = index
+              "
+            >
+              <a routerLink="/start/{{ fusballBundesligamatch.fixture.id }}">
+                <img
+                  [src]="fusballBundesligamatch.teams.home.logo"
+                  alt="LaligaHomeTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
+
+                {{ fusballBundesligamatch.teams.home.name }} -
+
+                {{ fusballBundesligamatch.teams.away.name }}
+                <img
+                  [src]="fusballBundesligamatch.teams.away.logo"
+                  alt="LaligaAwayTeamLogo"
+                  width="25px"
+                  height="25px"
+                />
+              </a>
+              <p-dialog
+                [header]="''"
+                [(visible)]="modalMatches"
+                [breakpoints]="{ '960px': '75vw' }"
+                [style]="{ height: '50vh' }"
+                [draggable]="false"
+                [resizable]="false"
+                [showHeader]="true"
+              >
+                <p>
+                  {{ fusballBundesligamatch.teams.home.name }}
                 </p>
               </p-dialog>
             </ng-container>

@@ -3,6 +3,9 @@
   .p-icon {
     color: white !important;
   }
+  #logo {
+    display: none;
+  }
   #logo:hover {
     cursor: pointer;
   }
@@ -55,9 +58,9 @@
   // }
 
   //media query che toglie il logo in mobile
-  @media (max-width: 846px) {
+  @media (min-width: 989px) {
     #logo {
-      display: none;
+      display: block;
     }
   }
 }

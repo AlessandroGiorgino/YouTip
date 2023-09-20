@@ -24,6 +24,8 @@ export class StartComponent {
   fixturesChampionship: Response[] = [];
   fixturesLiga: Response[] = [];
   fixturesSegundaDivision: Response[] = [];
+  fixturesBundesliga: Response[] = [];
+  fixturesFusballBundesliga: Response[] = [];
 
   constructor(
     private srv: FetchesService,
@@ -110,6 +112,26 @@ export class StartComponent {
       });
     });
   }
+  getCurrentRoundBundesliga(): void {
+    //qui abbiamo  il current round
+    this.srv.getCurrentRoundBundesliga().subscribe((res) => {
+      this.currentRound = res.response[0];
+      this.srv.currentRoundRes = this.currentRound;
+      this.srv.getFixturesBundesliga().subscribe((res) => {
+        this.fixturesBundesliga = res.response;
+      });
+    });
+  }
+  getCurrentRoundFusballBundesliga(): void {
+    //qui abbiamo  il current round
+    this.srv.getCurrentRoundFusballBundesliga().subscribe((res) => {
+      this.currentRound = res.response[0];
+      this.srv.currentRoundRes = this.currentRound;
+      this.srv.getFixturesFusballBundesliga().subscribe((res) => {
+        this.fixturesFusballBundesliga = res.response;
+      });
+    });
+  }
 
   ngOnInit() {
     if (
@@ -126,6 +148,8 @@ export class StartComponent {
       this.getCurrentRoundChampionship();
       this.getCurrentRoundLiga();
       this.getCurrentRoundSegundaDivision();
+      this.getCurrentRoundBundesliga();
+      this.getCurrentRoundFusballBundesliga();
     }
   }
 
@@ -179,5 +203,17 @@ export class StartComponent {
 
   showDialogSegundaDivision() {
     this.visibleSegundaDivision = true;
+  }
+  //Bundesliga modal
+  visibleBundesliga: boolean = false;
+
+  showDialogBundesliga() {
+    this.visibleBundesliga = true;
+  }
+  //FusballBundesliga division modal
+  visibleFusballBundesliga: boolean = false;
+
+  showDialogFusballBundseliga() {
+    this.visibleFusballBundesliga = true;
   }
 }

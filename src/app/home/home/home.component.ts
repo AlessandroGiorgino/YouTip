@@ -14,6 +14,4 @@ export class HomeComponent {
     this.login.handleLogOut();
   }
   //define validable to store dynamic products data
-  infos: any;
-  //slider responsive settings
 }

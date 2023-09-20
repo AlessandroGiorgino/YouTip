@@ -35,5 +35,6 @@ export class LoginPageComponent {
   handleLogOut() {
     this.isSignedIn = false;
     localStorage.removeItem('user');
+    this.route.navigate(['']);
   }
 }
