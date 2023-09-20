@@ -9,7 +9,6 @@
   @media screen and (min-width: 320px) {
     main {
       margin-top: 1.5rem !important;
-      height: 90vh;
       #signUpContainer {
         h2 {
           color: #03632f;
@@ -45,15 +44,14 @@
   }
   @media screen and (min-width: 576px) {
     main {
-      margin-top: 1.5rem !important;
+      margin-top: 4rem !important;
       height: 90vh;
       #signUpContainer {
         h2 {
           color: green;
         }
-        margin-left: 4rem;
         padding: 3rem;
-        height: 35rem;
+        height: 30rem;
         width: 35rem;
         background-color: white;
         border-radius: 10px;
@@ -75,6 +73,58 @@
           }
         }
       }
+      #noAccount {
+        text-align: center;
+        color: #495057;
+      }
+    }
+    #signUpImage {
+      width: 15rem;
+      height: 15rem;
+    }
+  }
+  @media screen and (min-width: 783px) {
+    main {
+      margin-top: 5rem !important;
+      margin-left: 3rem;
+      height: 90vh;
+      #signUpContainer {
+        h2 {
+          color: green;
+        }
+        padding: 3rem;
+        height: 30rem;
+        width: 35rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.15),
+          inset 0px 4px 8px rgba(0, 0, 0, 0.15),
+          inset 0px 8px 16px rgba(0, 0, 0, 0.15);
+
+        form {
+          input {
+            border-top: none;
+            border-right: none;
+            border-left: none;
+            border-radius: 0;
+          }
+          button {
+            text-align: center;
+            width: 12.5rem;
+            height: 2.3rem;
+          }
+        }
+      }
+      #noAccount {
+        text-align: center;
+        color: #495057;
+      }
+    }
+    #signUpImage {
+      margin-top: 3.5rem;
+      margin-left: 3rem;
+      width: 15rem;
+      height: 15rem;
     }
   }
 }
