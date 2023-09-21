@@ -10,32 +10,54 @@
     font-family: graphik-semiBold;
     text-align: center;
   }
-  #flagCard {
-    padding-right: 0;
-    padding-left: 0;
-  }
-  .p-card-body {
-    padding: 0;
-  }
+  div {
+    section {
+      #flagCard {
+        padding-right: 0;
+        padding-left: 0;
+      }
+      .p-card-body {
+        padding: 0;
+      }
 
-  .p-card.p-component {
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-    padding-right: 0;
-  }
-  #flag {
-    background-color: transparent;
-    height: 100px;
-  }
+      .p-card.p-component {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        padding-right: 0;
+      }
+      #flag {
+        background-color: transparent;
+        height: 100px;
+      }
 
-  .ulMatchList {
-    padding: 0.1rem;
-  }
-  .matchList {
-    line-height: 1rem;
-    list-style-type: none;
+      .ulMatchList {
+        padding: 0.1rem;
+      }
+      .matchList {
+        line-height: 1rem;
+        list-style-type: none;
+        text-align: start;
 
-    margin: 0 0 5.5px 0;
+        margin: 0 0 5.5px 0;
+      }
+      .p-dialog-header {
+        background-color: #057d3b;
+        color: #f1f6f4;
+        span {
+          margin: auto;
+        }
+      }
+    }
+  }
+  .p-dialog-header-close-icon.p-icon {
+    color: #f1f6f4;
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .textMatch {
+    font-size: 0.75rem !important;
   }
 }

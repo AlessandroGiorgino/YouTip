@@ -188,7 +188,7 @@
 
       <!-- Modale serieB -->
 
-      <div class="card flex justify-content-center">
+      <div class="card flex justify-content-center modalMatchesExternal">
         <p-dialog
           [header]="'Serie A matches of this turn'"
           [(visible)]="visibleSerieA"
@@ -197,29 +197,37 @@
           [draggable]="false"
           [resizable]="false"
           [showHeader]="true"
+          [modal]="true"
+          [dismissableMask]="true"
         >
           <ul class="ulMatchList">
             <ng-container
               *ngFor="let serieAmatch of fixturesSerieA; let i = index"
-            >
-              <a routerLink="/start/{{ serieAmatch.fixture.id }}">
-                <img
-                  [src]="serieAmatch.teams.home.logo"
-                  alt="SerieBHomeTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
+              ><div class="d-flex">
+                <div
+                  class="grid justify-content-around align-items-center"
+                  routerLink="/start/{{ serieAmatch.fixture.id }}"
+                >
+                  <img
+                    [src]="serieAmatch.teams.home.logo"
+                    alt="SerieAHomeTeamLogo"
+                    class="col-2"
+                  />
+                  <span
+                    style="font-size: 1rem; font-family: graphik-semiBold"
+                    class="col-8 textMatch"
+                  >
+                    {{ serieAmatch.teams.home.name }} -
 
-                {{ serieAmatch.teams.home.name }} -
-
-                {{ serieAmatch.teams.away.name }}
-                <img
-                  [src]="serieAmatch.teams.away.logo"
-                  alt="SerieBAwayTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
-              </a>
+                    {{ serieAmatch.teams.away.name }}
+                  </span>
+                  <img
+                    [src]="serieAmatch.teams.away.logo"
+                    alt="SerieAAwayTeamLogo"
+                    class="col-2"
+                  />
+                </div>
+              </div>
               <p-dialog
                 [header]="''"
                 [(visible)]="modalMatches"
@@ -237,38 +245,48 @@
           </ul>
         </p-dialog>
       </div>
-      <div class="card flex justify-content-center">
+      <div class="card flex justify-content-center modalMatchesExternal">
         <p-dialog
           [header]="'Serie B matches of this turn'"
           [(visible)]="visibleSerieB"
           [breakpoints]="{ '960px': '75vw' }"
-          [style]="{ height: '50vh' }"
+          [style]="{
+            height: '50vh'
+          }"
           [draggable]="false"
           [resizable]="false"
           [showHeader]="true"
+          [modal]="true"
+          [dismissableMask]="true"
         >
           <ul class="ulMatchList">
             <ng-container
               *ngFor="let serieBmatch of fixturesSerieB; let i = index"
-            >
-              <a routerLink="/start/{{ serieBmatch.fixture.id }}">
-                <img
-                  [src]="serieBmatch.teams.home.logo"
-                  alt="SerieBHomeTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
+              ><div class="d-flex">
+                <div
+                  routerLink="/start/{{ serieBmatch.fixture.id }}"
+                  class="grid justify-content-center align-items-center"
+                >
+                  <img
+                    [src]="serieBmatch.teams.home.logo"
+                    alt="SerieBHomeTeamLogo"
+                    class="col-2"
+                  />
+                  <span
+                    style="font-size: 1rem; font-family: graphik-semiBold"
+                    class="col-8 textMatch"
+                  >
+                    {{ serieBmatch.teams.home.name }} -
 
-                {{ serieBmatch.teams.home.name }} -
-
-                {{ serieBmatch.teams.away.name }}
-                <img
-                  [src]="serieBmatch.teams.away.logo"
-                  alt="SerieBAwayTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
-              </a>
+                    {{ serieBmatch.teams.away.name }}
+                  </span>
+                  <img
+                    [src]="serieBmatch.teams.away.logo"
+                    alt="SerieBAwayTeamLogo"
+                    class="col-2"
+                  />
+                </div>
+              </div>
               <p-dialog
                 [header]="''"
                 [(visible)]="modalMatches"
@@ -296,6 +314,8 @@
           [draggable]="false"
           [resizable]="false"
           [showHeader]="true"
+          [modal]="true"
+          [dismissableMask]="true"
         >
           <ul class="ulMatchList">
             <ng-container
@@ -303,25 +323,31 @@
                 let premierLeagueMatch of fixturesPremierLeague;
                 let i = index
               "
-            >
-              <a routerLink="/start/{{ premierLeagueMatch.fixture.id }}">
-                <img
-                  [src]="premierLeagueMatch.teams.home.logo"
-                  alt="SerieBHomeTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
+              ><div class="d-flex">
+                <div
+                  routerLink="/start/{{ premierLeagueMatch.fixture.id }}"
+                  class="grid justify-content-center align-items-center"
+                >
+                  <img
+                    [src]="premierLeagueMatch.teams.home.logo"
+                    alt="PremierLeagueHomeTeamLogo"
+                    class="col-2"
+                  />
+                  <span
+                    style="font-size: 1rem; font-family: graphik-semiBold"
+                    class="col-8 textMatch"
+                  >
+                    {{ premierLeagueMatch.teams.home.name }} -
 
-                {{ premierLeagueMatch.teams.home.name }} -
-
-                {{ premierLeagueMatch.teams.away.name }}
-                <img
-                  [src]="premierLeagueMatch.teams.away.logo"
-                  alt="SerieBAwayTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
-              </a>
+                    {{ premierLeagueMatch.teams.away.name }}
+                  </span>
+                  <img
+                    [src]="premierLeagueMatch.teams.away.logo"
+                    alt="PremierLeagueAwayTeamLogo"
+                    class="col-2"
+                  />
+                </div>
+              </div>
               <p-dialog
                 [header]="''"
                 [(visible)]="modalMatches"
@@ -349,6 +375,8 @@
           [draggable]="false"
           [resizable]="false"
           [showHeader]="true"
+          [modal]="true"
+          [dismissableMask]="true"
         >
           <ul class="ulMatchList">
             <ng-container
@@ -356,25 +384,31 @@
                 let ChampionshipMatch of fixturesChampionship;
                 let i = index
               "
-            >
-              <a routerLink="/start/{{ ChampionshipMatch.fixture.id }}">
-                <img
-                  [src]="ChampionshipMatch.teams.home.logo"
-                  alt="SerieBHomeTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
+              ><div class="d-flex">
+                <div
+                  routerLink="/start/{{ ChampionshipMatch.fixture.id }}"
+                  class="grid justify-content-center align-items-center"
+                >
+                  <img
+                    [src]="ChampionshipMatch.teams.home.logo"
+                    alt="ChampionshipHomeTeamLogo"
+                    class="col-2"
+                  />
+                  <span
+                    style="font-size: 1rem; font-family: graphik-semiBold"
+                    class="col-8 textMatch"
+                  >
+                    {{ ChampionshipMatch.teams.home.name }} -
 
-                {{ ChampionshipMatch.teams.home.name }} -
-
-                {{ ChampionshipMatch.teams.away.name }}
-                <img
-                  [src]="ChampionshipMatch.teams.away.logo"
-                  alt="SerieBAwayTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
-              </a>
+                    {{ ChampionshipMatch.teams.away.name }}
+                  </span>
+                  <img
+                    [src]="ChampionshipMatch.teams.away.logo"
+                    alt="ChampionshipAwayTeamLogo"
+                    class="col-2"
+                  />
+                </div>
+              </div>
               <p-dialog
                 [header]="''"
                 [(visible)]="modalMatches"
@@ -402,27 +436,36 @@
           [draggable]="false"
           [resizable]="false"
           [showHeader]="true"
+          [modal]="true"
+          [dismissableMask]="true"
         >
           <ul class="ulMatchList">
             <ng-container *ngFor="let ligaMatch of fixturesLiga; let i = index">
-              <a routerLink="/start/{{ ligaMatch.fixture.id }}">
-                <img
-                  [src]="ligaMatch.teams.home.logo"
-                  alt="LaligaHomeTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
+              <div class="d-flex">
+                <div
+                  routerLink="/start/{{ ligaMatch.fixture.id }}"
+                  class="grid justify-content-center align-items-center"
+                >
+                  <img
+                    [src]="ligaMatch.teams.home.logo"
+                    alt="LaligaHomeTeamLogo"
+                    class="col-2"
+                  />
+                  <span
+                    style="font-size: 1rem; font-family: graphik-semiBold"
+                    class="col-8 textMatch"
+                  >
+                    {{ ligaMatch.teams.home.name }} -
 
-                {{ ligaMatch.teams.home.name }} -
-
-                {{ ligaMatch.teams.away.name }}
-                <img
-                  [src]="ligaMatch.teams.away.logo"
-                  alt="LaligaAwayTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
-              </a>
+                    {{ ligaMatch.teams.away.name }}
+                  </span>
+                  <img
+                    [src]="ligaMatch.teams.away.logo"
+                    alt="LaligaAwayTeamLogo"
+                    class="col-2"
+                  />
+                </div>
+              </div>
               <p-dialog
                 [header]="''"
                 [(visible)]="modalMatches"
@@ -450,6 +493,8 @@
           [draggable]="false"
           [resizable]="false"
           [showHeader]="true"
+          [modal]="true"
+          [dismissableMask]="true"
         >
           <ul class="ulMatchList">
             <ng-container
@@ -457,25 +502,31 @@
                 let segundaDivisionMatch of fixturesSegundaDivision;
                 let i = index
               "
-            >
-              <a routerLink="/start/{{ segundaDivisionMatch.fixture.id }}">
-                <img
-                  [src]="segundaDivisionMatch.teams.home.logo"
-                  alt="LaligaHomeTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
+              ><div class="d-flex">
+                <div
+                  routerLink="/start/{{ segundaDivisionMatch.fixture.id }}"
+                  class="grid justify-content-center align-items-center"
+                >
+                  <img
+                    [src]="segundaDivisionMatch.teams.home.logo"
+                    alt="SeguendaDivisionHomeTeamLogo"
+                    class="col-2"
+                  />
+                  <span
+                    style="font-size: 1rem; font-family: graphik-semiBold"
+                    class="col-8 textMatch"
+                  >
+                    {{ segundaDivisionMatch.teams.home.name }} -
 
-                {{ segundaDivisionMatch.teams.home.name }} -
-
-                {{ segundaDivisionMatch.teams.away.name }}
-                <img
-                  [src]="segundaDivisionMatch.teams.away.logo"
-                  alt="LaligaAwayTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
-              </a>
+                    {{ segundaDivisionMatch.teams.away.name }}
+                  </span>
+                  <img
+                    [src]="segundaDivisionMatch.teams.away.logo"
+                    alt="SeguendaDivisionAwayTeamLogo"
+                    class="col-2"
+                  />
+                </div>
+              </div>
               <p-dialog
                 [header]="''"
                 [(visible)]="modalMatches"
@@ -502,29 +553,37 @@
           [draggable]="false"
           [resizable]="false"
           [showHeader]="true"
+          [modal]="true"
+          [dismissableMask]="true"
         >
           <ul class="ulMatchList">
             <ng-container
               *ngFor="let bundesligaMatch of fixturesBundesliga; let i = index"
-            >
-              <a routerLink="/start/{{ bundesligaMatch.fixture.id }}">
-                <img
-                  [src]="bundesligaMatch.teams.home.logo"
-                  alt="LaligaHomeTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
+              ><div class="d-flex">
+                <div
+                  routerLink="/start/{{ bundesligaMatch.fixture.id }}"
+                  class="grid justify-content-center align-items-center"
+                >
+                  <img
+                    [src]="bundesligaMatch.teams.home.logo"
+                    alt="BundesligaHomeTeamLogo"
+                    class="col-2"
+                  />
+                  <span
+                    style="font-size: 1rem; font-family: graphik-semiBold"
+                    class="col-8 textMatch"
+                  >
+                    {{ bundesligaMatch.teams.home.name }} -
 
-                {{ bundesligaMatch.teams.home.name }} -
-
-                {{ bundesligaMatch.teams.away.name }}
-                <img
-                  [src]="bundesligaMatch.teams.away.logo"
-                  alt="LaligaAwayTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
-              </a>
+                    {{ bundesligaMatch.teams.away.name }}
+                  </span>
+                  <img
+                    [src]="bundesligaMatch.teams.away.logo"
+                    alt="BundesligaAwayTeamLogo"
+                    class="col-2"
+                  />
+                </div>
+              </div>
               <p-dialog
                 [header]="''"
                 [(visible)]="modalMatches"
@@ -551,6 +610,8 @@
           [draggable]="false"
           [resizable]="false"
           [showHeader]="true"
+          [modal]="true"
+          [dismissableMask]="true"
         >
           <ul class="ulMatchList">
             <ng-container
@@ -558,25 +619,31 @@
                 let fusballBundesligamatch of fixturesFusballBundesliga;
                 let i = index
               "
-            >
-              <a routerLink="/start/{{ fusballBundesligamatch.fixture.id }}">
-                <img
-                  [src]="fusballBundesligamatch.teams.home.logo"
-                  alt="LaligaHomeTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
+              ><div class="d-flex">
+                <div
+                  routerLink="/start/{{ fusballBundesligamatch.fixture.id }}"
+                  class="grid justify-content-center align-items-center"
+                >
+                  <img
+                    [src]="fusballBundesligamatch.teams.home.logo"
+                    alt="Bunseliga2HomeTeamLogo"
+                    class="col-2"
+                  />
+                  <span
+                    style="font-size: 1rem; font-family: graphik-semiBold"
+                    class="col-8 textMatch"
+                  >
+                    {{ fusballBundesligamatch.teams.home.name }} -
 
-                {{ fusballBundesligamatch.teams.home.name }} -
-
-                {{ fusballBundesligamatch.teams.away.name }}
-                <img
-                  [src]="fusballBundesligamatch.teams.away.logo"
-                  alt="LaligaAwayTeamLogo"
-                  width="25px"
-                  height="25px"
-                />
-              </a>
+                    {{ fusballBundesligamatch.teams.away.name }}
+                  </span>
+                  <img
+                    [src]="fusballBundesligamatch.teams.away.logo"
+                    alt="Bunseliga2AwayTeamLogo"
+                    class="col-2"
+                  />
+                </div>
+              </div>
               <p-dialog
                 [header]="''"
                 [(visible)]="modalMatches"
