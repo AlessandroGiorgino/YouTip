@@ -1,5 +1,9 @@
 @import "../../scss/partials";
 :host ::ng-deep {
+  #externalContainer {
+    width: 90%;
+    margin: auto;
+  }
   header {
     h3,
     h4 {
@@ -11,7 +15,11 @@
       font-size: 2rem;
     }
   }
-  /* Campo */
+  #field {
+    max-width: 95%;
+    margin: auto;
+  }
+  /* footballfield */
   .campo {
     position: relative;
     display: inline-block;
@@ -22,7 +30,7 @@
     margin-left: 5vw;
     padding: 0 0 60% 0;
   }
-  /* Marcas interiores */
+  // inside football field
   .interior,
   .divisoria,
   .semi1,
@@ -38,7 +46,7 @@
     margin: auto;
     border: 2px solid #eee;
   }
-  /* Línea divisoria */
+  /* line */
   .divisoria:after,
   .divisoria:before {
     content: "";
@@ -50,7 +58,7 @@
     margin-left: 0.5px;
     border: 1px solid #eee;
   }
-  /* Circulo central */
+  /* Center */
   .divisoria:before {
     top: 50%;
     width: 16%;
@@ -62,7 +70,7 @@
     border-radius: 50%;
     border: 2px solid #eee;
   }
-  /* Porterias */
+  /* football goal */
   .campo:before,
   .campo:after {
     content: "";
@@ -76,7 +84,7 @@
     border: 2px solid #eee;
     z-index: 2;
   }
-  /* Porteria derecha */
+  /* footbal goal dx */
   .campo:after {
     left: auto;
     right: 3%;
@@ -95,13 +103,13 @@
     height: 50%;
     border: 2px solid #eee;
   }
-  /* Area penalty derecha*/
+  /* Area penalty right side*/
   .interior:after {
     left: auto;
     right: 0;
     margin: -16% -2px 0 0;
   }
-  /* Punto penalty */
+  /* circle penalty */
   .semi1:before,
   .semi2:before {
     content: "";
@@ -120,7 +128,7 @@
     left: auto;
     right: 12%;
   }
-  /* Semicirculos porterias */
+  /* semicircle goal */
 
   .corner {
     overflow: hidden;
@@ -156,31 +164,32 @@
   }
   #home {
     position: absolute;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    left: 14%;
-    top: 3.7rem;
-    z-index: 99;
-    width: 80px;
-    height: 100px;
+    top: 87px !important;
+    left: 100px !important;
+    z-index: 888;
   }
   #away {
     position: absolute;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    left: 61%;
-    top: 3.7rem;
-    z-index: 99;
-    width: 80px;
-    height: 100px;
+    top: 87px !important;
+    left: 200px !important;
+    z-index: 888;
   }
 
   #suggests {
     color: $whiteForText;
     font-family: graphik-semiBold;
     text-align: center;
+    margin-bottom: 2rem;
+    img {
+      width: 90%;
+      height: 90%;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
   }
 
   #standings {
@@ -280,6 +289,63 @@
     text-align: center;
     li {
       list-style-type: none;
+    }
+  }
+  .p-icon {
+    color: #f1f4f6;
+  }
+  #finalTip {
+    font-family: graphik-semiBold;
+    text-align: center;
+    color: #f1f6f4 !important;
+
+    p {
+      font-size: 1.4rem;
+    }
+
+    h3 {
+      margin-top: 2rem;
+      font-size: 2rem;
+    }
+  }
+  form {
+    input {
+      width: 20rem;
+      margin-right: 4rem;
+    }
+    .pi-cart-plus {
+      color: #f1f4f6;
+    }
+  }
+  #congratulations {
+    font-family: graphik-semiBold;
+    text-align: center;
+    color: #f1f6f4 !important;
+    p {
+      font-size: 1.4rem;
+    }
+  }
+}
+@media screen and (min-width: 620px) {
+  header {
+    h3 {
+      margin-top: 0.5rem;
+      font-size: 5rem;
+    }
+    h4 {
+      font-size: 2rem;
+      margin-bottom: 0;
+    }
+  }
+  #field {
+    max-width: 80%;
+  }
+  #suggests {
+    h1 {
+      font-size: 3rem;
+    }
+    img {
+      width: 50%;
     }
   }
 }

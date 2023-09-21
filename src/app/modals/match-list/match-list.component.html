@@ -9,273 +9,308 @@
     {{ predictionsById[0].league.season }}
   </h4>
 </header>
-<section class="grid" *ngIf="predictionsById">
-  <div class="campo">
-    <div class="corner">
-      <div class="corner1"></div>
-      <div class="corner2"></div>
-    </div>
-    <div class="semi1"></div>
-    <div class="semi2"></div>
-    <div class="divisoria"></div>
-    <div class="interior">
-      <div id="home">
-        <img
-          height="80"
-          width="90"
-          src="{{ (predictionsById[0]?.teams)!.home.logo }}"
-          alt="homeTeam"
-        />
-      </div>
-      <div id="away">
-        <img
-          height="80"
-          width="90"
-          src="{{ (predictionsById[0]?.teams)!.away.logo }}"
-          alt=""
-        />
-      </div>
-    </div>
-    <div class="penalty"></div>
-  </div>
-</section>
-<section id="suggests" *ngIf="predictionsById">
-  <h1>The algorithm suggests</h1>
-  <h2>{{ (predictionsById[0]?.predictions)!.advice }}</h2>
-</section>
-<!-- standings -->
-<section id="standings" *ngIf="predictionsById && standings">
-  <p-panel
-    header="{{ predictionsById[0].league.name }} {{
-      predictionsById[0].league.season
-    }} Standings"
-    [toggleable]="true"
-    [collapsed]="true"
-  >
-    <div class="main-container">
-      <div class="table-container">
-        <div class="table-row heading">
-          <div class="row-item">Team</div>
-          <div class="row-item">Pt</div>
-          <div class="row-item">Gs</div>
-          <div class="row-item">Gc</div>
-          <div class="row-item">W</div>
-          <div class="row-item">D</div>
-          <div class="row-item">L</div>
-          <div class="row-item hidden md:flex">GD</div>
-        </div>
-        <div
-          class="table-row"
-          *ngFor="let standing of standings[0].league.standings[0]"
-        >
-          <div
-            class="row-item"
-            [ngStyle]="{
-              'background-color':
-                homeTeam === (standing?.team)!.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : '' || awayTeam === (standing?.team)!.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : ''
-            }"
-          >
-            <img
-              width="30"
-              height="30"
-              src="{{ (standing?.team)!.logo }}"
-              alt="team"
-              class="me-1"
-            />
-          </div>
-          <div
-            class="row-item"
-            [ngStyle]="{
-              'background-color':
-                homeTeam === (standing?.team)!.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : '' || awayTeam === (standing?.team)!.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : ''
-            }"
-          >
-            {{ standing?.points }}
-          </div>
-          <div
-            class="row-item"
-            [ngStyle]="{
-              'background-color':
-                homeTeam === (standing?.team)!.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : '' || awayTeam === (standing?.team)!.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : '',
-              'font-size':
-                homeTeam === (standing?.team)!.name
-                  ? '1.8rem'
-                  : '' || awayTeam === (standing?.team)!.name
-                  ? '1.4rem'
-                  : '',
-              color:
-                homeTeam === (standing?.team)!.name
-                  ? 'green'
-                  : '' || awayTeam === (standing?.team)!.name
-                  ? 'green'
-                  : ''
-            }"
-          >
-            {{ (standing?.all)!.goals.for }}
-          </div>
-          <div
-            class="row-item"
-            [ngStyle]="{
-              'background-color':
-                homeTeam === (standing?.team)!.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : '' || awayTeam === (standing?.team)!.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : '',
-              'font-size':
-                homeTeam === (standing?.team)!.name
-                  ? '1.8rem'
-                  : '' || awayTeam === (standing?.team)!.name
-                  ? '1.4rem'
-                  : '',
-              color:
-                homeTeam === (standing?.team)!.name
-                  ? 'red'
-                  : '' || awayTeam === (standing?.team)!.name
-                  ? 'red'
-                  : ''
-            }"
-          >
-            {{ (standing?.all)!.goals.against }}
-          </div>
-          <div
-            class="row-item"
-            [ngStyle]="{
-              'background-color':
-                homeTeam === standing.team.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : '' || awayTeam === standing.team.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : ''
-            }"
-          >
-            {{ standing.all.win }}
-          </div>
-          <div
-            class="row-item"
-            [ngStyle]="{
-              'background-color':
-                homeTeam === standing.team.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : '' || awayTeam === standing.team.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : ''
-            }"
-          >
-            {{ standing.all.draw }}
-          </div>
-          <div
-            class="row-item"
-            [ngStyle]="{
-              'background-color':
-                homeTeam === standing.team.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : '' || awayTeam === standing.team.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : ''
-            }"
-          >
-            {{ standing.all.lose }}
-          </div>
-          <div
-            class="row-item hidden md:flex"
-            [ngStyle]="{
-              'background-color':
-                homeTeam === standing.team.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : '' || awayTeam === standing.team.name
-                  ? 'rgba(60, 60, 60, 0.1)'
-                  : ''
-            }"
-          >
-            {{ standing.goalsDiff }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </p-panel>
-</section>
-<section id="stats" class="mt-3 grid">
-  <div class="col-12 sm:col-4">
-    <h4 class="mt-1">Possiblity of winning - losing - drawing (%)</h4>
-    <p-chart
-      type="doughnut"
-      [data]="dataWinLoseDraw"
-      [options]="optionsWinLoseDraw"
-      height="30vh"
-    >
-    </p-chart>
-  </div>
-  <div class="col-12 sm:col-4">
-    <h4 class="mt-1">Possiblity of scoring at least one goal (%)</h4>
+<main id="externalContainer" class="grid flex-column">
+  <section class="col-12 grid relative" id="field" *ngIf="predictionsById">
+    <img
+      height="80"
+      width="90"
+      src="{{ (predictionsById[0]?.teams)!.home.logo }}"
+      alt="homeTeam"
+      id="home"
+    />
 
-    <p-chart
-      type="doughnut"
-      [data]="dataPercentageGoal"
-      [options]="optionsPercentageGoal"
-      height="30vh"
-    >
-    </p-chart>
-  </div>
-  <div class="col-12 sm:col-4">
-    <h4 class="mt-1">Potential ball possession (%)</h4>
+    <img
+      height="80"
+      width="90"
+      src="{{ (predictionsById[0]?.teams)!.away.logo }}"
+      alt=""
+      id="away"
+    />
 
-    <p-chart
-      type="doughnut"
-      [data]="dataPercentageBallPossession"
-      [options]="optionsPercentageBallPossession"
-      height="30vh"
+    <div class="campo">
+      <div class="corner">
+        <div class="corner1"></div>
+        <div class="corner2"></div>
+      </div>
+      <div class="semi1"></div>
+      <div class="semi2"></div>
+      <div class="divisoria"></div>
+      <div class="interior"></div>
+      <div class="penalty"></div>
+    </div>
+  </section>
+  <section id="suggests" class="col-12" *ngIf="predictionsById">
+    <p>The algorithm suggests</p>
+    <h1>{{ (predictionsById[0]?.predictions)!.advice }}</h1>
+    <img src="../../../assets/chart.svg" alt="" />
+  </section>
+  <!-- standings -->
+  <section id="standings" class="col-12" *ngIf="predictionsById && standings">
+    <p-panel
+      header="{{ predictionsById[0].league.name }} {{
+        predictionsById[0].league.season
+      }} Standings"
+      [toggleable]="true"
+      [collapsed]="true"
     >
-    </p-chart>
-  </div>
-</section>
-<section id="lastMatches">
-  <p class="mt-5">Last three head to head matches</p>
-  <div class="grid justify-content-center" *ngIf="predictionsById">
-    <div
-      class="card flex col-12 justify-content-center"
-      *ngFor="let match of predictionsById[0].h2h.slice(0, 3)"
-    >
-      <!-- <li>{{ match.teams.away.name }} {{ match.score.fulltime.away }}</li>
+      <div class="main-container">
+        <div class="table-container">
+          <div class="table-row heading">
+            <div class="row-item">Team</div>
+            <div class="row-item">Pt</div>
+            <div class="row-item">Gs</div>
+            <div class="row-item">Gc</div>
+            <div class="row-item">W</div>
+            <div class="row-item">D</div>
+            <div class="row-item">L</div>
+            <div class="row-item hidden md:flex">GD</div>
+          </div>
+          <div
+            class="table-row"
+            *ngFor="let standing of standings[0].league.standings[0]"
+          >
+            <div
+              class="row-item"
+              [ngStyle]="{
+                'background-color':
+                  homeTeam === (standing?.team)!.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : '' || awayTeam === (standing?.team)!.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : ''
+              }"
+            >
+              <img
+                width="30"
+                height="30"
+                src="{{ (standing?.team)!.logo }}"
+                alt="team"
+                class="me-1"
+              />
+            </div>
+            <div
+              class="row-item"
+              [ngStyle]="{
+                'background-color':
+                  homeTeam === (standing?.team)!.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : '' || awayTeam === (standing?.team)!.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : ''
+              }"
+            >
+              {{ standing?.points }}
+            </div>
+            <div
+              class="row-item"
+              [ngStyle]="{
+                'background-color':
+                  homeTeam === (standing?.team)!.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : '' || awayTeam === (standing?.team)!.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : '',
+                'font-size':
+                  homeTeam === (standing?.team)!.name
+                    ? '1.8rem'
+                    : '' || awayTeam === (standing?.team)!.name
+                    ? '1.4rem'
+                    : '',
+                color:
+                  homeTeam === (standing?.team)!.name
+                    ? 'green'
+                    : '' || awayTeam === (standing?.team)!.name
+                    ? 'green'
+                    : ''
+              }"
+            >
+              {{ (standing?.all)!.goals.for }}
+            </div>
+            <div
+              class="row-item"
+              [ngStyle]="{
+                'background-color':
+                  homeTeam === (standing?.team)!.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : '' || awayTeam === (standing?.team)!.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : '',
+                'font-size':
+                  homeTeam === (standing?.team)!.name
+                    ? '1.8rem'
+                    : '' || awayTeam === (standing?.team)!.name
+                    ? '1.4rem'
+                    : '',
+                color:
+                  homeTeam === (standing?.team)!.name
+                    ? 'red'
+                    : '' || awayTeam === (standing?.team)!.name
+                    ? 'red'
+                    : ''
+              }"
+            >
+              {{ (standing?.all)!.goals.against }}
+            </div>
+            <div
+              class="row-item"
+              [ngStyle]="{
+                'background-color':
+                  homeTeam === standing.team.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : '' || awayTeam === standing.team.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : ''
+              }"
+            >
+              {{ standing.all.win }}
+            </div>
+            <div
+              class="row-item"
+              [ngStyle]="{
+                'background-color':
+                  homeTeam === standing.team.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : '' || awayTeam === standing.team.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : ''
+              }"
+            >
+              {{ standing.all.draw }}
+            </div>
+            <div
+              class="row-item"
+              [ngStyle]="{
+                'background-color':
+                  homeTeam === standing.team.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : '' || awayTeam === standing.team.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : ''
+              }"
+            >
+              {{ standing.all.lose }}
+            </div>
+            <div
+              class="row-item hidden md:flex"
+              [ngStyle]="{
+                'background-color':
+                  homeTeam === standing.team.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : '' || awayTeam === standing.team.name
+                    ? 'rgba(60, 60, 60, 0.1)'
+                    : ''
+              }"
+            >
+              {{ standing.goalsDiff }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </p-panel>
+  </section>
+  <section id="stats" class="col-12 mt-3 grid">
+    <div class="col-12 sm:col-4">
+      <h4 class="mt-1">Possiblity of winning - losing - drawing (%)</h4>
+      <p-chart
+        type="doughnut"
+        [data]="dataWinLoseDraw"
+        [options]="optionsWinLoseDraw"
+        height="30vh"
+      >
+      </p-chart>
+    </div>
+    <div class="col-12 sm:col-4">
+      <h4 class="mt-1">Possiblity of scoring at least one goal (%)</h4>
+
+      <p-chart
+        type="doughnut"
+        [data]="dataPercentageGoal"
+        [options]="optionsPercentageGoal"
+        height="30vh"
+      >
+      </p-chart>
+    </div>
+    <div class="col-12 sm:col-4">
+      <h4 class="mt-1">Potential ball possession (%)</h4>
+
+      <p-chart
+        type="doughnut"
+        [data]="dataPercentageBallPossession"
+        [options]="optionsPercentageBallPossession"
+        height="30vh"
+      >
+      </p-chart>
+    </div>
+  </section>
+  <section class="col-12" id="lastMatches">
+    <p class="mt-5">Last three head to head matches</p>
+    <div class="grid justify-content-center" *ngIf="predictionsById">
+      <div
+        class="card flex col-12 sm:col-4 sm:mb-5 justify-content-center"
+        *ngFor="let match of predictionsById[0].h2h.slice(0, 3)"
+      >
+        <!-- <li>{{ match.teams.away.name }} {{ match.score.fulltime.away }}</li>
     <li>{{ match.teams.home.name }} {{ match.score.fulltime.home }}</li> -->
-      <p-card [style]="{ width: '10rem' }">
-        <p>{{ match.fixture.venue.city }},{{ match.fixture.venue.name }}</p>
-        <p class="mt-1">{{ match.fixture.date.slice(0, 10) }}</p>
-        <li>{{ match.teams.away.name }} {{ match.score.fulltime.away }}</li>
-        <li>{{ match.teams.home.name }} {{ match.score.fulltime.home }}</li>
-        <p
-          *ngIf="
-            (match.score.penalty.home + match.score.penalty.away <= 4 &&
-              match.score.penalty.home != null) ||
-            (match.score.penalty.home + match.score.penalty.away <= 4 &&
-              match.score.penalty.away != null)
-          "
-        >
-          Penalties in the game:{{
-            match.score.penalty.home + match.score.penalty.away
-          }}
-        </p>
-      </p-card>
+        <p-card>
+          <p>{{ match.fixture.venue.city }},{{ match.fixture.venue.name }}</p>
+          <p class="mt-1">{{ match.fixture.date.slice(0, 10) }}</p>
+          <li>{{ match.teams.away.name }} {{ match.score.fulltime.away }}</li>
+          <li>{{ match.teams.home.name }} {{ match.score.fulltime.home }}</li>
+          <p
+            *ngIf="
+              (match.score.penalty.home + match.score.penalty.away <= 4 &&
+                match.score.penalty.home != null) ||
+              (match.score.penalty.home + match.score.penalty.away <= 4 &&
+                match.score.penalty.away != null)
+            "
+          >
+            Penalties in the game:{{
+              match.score.penalty.home + match.score.penalty.away
+            }}
+          </p>
+        </p-card>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+  <article class="col-12" id="finalTip">
+    <p>
+      Now that you saw our prediction and you studied all data needed about the
+      two teams.
+    </p>
+    <p>The algorithm suggested</p>
+    <h3>
+      {{ (predictionsById[0]?.predictions)!.advice }}
+    </h3>
+    <p>You think it's right? Or you have another tip in mind?</p>
+  </article>
 
-<form>
-  <label for="userTip">Add your tip</label>
-  <input name="userTip" type="text" [(ngModel)]="userBet" />
-  <button (click)="addTip()">aggiungingiocata</button>
-</form>
-<img width="100" height="100" src="../../../assets/chart.svg" alt="" />
-<!--  -->
+  <form class="col-12 mt-5">
+    <div class="card flex justify-content-center">
+      <input
+        placeholder="Add your tip"
+        name="userTip"
+        type="text"
+        pInputText
+        [(ngModel)]="userBet"
+      />
+      <p-button
+        icon="pi pi-cart-plus"
+        styleClass="p-button-rounded p-button-success p-button-text p-button-raised"
+        (click)="addTip()"
+      ></p-button>
+    </div>
+  </form>
+  <article col-12 id="congratulations">
+    <p>
+      Congratulations!! You standed out of the crowd, used your brain and
+      created Your Tip!
+    </p>
+    <p>And now? Onto the next one!</p>
+    <p-button
+      icon="pi pi-arrow-right"
+      styleClass="p-button-rounded p-button-success p-button-outlined"
+      class="col-3 mt-2"
+      routerLink="/start"
+    ></p-button>
+  </article>
+</main>

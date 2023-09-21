@@ -7,6 +7,7 @@ import {
   AngularFireAuth,
   AngularFireAuthModule,
 } from '@angular/fire/compat/auth';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './header/navbar/navbar.component';
