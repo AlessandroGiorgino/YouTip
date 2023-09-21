@@ -65,8 +65,9 @@
             }
             #gotoStart {
               .p-button {
-                background-color: #f1f6f4 !important;
+                background-color: #0091ff !important;
                 // width: 3.5rem;
+                color: #f1f6f4;
                 height: 2.5rem;
                 border-radius: 30px;
                 margin-right: 0.2rem;
@@ -148,13 +149,22 @@
               margin-top: 1rem;
             }
             .p-button {
-              background-color: #f1f6f4 !important;
+              background-color: #0091ff !important;
               width: 5rem;
               height: 2.5rem;
               border-radius: 30px;
+              color: #f1f6f4;
             }
           }
         }
+      }
+    }
+  }
+  #goToStart {
+    p-button {
+      button {
+        background-color: #0091ff !important;
+        color: #f1f6f4;
       }
     }
   }

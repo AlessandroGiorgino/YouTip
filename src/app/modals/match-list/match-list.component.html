@@ -10,34 +10,23 @@
   </h4>
 </header>
 <main id="externalContainer" class="grid flex-column">
-  <section class="col-12 grid relative" id="field" *ngIf="predictionsById">
+  <section
+    class="col-12 grid relative justify-content-center"
+    id="field"
+    *ngIf="predictionsById"
+  >
     <img
-      height="80"
-      width="90"
       src="{{ (predictionsById[0]?.teams)!.home.logo }}"
       alt="homeTeam"
       id="home"
+      class="col-4 sm:col-2"
     />
 
     <img
-      height="80"
-      width="90"
       src="{{ (predictionsById[0]?.teams)!.away.logo }}"
       alt=""
-      id="away"
+      class="col-4 sm:col-2"
     />
-
-    <div class="campo">
-      <div class="corner">
-        <div class="corner1"></div>
-        <div class="corner2"></div>
-      </div>
-      <div class="semi1"></div>
-      <div class="semi2"></div>
-      <div class="divisoria"></div>
-      <div class="interior"></div>
-      <div class="penalty"></div>
-    </div>
   </section>
   <section id="suggests" class="col-12" *ngIf="predictionsById">
     <p>The algorithm suggests</p>
@@ -311,6 +300,7 @@
       Congratulations!! You standed out of the crowd, used your brain and
       created Your Tip!
     </p>
+    <img id="stoodOut" src="../../../assets/sofaFootball.svg" alt="" />
     <p>And now? Onto the next one!</p>
     <p-button
       icon="pi pi-arrow-right"

@@ -77,7 +77,7 @@ export class MatchListComponent {
               this.predictionsById[0].predictions.percent.draw.slice(0, 2),
               this.predictionsById[0].predictions.percent.away.slice(0, 2),
             ],
-            backgroundColor: ['green', '#9E9E9E', 'red'],
+            backgroundColor: ['#0091FF', '#CCCCCC', '#3F3D56'],
             borderColor: ['transparent'],
           },
         ],
@@ -106,7 +106,7 @@ export class MatchListComponent {
 
               this.predictionsById[0].comparison.goals.away?.slice(0, 2),
             ],
-            backgroundColor: ['green', 'red'],
+            backgroundColor: ['#0091FF', '#3F3D56'],
             borderColor: ['transparent'],
           },
         ],
@@ -141,7 +141,7 @@ export class MatchListComponent {
                 2
               ),
             ],
-            backgroundColor: ['green', 'red'],
+            backgroundColor: ['#0091FF', '#3F3D56'],
             borderColor: ['transparent'],
           },
         ],
