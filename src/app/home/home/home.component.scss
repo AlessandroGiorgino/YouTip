@@ -1,111 +1,265 @@
 @import "../../scss/partials";
+// :host ::ng-deep {
+//   #externalContainer {
+//     color: #f1f6f4 !important;
+//     font-family: graphik-semiBold;
+//     margin: 0;
+//     -webkit-animation: fade-in 1000ms ease-out both;
+//     animation: fade-in 1500ms ease-out both;
+
+//     h1 {
+//       font-size: 2.8rem;
+//       padding-left: 0.6rem;
+//     }
+//     h2 {
+//       font-size: 5rem;
+//       padding-left: 0.6rem;
+//     }
+//     #whyUs {
+//       article {
+//         p {
+//           padding-left: 0.5rem;
+//           font-size: 1.5rem;
+//           line-height: 2rem;
+//           span {
+//             font-style: italic;
+//           }
+//         }
+//       }
+//     }
+
+//     #instructions {
+//       margin: 0;
+//       div {
+//         p {
+//           padding-left: 1rem;
+//           padding-bottom: 0;
+//           font-size: 1.3rem;
+//           margin-bottom: 0;
+//         }
+//         .storyPhoto {
+//           padding-top: 0;
+//           width: 15rem;
+//           height: 15rem;
+//         }
+//       }
+//     }
+//   }
+//   .fade {
+//     -webkit-animation: fade-in 3000ms ease-out both;
+//     animation: fade-in 4500ms ease-out both;
+//   }
+//   @-webkit-keyframes fade-in {
+//     0% {
+//       opacity: 0;
+//     }
+//     100% {
+//       opacity: 1;
+//     }
+//   }
+//   @keyframes fade-in {
+//     0% {
+//       opacity: 0;
+//     }
+//     100% {
+//       opacity: 1;
+//     }
+//   }
+
+//   // @media screen and (min-width: 400px) {
+//   //   #externalContainer {
+//   //     color: #f1f6f4 !important;
+//   //     font-family: graphik-semiBold;
+//   //     padding-left: 1rem;
+//   //     margin: 0;
+//   //     -webkit-animation: fade-in 1000ms ease-out both;
+//   //     animation: fade-in 1500ms ease-out both;
+
+//   //     h1 {
+//   //       font-size: 2.8rem;
+//   //     }
+//   //     h2 {
+//   //       font-size: 5rem;
+//   //     }
+//   //   }
+//   //   article {
+//   //     p {
+//   //       font-size: 1.5rem;
+//   //       line-height: 2rem;
+//   //       span {
+//   //         font-style: italic;
+//   //       }
+//   //     }
+//   //     #howDoesItWork {
+//   //       background-color: $greenForBody;
+//   //     }
+//   //   }
+
+//   //   #kidPlayingFooball {
+//   //     width: 10rem;
+//   //     height: 15rem;
+//   //   }
+
+//   //   #instructions {
+//   //     margin: 0;
+//   //     h4 {
+//   //       padding-left: 1rem;
+//   //     }
+//   //   }
+//   // }
+
+// }
+
 :host ::ng-deep {
-  #externalContainer {
+  @media screen and (max-width: 830px) {
     color: #f1f6f4 !important;
     font-family: graphik-semiBold;
-    margin: 0;
-    -webkit-animation: fade-in 1000ms ease-out both;
-    animation: fade-in 1500ms ease-out both;
+    #external {
+      margin: auto;
+      width: 85%;
+      margin-top: 2rem;
+      #sx {
+        h1 {
+          font-size: 3rem;
+          margin-top: 0;
+          margin-bottom: 1rem;
+        }
+        h2 {
+          font-size: 5rem;
+          margin-top: 1rem;
+        }
+        div {
+          display: none;
+        }
 
-    h1 {
-      font-size: 2.8rem;
-      padding-left: 0.6rem;
-    }
-    h2 {
-      font-size: 5rem;
-      padding-left: 0.6rem;
-    }
-    #whyUs {
-      article {
-        p {
-          padding-left: 0.5rem;
-          font-size: 1.5rem;
-          line-height: 2rem;
-          span {
-            font-style: italic;
+        h5 {
+          font-size: 1.3rem;
+        }
+        h6 {
+          font-size: 1rem;
+        }
+      }
+      #dx {
+        margin-left: 1rem;
+        #kidPlaying {
+          width: 100%;
+        }
+        hr {
+          margin-top: 3rem;
+          border: 1px solid #f1f6f4;
+          width: 100%;
+          margin-left: 0;
+        }
+
+        h5 {
+        }
+        hr {
+        }
+        #whyUs {
+          h5 {
+            font-size: 1.2rem;
+          }
+          div {
+            margin-top: 1rem;
+            p {
+              margin-bottom: 0;
+            }
+            #toHideSm {
+              display: none;
+            }
+            hr {
+              margin-top: 1rem;
+            }
+            #gotoStart {
+              .p-button {
+                background-color: #f1f6f4 !important;
+                // width: 3.5rem;
+                height: 2.5rem;
+                border-radius: 30px;
+                margin-right: 0.2rem;
+              }
+              p {
+                width: 60%;
+              }
+            }
           }
         }
       }
     }
-
-    #instructions {
-      margin: 0;
-      div {
-        p {
-          padding-left: 1rem;
-          padding-bottom: 0;
-          font-size: 1.3rem;
+  }
+  @media screen and (min-width: 830px) {
+    color: #f1f6f4 !important;
+    font-family: graphik-semiBold;
+    #external {
+      margin: auto;
+      width: 85%;
+      margin-top: 2rem;
+      #sx {
+        h1 {
+          font-size: 7rem;
+          margin-top: 0;
           margin-bottom: 0;
         }
-        .storyPhoto {
-          padding-top: 0;
-          width: 15rem;
-          height: 15rem;
+        h2 {
+          font-size: 5rem;
+          margin-top: 0;
+        }
+        div {
+          .p-button {
+            color: #f1f6f4 !important;
+            width: 5rem;
+            height: 2.5rem;
+            border-radius: 30px;
+          }
+          p {
+            width: 10rem;
+          }
+        }
+
+        h5 {
+          font-size: 1.3rem;
+        }
+        h6 {
+          font-size: 1rem;
         }
       }
-    }
-  }
+      #dx {
+        margin-left: 1rem;
+        #kidPlaying {
+          width: 75%;
+        }
+        hr {
+          margin-top: 3rem;
+          border: 1px solid #f1f6f4;
+          width: 100%;
+          margin-left: 0;
+        }
 
-  // @media screen and (min-width: 400px) {
-  //   #externalContainer {
-  //     color: #f1f6f4 !important;
-  //     font-family: graphik-semiBold;
-  //     padding-left: 1rem;
-  //     margin: 0;
-  //     -webkit-animation: fade-in 1000ms ease-out both;
-  //     animation: fade-in 1500ms ease-out both;
-
-  //     h1 {
-  //       font-size: 2.8rem;
-  //     }
-  //     h2 {
-  //       font-size: 5rem;
-  //     }
-  //   }
-  //   article {
-  //     p {
-  //       font-size: 1.5rem;
-  //       line-height: 2rem;
-  //       span {
-  //         font-style: italic;
-  //       }
-  //     }
-  //     #howDoesItWork {
-  //       background-color: $greenForBody;
-  //     }
-  //   }
-
-  //   #kidPlayingFooball {
-  //     width: 10rem;
-  //     height: 15rem;
-  //   }
-
-  //   #instructions {
-  //     margin: 0;
-  //     h4 {
-  //       padding-left: 1rem;
-  //     }
-  //   }
-  // }
-
-  .fade {
-    -webkit-animation: fade-in 3000ms ease-out both;
-    animation: fade-in 4500ms ease-out both;
-  }
-  @-webkit-keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
-  }
-  @keyframes fade-in {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
+        h5 {
+        }
+        hr {
+        }
+        #whyUs {
+          h5 {
+            font-size: 1.2rem;
+          }
+          div {
+            margin-top: 1rem;
+            p {
+              margin-bottom: 0;
+            }
+            hr {
+              margin-top: 1rem;
+            }
+            .p-button {
+              background-color: #f1f6f4 !important;
+              width: 5rem;
+              height: 2.5rem;
+              border-radius: 30px;
+            }
+          }
+        }
+      }
     }
   }
 }

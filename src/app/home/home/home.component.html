@@ -1,4 +1,4 @@
-<main id="externalContainer">
+<!-- <main id="externalContainer">
   <div class="grid">
     <h1 class="col-12 mb-0 mt-5 md:text-center">YouTip</h1>
     <h2 class="col-12 mb-0 mt-5 mb-4 md:text-center">
@@ -86,5 +86,55 @@
     <div class="card flex justify-content-center mt-3">
       <p-button (click)="logOut()" label="Log out"></p-button>
     </div>
+  </section>
+</main> -->
+<main id="external" class="grid">
+  <section id="sx" class="col-12 sm:col-6 grid flex-column">
+    <h1>YouTip</h1>
+    <h2>Be your own tipster</h2>
+    <div class="col-12 grid align-items-center">
+      <p-button
+        icon="pi pi-play"
+        styleClass="p-button-rounded p-button-success p-button-outlined"
+        class="col-3"
+      ></p-button>
+      <p class="col-4">See how it works</p>
+    </div>
+    <div id="quote" class="col-12">
+      <h5>"Eat your betting money, but don't bet your eating money."</h5>
+      <h6>Play responsibly</h6>
+    </div>
+  </section>
+  <section
+    id="dx"
+    class="col-12 sm:col-6 grid flex-column justify-content-start"
+  >
+    <img id="kidPlaying" src="../../../assets/kidPlaying.svg" alt="" />
+    <hr />
+    <section id="whyUs" class="col-12 grid">
+      <h5 class="col-6">Why us</h5>
+
+      <div class="col-6 grid flex-column">
+        <p class="col-12">
+          Our goal is to give back to people their passion for football betting.
+          It is aìcommon nowadays to follow a tipster and blindly bet what
+          he/she says.
+        </p>
+        <p id="toHideSm" class="col-12">
+          You'll have the instruments to study each bet that our algorithm
+          suggests you and thenaccept/modify that suggestion
+        </p>
+        <hr />
+        <div id="gotoStart" class="grid justify-content-between">
+          <p-button
+            icon="pi pi-arrow-right"
+            styleClass="p-button-rounded p-button-success p-button-outlined"
+            class="col-3 mt-2"
+            routerLink="/start"
+          ></p-button>
+          <p class="col-4">Let's go!</p>
+        </div>
+      </div>
+    </section>
   </section>
 </main>
