@@ -284,11 +284,22 @@
   // qui stats
   #stats,
   #lastMatches {
+    margin-top: 0;
+    margin-bottom: 0;
     color: $whiteForText;
     font-family: graphik-semiBold;
     text-align: center;
     li {
       list-style-type: none;
+    }
+  }
+  #statsText {
+    margin-top: 2.5rem;
+    color: $whiteForText;
+    font-family: graphik-semiBold;
+    h4 {
+      margin-top: 3rem;
+      margin-bottom: 0;
     }
   }
   .p-icon {
