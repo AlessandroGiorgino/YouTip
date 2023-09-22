@@ -74,11 +74,13 @@ export class YourTipsComponent {
     //   });
     let list: [] | any = [];
     this.tips.forEach((tip, i) => {
-      list.push(` ${tip.match} --------------- ${tip.bet}
+      list.push(`
+        ${tip.match} ----- ${tip.bet}
       `);
     });
     //fare html
     // doc.html()
+    doc.html;
     doc.text(list, 10, 10);
     const pdf = doc.output('blob');
     FileSaver.saveAs(pdf, 'Your Tips');

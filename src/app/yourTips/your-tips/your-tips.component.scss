@@ -1,27 +1,65 @@
 @import "../../scss/partials";
 :host ::ng-deep {
-  #externalBetContainer {
-    margin: 2rem 0.5rem;
-    background-color: #f1f6f4 !important;
-    border-radius: 5px;
-    h4 {
-      font-family: graphik-semiBold;
-      text-transform: uppercase;
-    }
-    p {
-      font-family: graphik-regular;
-    }
-    button {
-      font-family: graphik-regular;
-      width: 1.7rem;
-      height: 1.7rem;
-    }
+  @media screen and (max-width: 530px) {
+    font-family: graphik-semiBold;
+    #externalBetContainer {
+      margin: 2rem 0.5rem;
+      background-color: #f1f6f4 !important;
+      border-radius: 5px;
+      max-width: 80%;
+      margin: auto;
+      h4 {
+        font-family: graphik-semiBold;
+        text-transform: uppercase;
+      }
+      p {
+        font-family: graphik-regular;
 
-    #rule {
-      margin-top: 2rem;
-      border: none;
-      height: 0.4px;
-      background-color: #3333;
+        font-size: 1.2rem;
+      }
+      button {
+        font-family: graphik-regular;
+        width: 2rem;
+        height: 2rem;
+      }
+
+      #rule {
+        margin-top: 2rem;
+        border: none;
+        height: 0.4px;
+        background-color: #3333;
+      }
+    }
+  }
+  @media screen and (min-width: 530px) {
+    font-family: graphik-semiBold;
+    #externalBetContainer {
+      margin: 2rem 0.5rem;
+      background-color: #f1f6f4 !important;
+      border-radius: 5px;
+      max-width: 50%;
+      margin: auto;
+      h4 {
+        font-family: graphik-semiBold;
+        text-transform: uppercase;
+      }
+      p {
+        font-family: graphik-regular;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+      button {
+        font-family: graphik-regular;
+        width: 2rem;
+        height: 2rem;
+      }
+
+      #rule {
+        margin-top: 2rem;
+        border: none;
+        height: 0.4px;
+        background-color: #3333;
+      }
     }
   }
 }

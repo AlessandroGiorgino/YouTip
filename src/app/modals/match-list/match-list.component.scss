@@ -133,9 +133,15 @@
     color: $whiteForText;
     font-family: graphik-semiBold;
     text-align: center;
+    font-size: 1.4rem;
     li {
       list-style-type: none;
     }
+  }
+  .p-card {
+    height: 150px;
+    width: 150px;
+    border-radius: 100px;
   }
   #statsText {
     margin-top: 2.5rem;

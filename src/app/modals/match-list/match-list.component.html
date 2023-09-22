@@ -201,19 +201,12 @@
       </div>
     </p-panel>
   </section>
-  <div id="statsText" class="grid align-items-end">
-    <h4 class="col-12 text-center sm:col-4 mt-1">
-      Possiblity of winning - losing - drawing (%)
-    </h4>
-    <h4 class="col-12 sm:col-4 text-center mt-1">
-      Possiblity of scoring at least one goal (%)
-    </h4>
-    <h4 class="col-12 sm:col-4 text-center mt-1">
-      Potential ball possession (%)
-    </h4>
-  </div>
+
   <section id="stats" class="col-12 mt-3 grid">
     <div class="col-12 sm:col-4">
+      <h4 class="text-center mt-1">
+        Possiblity of winning - losing - drawing (%)
+      </h4>
       <p-chart
         type="doughnut"
         [data]="dataWinLoseDraw"
@@ -222,7 +215,11 @@
       >
       </p-chart>
     </div>
+
     <div class="col-12 sm:col-4">
+      <h4 class="text-center mt-1">
+        Possiblity of scoring at least one goal (%)
+      </h4>
       <p-chart
         type="doughnut"
         [data]="dataPercentageGoal"
@@ -232,6 +229,8 @@
       </p-chart>
     </div>
     <div class="col-12 sm:col-4">
+      <h4 class="text-center mt-1">Potential ball possession (%)</h4>
+
       <p-chart
         type="doughnut"
         [data]="dataPercentageBallPossession"
@@ -242,7 +241,7 @@
     </div>
   </section>
   <section class="col-12" id="lastMatches">
-    <p class="mt-5">Last three head to head matches</p>
+    <p class="mt-5">Last head to head matches</p>
     <div class="grid justify-content-center" *ngIf="predictionsById">
       <div
         class="card flex col-12 sm:col-4 sm:mb-5 justify-content-center"
@@ -250,8 +249,7 @@
       >
         <!-- <li>{{ match.teams.away.name }} {{ match.score.fulltime.away }}</li>
     <li>{{ match.teams.home.name }} {{ match.score.fulltime.home }}</li> -->
-        <p-card>
-          <p>{{ match.fixture.venue.city }},{{ match.fixture.venue.name }}</p>
+        <p-card id="lastThree">
           <p class="mt-1">{{ match.fixture.date.slice(0, 10) }}</p>
           <li>{{ match.teams.away.name }} {{ match.score.fulltime.away }}</li>
           <li>{{ match.teams.home.name }} {{ match.score.fulltime.home }}</li>
@@ -314,3 +312,4 @@
     ></p-button>
   </article>
 </main>
+<app-footer></app-footer>

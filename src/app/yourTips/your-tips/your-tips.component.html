@@ -1,43 +1,52 @@
-<main id="externalBetContainer" class="mt-4">
+<main id="externalBetContainer" class="mt-4 mb-4">
   <section>
     <div class="grid card flex justify-content-center p-2 mt-2">
-      <div class="col-12 ml-3" *ngFor="let bet of tips; let i = index">
-        <h4 class="m-0">{{ bet.match }}</h4>
-        <div class="grid align-items-center">
-          <p class="col-3">Your Tip:</p>
-          <p class="col-6">{{ bet.bet }}</p>
-          <p-button
-            (click)="deleteData(bet.matchId)"
-            class="col-2 col-offset-1 align-items-end"
-            icon="pi pi-times"
-            styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"
-            >X</p-button
-          >
-          <!-- <input id type="text"> -->
-        </div>
+      <div class="col-12 ml-3 mx-3" *ngFor="let bet of tips; let i = index">
+        <p-button
+          (click)="deleteData(bet.matchId)"
+          class="col-12 align-items-end"
+          icon="pi pi-trash"
+          styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"
+        ></p-button>
 
-        <form>
-          <label for="{{ bet.matchId }}">Choose your new tip</label>
-          <input
-            placeholder="Add your tip"
-            name="{{ bet.matchId }}"
-            [(ngModel)]="newBet[i]"
-            type="text"
-            pInputText
-          />
-          <p-button
-            id="updateButton"
-            icon="pi pi-cart-plus"
-            (click)="updateData(bet.matchId, i)"
-            styleClass="p-button-rounded p-button-success p-button-text p-button-raised"
-            >Update</p-button
-          >
-        </form>
+        <div class="grid justify-content-between mx-2 align-items-center">
+          <h4 class="col-12">{{ bet.match }}</h4>
+
+          <p class="col-12">Your Tip: {{ bet.bet }}</p>
+
+          <form class="col-12 grid justify-content-between">
+            <input
+              placeholder="Your new tip"
+              name="{{ bet.matchId }}"
+              [(ngModel)]="newBet[i]"
+              type="text"
+              pInputText
+              style="width: 70%"
+              class="col-7"
+            />
+            <div>
+              <p-button
+                icon="pi pi-file-edit"
+                (click)="updateData(bet.matchId, i)"
+                styleClass="p-button-rounded p-button-success p-button-text p-button-raised"
+                class="col-1"
+              ></p-button>
+            </div>
+          </form>
+        </div>
         <hr id="rule" />
       </div>
     </div>
   </section>
+  <article class="grid align-items-center mx-3">
+    <p class="col-7">Here's Your Bets!</p>
+    <p-button
+      (click)="generatePDF()"
+      class="col-offset-1 col-3 align-items-end"
+      icon="pi pi-file-pdf"
+      styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"
+    ></p-button>
+  </article>
 </main>
-<button (click)="generatePDF()">Generate PDF</button>
 
 <!-- fa una card per ogni scommessa inserita -->
