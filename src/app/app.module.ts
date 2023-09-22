@@ -52,6 +52,7 @@ import { PanelModule } from 'primeng/panel';
 import { FastAverageColor } from 'fast-average-color';
 import { YourTipsComponent } from './yourTips/your-tips/your-tips.component';
 import { RegisterComponent } from './register-page/register/register.component';
+import { FooterComponent } from './footer/footer/footer.component';
 firebase.initializeApp(environmentD.firebase);
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ firebase.initializeApp(environmentD.firebase);
     LoginPageComponent,
     YourTipsComponent,
     RegisterComponent,
+    FooterComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environmentD.firebase),

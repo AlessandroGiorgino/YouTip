@@ -182,4 +182,14 @@ export class MatchListComponent {
     });
     alert('bet added');
   }
+
+  //scroll
+  scrollToElement($element: any): void {
+    console.log($element);
+    $element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: 'nearest',
+    });
+  }
 }

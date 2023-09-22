@@ -176,12 +176,13 @@
     font-family: graphik-semiBold;
     text-align: center;
     color: #f1f6f4 !important;
-    #stoodOut {
-      width: 90%;
-    }
+
     p {
       font-size: 1.4rem;
     }
+  }
+  #stoodOut {
+    width: 90%;
   }
 }
 @media screen and (min-width: 707px) {
@@ -203,7 +204,10 @@
       font-size: 3rem;
     }
     img {
-      width: 50%;
+      width: 35%;
     }
+  }
+  #stoodOut {
+    width: 35%;
   }
 }

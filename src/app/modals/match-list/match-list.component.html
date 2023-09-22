@@ -31,7 +31,11 @@
   <section id="suggests" class="col-12" *ngIf="predictionsById">
     <p>The algorithm suggests</p>
     <h1>{{ (predictionsById[0]?.predictions)!.advice }}</h1>
-    <img src="../../../assets/chart.svg" alt="" />
+    <img src="../../../assets/chart.svg" alt="chartGuy" class="mb-4" />
+    <br />
+    <a class="mt-3" (click)="scrollToElement(target)">
+      No need for help? Skip our data from here</a
+    >
   </section>
   <!-- standings -->
   <section id="standings" class="col-12" *ngIf="predictionsById && standings">
@@ -273,8 +277,8 @@
       two teams.
     </p>
     <p>The algorithm suggested</p>
-    <h3>
-      {{ (predictionsById[0]?.predictions)!.advice }}
+    <h3 *ngIf="predictionsById">
+      {{ predictionsById[0].predictions.advice }}
     </h3>
     <p>You think it's right? Or you have another tip in mind?</p>
   </article>
@@ -295,7 +299,7 @@
       ></p-button>
     </div>
   </form>
-  <article col-12 id="congratulations">
+  <article #target col-12 id="congratulations" class="mb-3">
     <p>
       Congratulations!! You standed out of the crowd, used your brain and
       created Your Tip!

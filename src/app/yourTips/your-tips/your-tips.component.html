@@ -18,8 +18,20 @@
 
         <form>
           <label for="{{ bet.matchId }}">Choose your new tip</label>
-          <input name="{{ bet.matchId }}" [(ngModel)]="newBet[i]" type="text" />
-          <button (click)="updateData(bet.matchId, i)">Update</button>
+          <input
+            placeholder="Add your tip"
+            name="{{ bet.matchId }}"
+            [(ngModel)]="newBet[i]"
+            type="text"
+            pInputText
+          />
+          <p-button
+            id="updateButton"
+            icon="pi pi-cart-plus"
+            (click)="updateData(bet.matchId, i)"
+            styleClass="p-button-rounded p-button-success p-button-text p-button-raised"
+            >Update</p-button
+          >
         </form>
         <hr id="rule" />
       </div>
