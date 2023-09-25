@@ -6,6 +6,7 @@ import { MatchListComponent } from './modals/match-list/match-list.component';
 import { LoginPageComponent } from './home/login-page/login-page.component';
 import { YourTipsComponent } from './yourTips/your-tips/your-tips.component';
 import { RegisterComponent } from './register-page/register/register.component';
+import { InstructionsComponent } from './instructions/instructions.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path: 'yourTips',
     component: YourTipsComponent,
+  },
+  {
+    path: 'instructions',
+    component: InstructionsComponent,
   },
 ];
 

@@ -53,6 +53,8 @@ import { FastAverageColor } from 'fast-average-color';
 import { YourTipsComponent } from './yourTips/your-tips/your-tips.component';
 import { RegisterComponent } from './register-page/register/register.component';
 import { FooterComponent } from './footer/footer/footer.component';
+import { InstructionsComponent } from './instructions/instructions.component';
+import { DividerModule } from 'primeng/divider';
 firebase.initializeApp(environmentD.firebase);
 @NgModule({
   declarations: [
@@ -65,6 +67,7 @@ firebase.initializeApp(environmentD.firebase);
     YourTipsComponent,
     RegisterComponent,
     FooterComponent,
+    InstructionsComponent,
   ],
   imports: [
     AngularFireModule.initializeApp(environmentD.firebase),
@@ -81,6 +84,7 @@ firebase.initializeApp(environmentD.firebase);
     InputTextModule,
     FormsModule,
     PanelModule,
+    DividerModule,
     ChartModule,
     provideFirebaseApp(() => initializeApp(environmentD.firebase)),
     provideAnalytics(() => getAnalytics()),
