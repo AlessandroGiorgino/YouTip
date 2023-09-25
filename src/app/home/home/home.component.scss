@@ -11,6 +11,17 @@
       margin: auto;
       width: 85%;
       margin-top: 2rem;
+      #toInstructions {
+        p-button {
+          button {
+            background-color: #0091ff;
+            color: #f1f6f4;
+            width: 4rem;
+            height: 2.5rem;
+            border-radius: 30px;
+          }
+        }
+      }
       #sx {
         h1 {
           font-size: 3rem;
@@ -20,9 +31,6 @@
         h2 {
           font-size: 5rem;
           margin-top: 1rem;
-        }
-        div {
-          display: none;
         }
 
         h5 {
@@ -91,6 +99,20 @@
       margin: auto;
       width: 85%;
       margin-top: 2rem;
+      #toInstructions {
+        p-button {
+          button {
+            background-color: #0091ff;
+            color: #f1f6f4;
+            width: 4rem;
+            height: 2.5rem;
+            border-radius: 30px;
+          }
+          p {
+            margin-left: 1.5rem;
+          }
+        }
+      }
       #sx {
         h1 {
           font-size: 7rem;

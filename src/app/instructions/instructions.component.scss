@@ -1,14 +1,99 @@
-#externalContainer {
-  margin: auto;
-  margin-bottom: 10rem;
-  color: #f1f6f4;
-  font-family: graphik-semiBold;
+:host::ng-deep {
+  @media screen and (max-width: 999px) {
+    #externalContainer {
+      h1 {
+        font-size: 4.5rem;
+      }
+      max-width: 95%;
+
+      margin: auto;
+
+      color: #f1f6f4;
+      font-family: graphik-semiBold;
+      #gotoStart {
+        margin-top: 2rem;
+        p {
+          font-size: 2rem;
+        }
+
+        p-button {
+          button {
+            background-color: #0091ff !important;
+            color: #f1f6f4;
+            height: 3rem !important;
+            width: 4rem !important;
+            border-radius: 50px !important;
+            span {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+    }
+    .divider {
+      border-color: #f1f6f4;
+    }
+    .articleHow {
+      padding-left: 1rem;
+    }
+  }
+  @media screen and (min-width: 1000px) {
+    #externalContainer {
+      margin: auto;
+      margin-bottom: 5rem;
+      h1 {
+        font-size: 4.5rem;
+      }
+      max-width: 95%;
+
+      color: #f1f6f4;
+      font-family: graphik-semiBold;
+      #gotoStart {
+        margin-top: 2rem;
+        p {
+          font-size: 2rem;
+        }
+
+        p-button {
+          button {
+            background-color: #0091ff !important;
+            color: #f1f6f4;
+            height: 3rem !important;
+            width: 5rem !important;
+            border-radius: 50px !important;
+            span {
+              font-size: 2rem;
+            }
+          }
+        }
+      }
+    }
+
+    .divider {
+      border-color: #f1f6f4;
+    }
+    .articleHow {
+      margin-left: 0.5rem;
+    }
+  }
 }
-.divider {
-  border-color: #f1f6f4;
+.fade {
+  -webkit-animation: fade-in 3000ms ease-out both;
+  animation: fade-in 3000ms ease-out both;
 }
-.articleHow {
-  * {
-    padding-left: 3rem;
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
