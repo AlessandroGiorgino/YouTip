@@ -3,6 +3,7 @@
   #externalContainer {
     // width: 90%;
     margin: auto;
+    margin-bottom: 3rem;
   }
   header {
     h3,
@@ -141,7 +142,7 @@
   .p-card {
     height: 150px;
     width: 150px;
-    border-radius: 100px;
+    border-radius: 5px;
   }
   #statsText {
     margin-top: 2.5rem;
@@ -172,7 +173,7 @@
   form {
     input {
       width: 20rem;
-      margin-right: 4rem;
+      margin-right: 3rem;
     }
     .pi-cart-plus {
       color: #f1f4f6;
@@ -182,6 +183,19 @@
     font-family: graphik-semiBold;
     text-align: center;
     color: #f1f6f4 !important;
+    p-button {
+      button {
+        background-color: #0091ff !important;
+        color: #f1f6f4;
+        height: 3rem !important;
+        width: 4rem !important;
+        border-radius: 50px !important;
+        margin-bottom: 3rem;
+        span {
+          font-size: 1rem;
+        }
+      }
+    }
 
     p {
       font-size: 1.4rem;

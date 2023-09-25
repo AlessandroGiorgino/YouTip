@@ -37,10 +37,19 @@
       <img id="loginImage" src="../../../assets/login.svg" alt="" />
     </div>
   </section>
-  <section>
-    <div *ngIf="isSignedIn" class="alreadyLogged">
-      <p>You are already logged in.</p>
-      <p-button routerLink="" label="Home"></p-button>
+  <section id="logged">
+    <div *ngIf="isSignedIn" class="grid alreadyLogged m-auto">
+      <p class="col-12 text-center text-white">You are already logged in.</p>
+      <p-button
+        class="col-12 text-center m-auto"
+        routerLink=""
+        label="Home"
+      ></p-button>
     </div>
+    <img
+      class="col-12 w-full sm:hidden mt-5"
+      src="../../../assets/login.svg"
+      alt="alreadyLogged"
+    />
   </section>
 </main>

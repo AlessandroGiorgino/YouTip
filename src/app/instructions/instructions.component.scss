@@ -10,6 +10,7 @@
 
       color: #f1f6f4;
       font-family: graphik-semiBold;
+
       #gotoStart {
         margin-top: 2rem;
         p {
@@ -24,7 +25,7 @@
             width: 4rem !important;
             border-radius: 50px !important;
             span {
-              font-size: 2rem;
+              font-size: 1rem;
             }
           }
         }
@@ -35,6 +36,13 @@
     }
     .articleHow {
       padding-left: 1rem;
+      div {
+        ul {
+          li {
+            font-size: 1.4rem;
+          }
+        }
+      }
     }
   }
   @media screen and (min-width: 1000px) {

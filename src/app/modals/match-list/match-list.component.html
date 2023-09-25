@@ -270,10 +270,6 @@
     </div>
   </section>
   <article class="col-12" id="finalTip">
-    <p>
-      Now that you saw our prediction and you studied all data needed about the
-      two teams.
-    </p>
     <p>The algorithm suggested</p>
     <h3 *ngIf="predictionsById">
       {{ predictionsById[0].predictions.advice }}
@@ -299,15 +295,14 @@
   </form>
   <article #target col-12 id="congratulations" class="mb-3">
     <p>
-      Congratulations!! You standed out of the crowd, used your brain and
-      created Your Tip!
+      Congratulations!! <br />
+      You created Your Tip!
     </p>
     <img id="stoodOut" src="../../../assets/sofaFootball.svg" alt="" />
     <p>And now? Onto the next one!</p>
     <p-button
       icon="pi pi-arrow-right"
-      styleClass="p-button-rounded p-button-success p-button-outlined"
-      class="col-3 mt-2"
+      class="col-12 text-center"
       routerLink="/start"
     ></p-button>
   </article>
