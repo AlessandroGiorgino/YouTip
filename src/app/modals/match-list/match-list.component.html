@@ -30,7 +30,7 @@
   </section>
   <section id="suggests" class="col-12" *ngIf="predictionsById">
     <p>The algorithm suggests</p>
-    <div id="algorithm">
+    <div id="algorithm" class="grid justify-content-center align-items-center">
       <h1>{{ (predictionsById[0]?.predictions)!.advice }}</h1>
     </div>
     <img src="../../../assets/chart.svg" alt="chartGuy" class="mb-4" />
@@ -272,7 +272,7 @@
     </div>
   </section>
   <article *ngIf="predictionsById" class="col-12" id="finalTip">
-    <p>
+    <p class="mb-5">
       Before deciding, consider reading latest news about the two teams for
       injuries, statements etc.
     </p>
@@ -312,7 +312,9 @@
         {{ predictionsById[0].teams.away.name }}</a
       >
     </div>
-    <p>You think our algorithm it's right? Or you have another tip in mind?</p>
+    <p class="mt-5">
+      You think our algorithm it's right? Or you have another tip in mind?
+    </p>
   </article>
 
   <form class="col-12 mt-5">

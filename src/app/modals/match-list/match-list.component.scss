@@ -36,11 +36,11 @@
       margin: auto;
       margin-bottom: 3rem;
       background-color: #f1f6f4;
-      width: 85%;
-      height: 6rem;
+      width: 55%;
       border-radius: 20px;
       h1 {
-        padding: 2rem;
+        padding: 0.5rem;
+        font-size: 1.4rem;
 
         color: #0091ff;
       }
@@ -216,6 +216,7 @@
   }
   #links {
     width: 25%;
+    text-decoration: none;
   }
 }
 @media screen and (min-width: 707px) {
@@ -240,11 +241,13 @@
       margin: auto;
       margin-bottom: 3rem;
       background-color: #f1f6f4;
-      width: 85%;
-      height: 6rem;
+      width: 30%;
+      border-radius: 20px;
       h1 {
-        font-size: 2rem;
-        padding: 2.3rem;
+        padding: 0.5rem;
+
+        font-size: 1.4rem;
+
         color: #0091ff;
       }
     }
@@ -257,5 +260,6 @@
   }
   #links {
     width: auto;
+    text-decoration: none;
   }
 }
