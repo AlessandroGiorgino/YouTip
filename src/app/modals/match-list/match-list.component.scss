@@ -3,7 +3,7 @@
   #externalContainer {
     // width: 90%;
     margin: auto;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
   }
   header {
     h3,
@@ -32,8 +32,18 @@
     p {
       font-size: 1.4rem;
     }
-    h1 {
-      font-size: 2rem;
+    #algorithm {
+      margin: auto;
+      margin-bottom: 3rem;
+      background-color: #f1f6f4;
+      width: 85%;
+      height: 6rem;
+      border-radius: 20px;
+      h1 {
+        padding: 2rem;
+
+        color: #0091ff;
+      }
     }
   }
 
@@ -204,8 +214,14 @@
   #stoodOut {
     width: 90%;
   }
+  #links {
+    width: 25%;
+  }
 }
 @media screen and (min-width: 707px) {
+  #externalContainer {
+    margin-bottom: 5rem;
+  }
   header {
     h3 {
       margin-top: 0.5rem;
@@ -220,8 +236,17 @@
     max-width: 80%;
   }
   #suggests {
-    h1 {
-      font-size: 3rem;
+    #algorithm {
+      margin: auto;
+      margin-bottom: 3rem;
+      background-color: #f1f6f4;
+      width: 85%;
+      height: 6rem;
+      h1 {
+        font-size: 2rem;
+        padding: 2.3rem;
+        color: #0091ff;
+      }
     }
     img {
       width: 35%;
@@ -229,5 +254,8 @@
   }
   #stoodOut {
     width: 35%;
+  }
+  #links {
+    width: auto;
   }
 }

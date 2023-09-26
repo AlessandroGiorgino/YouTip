@@ -30,7 +30,9 @@
   </section>
   <section id="suggests" class="col-12" *ngIf="predictionsById">
     <p>The algorithm suggests</p>
-    <h1>{{ (predictionsById[0]?.predictions)!.advice }}</h1>
+    <div id="algorithm">
+      <h1>{{ (predictionsById[0]?.predictions)!.advice }}</h1>
+    </div>
     <img src="../../../assets/chart.svg" alt="chartGuy" class="mb-4" />
     <br />
     <a class="mt-3 cursor-pointer" (click)="scrollToElement(target)">
@@ -269,12 +271,48 @@
       </div>
     </div>
   </section>
-  <article class="col-12" id="finalTip">
-    <p>The algorithm suggested</p>
-    <h3 *ngIf="predictionsById">
-      {{ predictionsById[0].predictions.advice }}
-    </h3>
-    <p>You think it's right? Or you have another tip in mind?</p>
+  <article *ngIf="predictionsById" class="col-12" id="finalTip">
+    <p>
+      Before deciding, consider reading latest news about the two teams for
+      injuries, statements etc.
+    </p>
+    <div *ngIf="predictionsById[0]" class="col-12 grid justify-content-between">
+      <a
+        id="links"
+        pButton
+        target="_blank"
+        class="col-12 sm:col-4 text-center m-auto"
+        href="https://www.google.com/search?q={{
+          predictionsById[0].teams.home.name
+        }}+football&sca_esv=568474450&rlz=1C5CHFA_enIT1025IT1040&tbs=sbd:1,qdr:d&tbm=nws&sxsrf=AM9HkKkuYJo-R1foqFzECJAbLsEDn0MeQw:1695724507512&source=lnt&sa=X&ved=2ahUKEwiEpKCHisiBAxXI9LsIHZu4AR0QpwV6BAgBEAg&biw=864&bih=885&dpr=2"
+        >{{ predictionsById[0].teams.home.name }} news</a
+      >
+      <a
+        id="links"
+        pButton
+        target="_blank"
+        class="col-12 sm:col-4 text-center m-auto"
+        href="https://www.google.com/search?q={{
+          predictionsById[0].teams.away.name
+        }}+football&sca_esv=568474450&rlz=1C5CHFA_enIT1025IT1040&tbs=sbd:1,qdr:d&tbm=nws&sxsrf=AM9HkKkuYJo-R1foqFzECJAbLsEDn0MeQw:1695724507512&source=lnt&sa=X&ved=2ahUKEwiEpKCHisiBAxXI9LsIHZu4AR0QpwV6BAgBEAg&biw=864&bih=885&dpr=2"
+        >{{ predictionsById[0].teams.away.name }} news</a
+      >
+
+      <a
+        id="links"
+        pButton
+        target="_blank"
+        class="col-12 sm:col-4 text-center m-auto"
+        href="https://www.google.com/search?q={{
+          predictionsById[0].teams.home.name
+        }} vs {{
+          predictionsById[0].teams.away.name
+        }}+&sca_esv=568474450&rlz=1C5CHFA_enIT1025IT1040&tbs=sbd:1,qdr:d&tbm=nws&sxsrf=AM9HkKkuYJo-R1foqFzECJAbLsEDn0MeQw:1695724507512&source=lnt&sa=X&ved=2ahUKEwiEpKCHisiBAxXI9LsIHZu4AR0QpwV6BAgBEAg&biw=864&bih=885&dpr=2"
+        >{{ predictionsById[0].teams.home.name }} vs
+        {{ predictionsById[0].teams.away.name }}</a
+      >
+    </div>
+    <p>You think our algorithm it's right? Or you have another tip in mind?</p>
   </article>
 
   <form class="col-12 mt-5">
@@ -293,7 +331,7 @@
       ></p-button>
     </div>
   </form>
-  <article #target col-12 id="congratulations" class="mb-3">
+  <article #target col-12 id="congratulations" class="mb-5">
     <p>
       Congratulations!! <br />
       You created Your Tip!
