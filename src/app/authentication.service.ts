@@ -21,7 +21,7 @@ export class AuthenticationService {
         }
       })
       .catch((err) => {
-        alert('hai sbagliato qualcosa');
+        alert('Something went wrong, try again.');
       });
   }
 
@@ -33,12 +33,18 @@ export class AuthenticationService {
         res.user?.sendEmailVerification();
         this.isLoggedIn = true;
         localStorage.setItem('user', JSON.stringify(res.user));
+      })
+      .catch((err) => {
+        alert(
+          'Something went wrong. Remember that the password must contain at least 6 characters'
+        );
       });
   }
   //log out
   logout(): void {
     this.firebaseAuth.signOut();
     localStorage.removeItem('user');
+    alert('User correctly logged out');
   }
 
   // https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=[API_KEY]
