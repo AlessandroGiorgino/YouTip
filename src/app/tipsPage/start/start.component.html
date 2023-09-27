@@ -188,7 +188,10 @@
 
       <!-- Modale serieB -->
 
-      <div class="card flex justify-content-center modalMatchesExternal">
+      <div
+        class="card flex justify-content-center modalMatchesExternal"
+        *ngIf="fixturesSerieA"
+      >
         <p-dialog
           [header]="'Serie A matches of this turn'"
           [(visible)]="visibleSerieA"
@@ -245,7 +248,10 @@
           </ul>
         </p-dialog>
       </div>
-      <div class="card flex justify-content-center modalMatchesExternal">
+      <div
+        *ngIf="fixturesSerieB"
+        class="card flex justify-content-center modalMatchesExternal"
+      >
         <p-dialog
           [header]="'Serie B matches of this turn'"
           [(visible)]="visibleSerieB"
@@ -305,7 +311,10 @@
         </p-dialog>
       </div>
       <!-- modal for premier league -->
-      <div class="card flex justify-content-center">
+      <div
+        *ngIf="fixturesPremierLeague"
+        class="card flex justify-content-center"
+      >
         <p-dialog
           [header]="'Premier League matches of this turn'"
           [(visible)]="visiblePremierLeague"
@@ -366,7 +375,10 @@
         </p-dialog>
       </div>
       <!-- modal for championship -->
-      <div class="card flex justify-content-center">
+      <div
+        *ngIf="fixturesChampionship"
+        class="card flex justify-content-center"
+      >
         <p-dialog
           [header]="'Championship matches of this turn'"
           [(visible)]="visibleChampionship"
@@ -427,7 +439,7 @@
         </p-dialog>
       </div>
       <!-- modal for La liga  -->
-      <div class="card flex justify-content-center">
+      <div *ngIf="fixturesLiga" class="card flex justify-content-center">
         <p-dialog
           [header]="'La Liga matches of this turn'"
           [(visible)]="visibleLiga"
@@ -484,7 +496,10 @@
         </p-dialog>
       </div>
       <!-- modal for segunda division -->
-      <div class="card flex justify-content-center">
+      <div
+        *ngIf="fixturesSegundaDivision"
+        class="card flex justify-content-center"
+      >
         <p-dialog
           [header]="'Segunda División matches of this turn'"
           [(visible)]="visibleSegundaDivision"
@@ -544,7 +559,7 @@
           </ul>
         </p-dialog>
       </div>
-      <div class="card flex justify-content-center">
+      <div *ngIf="fixturesBundesliga" class="card flex justify-content-center">
         <p-dialog
           [header]="'Bundesliga matches of this turn'"
           [(visible)]="visibleBundesliga"
@@ -601,7 +616,10 @@
           </ul>
         </p-dialog>
       </div>
-      <div class="card flex justify-content-center">
+      <div
+        *ngIf="fixturesFusballBundesliga"
+        class="card flex justify-content-center"
+      >
         <p-dialog
           [header]="'Bundesliga 2 matches of this turn'"
           [(visible)]="visibleFusballBundesliga"

@@ -44,7 +44,7 @@
   }
   @media screen and (min-width: 576px) {
     main {
-      margin-top: 4rem !important;
+      margin-top: 1.5rem !important;
       height: 90vh;
       #signUpContainer {
         h2 {
@@ -85,7 +85,7 @@
   }
   @media screen and (min-width: 783px) {
     main {
-      margin-top: 5rem !important;
+      margin-top: 2rem !important;
       margin-left: 3rem;
       height: 90vh;
       #signUpContainer {
@@ -121,10 +121,30 @@
       }
     }
     #signUpImage {
-      margin-top: 3.5rem;
-      margin-left: 3rem;
+      margin-top: 2rem;
+      margin-left: 2rem;
       width: 15rem;
       height: 15rem;
     }
+  }
+}
+.fade {
+  -webkit-animation: fade-in 1000ms ease-out both;
+  animation: fade-in 1000ms ease-out both;
+}
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }
