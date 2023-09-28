@@ -21,9 +21,6 @@ export class YourTipsComponent {
   //array di tutte le scommesse
   tips: AllUserBets[] = [];
   tipsId: any = [];
-  storedValue = JSON.parse(localStorage['user']);
-  storedValueId = this.storedValue[Object.keys(this.storedValue)[0]];
-  tipsInDb = ref(this.db, `user/${this.storedValueId}/`);
 
   // value toinput
   newBet: string[] = [];
@@ -31,7 +28,10 @@ export class YourTipsComponent {
   constructor(private db: Database, private route: Router) {}
   // richiamo all'id in localstorage
   getData() {
-    onValue(this.tipsInDb, (snapshot) => {
+    let storedValue = JSON.parse(localStorage['user']);
+    let storedValueId = storedValue[Object.keys(storedValue)[0]];
+    let tipsInDb = ref(this.db, `user/${storedValueId}/`);
+    onValue(tipsInDb, (snapshot) => {
       const data = snapshot.val();
       console.log(data);
       this.tipsId.push(data);
@@ -53,15 +53,19 @@ export class YourTipsComponent {
   }
   // update data
   updateData(matchId: number, i: number) {
+    let storedValue = JSON.parse(localStorage['user']);
+    let storedValueId = storedValue[Object.keys(storedValue)[0]];
     const betChosen: string = this.newBet[i];
-    update(ref(this.db, `user/${this.storedValueId}/` + matchId), {
+    update(ref(this.db, `user/${storedValueId}/` + matchId), {
       bet: betChosen,
     });
     alert('bet updated');
   }
 
   deleteData(matchId: number) {
-    remove(ref(this.db, `user/${this.storedValueId}/` + matchId));
+    let storedValue = JSON.parse(localStorage['user']);
+    let storedValueId = storedValue[Object.keys(storedValue)[0]];
+    remove(ref(this.db, `user/${storedValueId}/` + matchId));
   }
   //generate opdf
   generatePDF() {

@@ -1,9 +1,7 @@
 @import "../../scss/partials";
 :host ::ng-deep {
-  * {
-    font-family: graphik-semiBold;
-  }
   main {
+    font-family: graphik-semiBold;
     min-width: 320px;
   }
   @media screen and (min-width: 320px) {
