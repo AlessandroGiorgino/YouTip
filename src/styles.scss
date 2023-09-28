@@ -41,6 +41,26 @@
   src: url(./assets/fonts/graphik/GraphikSuper.otf);
 }
 
+.p-menuitem {
+  background-color: #027b3a !important
+  ;
+  box-shadow: none !important;
+  border-radius: 100px !important;
+  background: none !important;
+}
+.p-menuitem-link:hover {
+  background-color: #027b3a !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  transform: scale(1.05);
+}
+.p-menuitem-link:focus {
+  background-color: #027b3a !important;
+  border-radius: 2px !important;
+  box-shadow: none !important;
+  transform: scale(1.05);
+}
+
 body,
 html,
 app-root {
