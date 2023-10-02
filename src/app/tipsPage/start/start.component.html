@@ -195,7 +195,7 @@
 
       <div
         class="card flex justify-content-center modalMatchesExternal"
-        *ngIf="fixturesSerieA"
+        *ngIf="fixturesSerieA[0].teams.home.logo"
       >
         <p-dialog
           [header]="'Serie A matches of this turn'"
@@ -211,7 +211,12 @@
           <ul class="ulMatchList">
             <ng-container
               *ngFor="let serieAmatch of fixturesSerieA; let i = index"
-              ><div class="d-flex">
+              ><div
+                *ngIf="
+                  serieAmatch.teams.home.logo && serieAmatch.teams.away.logo
+                "
+                class="d-flex"
+              >
                 <div
                   class="grid justify-content-around align-items-center cursor-pointer"
                   routerLink="/start/{{ serieAmatch.fixture.id }}"
@@ -254,7 +259,7 @@
         </p-dialog>
       </div>
       <div
-        *ngIf="fixturesSerieB"
+        *ngIf="fixturesSerieB[0].teams.home.logo"
         class="card flex justify-content-center modalMatchesExternal"
       >
         <p-dialog
@@ -273,7 +278,12 @@
           <ul class="ulMatchList">
             <ng-container
               *ngFor="let serieBmatch of fixturesSerieB; let i = index"
-              ><div class="d-flex">
+              ><div
+                *ngIf="
+                  serieBmatch.teams.home.logo && serieBmatch.teams.away.logo
+                "
+                class="d-flex"
+              >
                 <div
                   routerLink="/start/{{ serieBmatch.fixture.id }}"
                   class="grid justify-content-center align-items-center cursor-pointer"
@@ -317,7 +327,7 @@
       </div>
       <!-- modal for premier league -->
       <div
-        *ngIf="fixturesPremierLeague"
+        *ngIf="fixturesPremierLeague[0].teams.home.logo"
         class="card flex justify-content-center"
       >
         <p-dialog
@@ -337,7 +347,13 @@
                 let premierLeagueMatch of fixturesPremierLeague;
                 let i = index
               "
-              ><div class="d-flex">
+              ><div
+                *ngIf="
+                  premierLeagueMatch.teams.home.logo &&
+                  premierLeagueMatch.teams.away.logo
+                "
+                class="d-flex"
+              >
                 <div
                   routerLink="/start/{{ premierLeagueMatch.fixture.id }}"
                   class="grid justify-content-center align-items-center cursor-pointer"
@@ -381,7 +397,7 @@
       </div>
       <!-- modal for championship -->
       <div
-        *ngIf="fixturesChampionship"
+        *ngIf="fixturesChampionship[0].teams.home.logo"
         class="card flex justify-content-center"
       >
         <p-dialog
@@ -401,7 +417,13 @@
                 let ChampionshipMatch of fixturesChampionship;
                 let i = index
               "
-              ><div class="d-flex">
+              ><div
+                *ngIf="
+                  ChampionshipMatch.teams.home.logo &&
+                  ChampionshipMatch.teams.away.logo
+                "
+                class="d-flex"
+              >
                 <div
                   routerLink="/start/{{ ChampionshipMatch.fixture.id }}"
                   class="grid justify-content-center align-items-center cursor-pointer"
@@ -444,7 +466,10 @@
         </p-dialog>
       </div>
       <!-- modal for La liga  -->
-      <div *ngIf="fixturesLiga" class="card flex justify-content-center">
+      <div
+        *ngIf="fixturesLiga[0].teams.home.logo"
+        class="card flex justify-content-center"
+      >
         <p-dialog
           [header]="'La Liga matches of this turn'"
           [(visible)]="visibleLiga"
@@ -458,7 +483,10 @@
         >
           <ul class="ulMatchList">
             <ng-container *ngFor="let ligaMatch of fixturesLiga; let i = index">
-              <div class="d-flex">
+              <div
+                *ngIf="ligaMatch.teams.home.logo && ligaMatch.teams.away.logo"
+                class="d-flex"
+              >
                 <div
                   routerLink="/start/{{ ligaMatch.fixture.id }}"
                   class="grid justify-content-center align-items-center cursor-pointer"
@@ -502,7 +530,7 @@
       </div>
       <!-- modal for segunda division -->
       <div
-        *ngIf="fixturesSegundaDivision"
+        *ngIf="fixturesSegundaDivision[0].teams.home.logo"
         class="card flex justify-content-center"
       >
         <p-dialog
@@ -522,7 +550,13 @@
                 let segundaDivisionMatch of fixturesSegundaDivision;
                 let i = index
               "
-              ><div class="d-flex">
+              ><div
+                *ngIf="
+                  segundaDivisionMatch.teams.home.logo &&
+                  segundaDivisionMatch.teams.away.logo
+                "
+                class="d-flex"
+              >
                 <div
                   routerLink="/start/{{ segundaDivisionMatch.fixture.id }}"
                   class="grid justify-content-center align-items-center cursor-pointer"
@@ -564,7 +598,10 @@
           </ul>
         </p-dialog>
       </div>
-      <div *ngIf="fixturesBundesliga" class="card flex justify-content-center">
+      <div
+        *ngIf="fixturesBundesliga[0].teams.home.logo"
+        class="card flex justify-content-center"
+      >
         <p-dialog
           [header]="'Bundesliga matches of this turn'"
           [(visible)]="visibleBundesliga"
@@ -579,7 +616,13 @@
           <ul class="ulMatchList">
             <ng-container
               *ngFor="let bundesligaMatch of fixturesBundesliga; let i = index"
-              ><div class="d-flex">
+              ><div
+                *ngIf="
+                  bundesligaMatch.teams.home.logo &&
+                  bundesligaMatch.teams.away.logo
+                "
+                class="d-flex"
+              >
                 <div
                   routerLink="/start/{{ bundesligaMatch.fixture.id }}"
                   class="grid justify-content-center align-items-center cursor-pointer"
@@ -622,7 +665,7 @@
         </p-dialog>
       </div>
       <div
-        *ngIf="fixturesFusballBundesliga"
+        *ngIf="fixturesFusballBundesliga[0].teams.home.logo"
         class="card flex justify-content-center"
       >
         <p-dialog
@@ -642,7 +685,13 @@
                 let fusballBundesligamatch of fixturesFusballBundesliga;
                 let i = index
               "
-              ><div class="d-flex">
+              ><div
+                *ngIf="
+                  fusballBundesligamatch.teams.home.logo &&
+                  fusballBundesligamatch.teams.away.logo
+                "
+                class="d-flex"
+              >
                 <div
                   routerLink="/start/{{ fusballBundesligamatch.fixture.id }}"
                   class="grid justify-content-center align-items-center cursor-pointer"
