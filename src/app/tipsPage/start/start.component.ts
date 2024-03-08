@@ -140,17 +140,20 @@ export class StartComponent {
     ) {
       this.route.navigate(['login']);
     } else {
-      this.getCurrentRoundChampionsLeague();
-      this.getCurrentRoundEuropaLeague();
-      this.getCurrentRoundSerieA();
-      this.getCurrentRoundSerieB();
-      this.getCurrentRoundPremierLeague();
-      this.getCurrentRoundChampionship();
-      this.getCurrentRoundLiga();
-      this.getCurrentRoundSegundaDivision();
-      this.getCurrentRoundBundesliga();
-      this.getCurrentRoundFusballBundesliga();
+      return;
     }
+  }
+  ngAfterContentInit() {
+    this.getCurrentRoundChampionsLeague();
+    this.getCurrentRoundEuropaLeague();
+    this.getCurrentRoundSerieA();
+    this.getCurrentRoundSerieB();
+    this.getCurrentRoundPremierLeague();
+    this.getCurrentRoundChampionship();
+    this.getCurrentRoundLiga();
+    this.getCurrentRoundSegundaDivision();
+    this.getCurrentRoundBundesliga();
+    this.getCurrentRoundFusballBundesliga();
   }
 
   //unico per tutti
