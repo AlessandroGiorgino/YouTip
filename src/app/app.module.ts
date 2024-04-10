@@ -55,6 +55,7 @@ import { RegisterComponent } from './register-page/register/register.component';
 import { FooterComponent } from './footer/footer/footer.component';
 import { InstructionsComponent } from './instructions/instructions.component';
 import { DividerModule } from 'primeng/divider';
+import { ImgFallbackDirectiveDirective } from './img-fallback-directive.directive';
 firebase.initializeApp(environmentD.firebase);
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ firebase.initializeApp(environmentD.firebase);
     RegisterComponent,
     FooterComponent,
     InstructionsComponent,
+    ImgFallbackDirectiveDirective,
   ],
   imports: [
     AngularFireModule.initializeApp(environmentD.firebase),

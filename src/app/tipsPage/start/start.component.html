@@ -223,6 +223,10 @@
                 >
                   <img
                     [src]="serieAmatch.teams.home.logo"
+                    appImgFallbackDirective
+                    [appImgFallback]="
+                      getTeamLogoUrl(serieAmatch.teams.home.name)
+                    "
                     alt="SerieAHomeTeamLogo"
                     class="col-2"
                   />
@@ -237,6 +241,10 @@
                   <img
                     [src]="serieAmatch.teams.away.logo"
                     alt="SerieAAwayTeamLogo"
+                    appImgFallbackDirective
+                    [appImgFallback]="
+                      getTeamLogoUrl(serieAmatch.teams.away.name)
+                    "
                     class="col-2"
                   />
                 </div>
@@ -291,6 +299,10 @@
                   <img
                     [src]="serieBmatch.teams.home.logo"
                     alt="SerieBHomeTeamLogo"
+                    appImgFallbackDirective
+                    [appImgFallback]="
+                      getTeamLogoUrlSerieB(serieBmatch.teams.home.name)
+                    "
                     class="col-2"
                   />
                   <span
@@ -304,6 +316,10 @@
                   <img
                     [src]="serieBmatch.teams.away.logo"
                     alt="SerieBAwayTeamLogo"
+                    appImgFallbackDirective
+                    [appImgFallback]="
+                      getTeamLogoUrlSerieB(serieBmatch.teams.away.name)
+                    "
                     class="col-2"
                   />
                 </div>

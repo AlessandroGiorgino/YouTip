@@ -26,33 +26,72 @@ export class StartComponent {
   fixturesSegundaDivision: Response[] = [];
   fixturesBundesliga: Response[] = [];
   fixturesFusballBundesliga: Response[] = [];
+  //legenda per me, indice 0 serie a, indice 1 serieb
+  logosListSerieA: any = {
+    atalanta: '../../../assets/logos/serieA/atalanta.png',
+    bologna: '../../../assets/logos/serieA/bologna.png',
+    cagliari: '../../../assets/logos/serieA/cagliari.png',
+    empoli: '../../../assets/logos/serieA/empoli.png',
+    fiorentina: '../../../assets/logos/serieA/fiorentina.png',
+    frosinone: '../../../assets/logos/serieA/frosinone.png',
+    genoa: '../../../assets/logos/serieA/genoa.png',
+    inter: '../../../assets/logos/serieA/inter.png',
+    juventus: '../../../assets/logos/serieA/juventus.png',
+    lazio: '../../../assets/logos/serieA/lazio.png',
+    lecce: '../../../assets/logos/serieA/lecce.png',
+    milan: '../../../assets/logos/serieA/milan.png',
+    monza: '../../../assets/logos/serieA/monza.png',
+    napoli: '../../../assets/logos/serieA/napoli.png',
+    roma: '../../../assets/logos/serieA/roma.png',
+    salernitana: '../../../assets/logos/serieA/salernitana.png',
+    sassuolo: '../../../assets/logos/serieA/sassuolo.png',
+    torino: '../../../assets/logos/serieA/torino.png',
+    udinese: '../../../assets/logos/serieA/udinese.png',
+    verona: '../../../assets/logos/serieA/verona.png',
+  };
+  logosListSerieB: any = {
+    ascoli: '../../../assets/logos/serieB/ascoli.png',
+    bari: '../../../assets/logos/serieB/bari.png',
+    brescia: '../../../assets/logos/serieB/brescia.png',
+    catanzaro: '../../../assets/logos/serieB/catanzaro.png',
+    cittadella: '../../../assets/logos/serieB/cittadella.png',
+    como: '../../../assets/logos/serieB/como.png',
+    cosenza: '../../../assets/logos/serieB/cosenza.png',
+    cremonese: '../../../assets/logos/serieB/cremonese.png',
+    feralpisalo: '../../../assets/logos/serieB/feralpisalo.png',
+    lecco: '../../../assets/logos/serieB/lecco.png',
+    modena: '../../../assets/logos/serieB/modena.png',
+    palermo: '../../../assets/logos/serieB/palermo.png',
+    parma: '../../../assets/logos/serieB/parma.png',
+    pisa: '../../../assets/logos/serieB/pisa.png',
+    reggiana: '../../../assets/logos/serieB/reggiana.png',
+    sampdoria: '../../../assets/logos/serieB/sampdoria.png',
+    spezia: '../../../assets/logos/serieB/spezia.png',
+    sudtirol: '../../../assets/logos/serieB/sudtirol.png',
+    ternana: '../../../assets/logos/serieB/ternana.png',
+    venezia: '../../../assets/logos/serieB/venezia.png',
+  };
 
   constructor(
     private srv: FetchesService,
     private route: Router,
     private auth: AuthenticationService
   ) {}
+
+  getTeamLogoUrl(teamName: string): string | undefined {
+    if (teamName === 'AC Milan') {
+      return this.logosListSerieA['milan'];
+    } else {
+      const lowercaseTeamName = teamName.toLowerCase();
+      return this.logosListSerieA[lowercaseTeamName];
+    }
+  }
+  getTeamLogoUrlSerieB(teamName: string): string | undefined {
+    const lowercaseTeamName = teamName.toLowerCase();
+    return this.logosListSerieB[lowercaseTeamName];
+  }
   //check se è loggato e autologut
 
-  getCurrentRoundChampionsLeague(): void {
-    this.srv.getCurrentRoundChampionsLeague().subscribe((res) => {
-      this.currentRound = res.response[0];
-      this.srv.currentRoundRes = this.currentRound;
-      //qui la get serieA
-      this.srv.getFixturesChampionsLeague().subscribe((res) => {
-        this.fixturesChampionsLeague = res.response;
-      });
-    });
-  }
-  getCurrentRoundEuropaLeague(): void {
-    this.srv.getCurrentRoundEuropaLeague().subscribe((res) => {
-      this.currentRound = res.response[0];
-      this.srv.currentRoundRes = this.currentRound;
-      this.srv.getFixturesEuropaLeague().subscribe((res) => {
-        this.fixturesEuropaLeague = res.response;
-      });
-    });
-  }
   getCurrentRoundSerieA(): void {
     this.srv.getCurrentRoundSerieA().subscribe((res) => {
       this.currentRound = res.response[0];
@@ -144,8 +183,6 @@ export class StartComponent {
     }
   }
   ngAfterContentInit() {
-    this.getCurrentRoundChampionsLeague();
-    this.getCurrentRoundEuropaLeague();
     this.getCurrentRoundSerieA();
     this.getCurrentRoundSerieB();
     this.getCurrentRoundPremierLeague();
