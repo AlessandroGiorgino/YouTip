@@ -10,42 +10,6 @@
     <section class="col-12 grid">
       <!-- div con serie a e serie b -->
 
-      <!-- CHAMPIONS -->
-      <div
-        *ngIf="fixturesChampionsLeague.length > 0"
-        class="card flex justify-content-around cursor-pointer col-6 sm:col-3"
-        id="flagCard"
-      >
-        <p-card class="p-card-content">
-          <ng-template pTemplate="content">
-            <img
-              id="flag"
-              (click)="showDialogChampionsLeague()"
-              icon="pi pi-external-link"
-              label="Show"
-              alt="Card"
-              src="https://media.api-sports.io/football/leagues/2.png"
-            />
-          </ng-template>
-        </p-card>
-      </div>
-      <!-- EUROPA LEAGUE-->
-      <div
-        *ngIf="fixturesEuropaLeague.length > 0"
-        class="card flex justify-content-around cursor-pointer col-6 sm:col-3"
-        id="flagCard"
-      >
-        <p-card class="p-card-content">
-          <ng-template pTemplate="content">
-            <img
-              id="flag"
-              alt="Card"
-              src="https://media.api-sports.io/football/leagues/3.png"
-              (click)="showDialogEuropaLeague()"
-            />
-          </ng-template>
-        </p-card>
-      </div>
       <!-- serie a -->
       <div
         *ngIf="fixturesSerieA.length > 0"
@@ -59,6 +23,8 @@
               (click)="showDialogSerieA()"
               icon="pi pi-external-link"
               label="Show"
+              appImgFallbackDirective
+              [appImgFallback]="logosListSerieA.logoSerieA"
               alt="Card"
               src="https://media.api-sports.io/football/leagues/135.png"
             />
@@ -76,6 +42,8 @@
             <img
               id="flag"
               alt="Card"
+              appImgFallbackDirective
+              [appImgFallback]="logosListSerieB.logoSerieB"
               src="https://media.api-sports.io/football/leagues/136.png"
               (click)="showDialogSerieB()"
             />
@@ -96,6 +64,8 @@
             <img
               id="flag"
               alt="Card"
+              appImgFallbackDirective
+              [appImgFallback]="logosListPremierLeague.logoPremierLeague"
               src="https://media.api-sports.io/football/leagues/39.png"
               (click)="showDialogPremierLeague()"
             />
@@ -377,6 +347,12 @@
                   <img
                     [src]="premierLeagueMatch.teams.home.logo"
                     alt="PremierLeagueHomeTeamLogo"
+                    appImgFallbackDirective
+                    [appImgFallback]="
+                      getTeamLogoUrlPremierLeague(
+                        premierLeagueMatch.teams.home.name
+                      )
+                    "
                     class="col-2"
                   />
                   <span
@@ -390,6 +366,12 @@
                   <img
                     [src]="premierLeagueMatch.teams.away.logo"
                     alt="PremierLeagueAwayTeamLogo"
+                    appImgFallbackDirective
+                    [appImgFallback]="
+                      getTeamLogoUrlPremierLeague(
+                        premierLeagueMatch.teams.away.name
+                      )
+                    "
                     class="col-2"
                   />
                 </div>

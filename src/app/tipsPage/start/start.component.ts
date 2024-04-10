@@ -28,6 +28,7 @@ export class StartComponent {
   fixturesFusballBundesliga: Response[] = [];
   //legenda per me, indice 0 serie a, indice 1 serieb
   logosListSerieA: any = {
+    logoSerieA: 'https://media.api-sports.io/football/leagues/135.png',
     atalanta: '../../../assets/logos/serieA/atalanta.png',
     bologna: '../../../assets/logos/serieA/bologna.png',
     cagliari: '../../../assets/logos/serieA/cagliari.png',
@@ -50,6 +51,7 @@ export class StartComponent {
     verona: '../../../assets/logos/serieA/verona.png',
   };
   logosListSerieB: any = {
+    logoSerieB: 'https://media.api-sports.io/football/leagues/136.png',
     ascoli: '../../../assets/logos/serieB/ascoli.png',
     bari: '../../../assets/logos/serieB/bari.png',
     brescia: '../../../assets/logos/serieB/brescia.png',
@@ -71,6 +73,31 @@ export class StartComponent {
     ternana: '../../../assets/logos/serieB/ternana.png',
     venezia: '../../../assets/logos/serieB/venezia.png',
   };
+  logosListPremierLeague: any = {
+    logoPremierLeague: 'https://media.api-sports.io/football/leagues/39.png',
+    arsenal: '../../../assets/logos/premierLeague/arsenal.png',
+    aston_villa: '../../../assets/logos/premierLeague/aston villa.png',
+    bournemouth: '../../../assets/logos/premierLeague/bournemouth.png',
+    brighton: '../../../assets/logos/premierLeague/brighton.png',
+    brentford: '../../../assets/logos/premierLeague/brentford.png',
+    burnley: '../../../assets/logos/premierLeague/burnley.png',
+    chelsea: '../../../assets/logos/premierLeague/chelsea.png',
+    crystal_palace: '../../../assets/logos/premierLeague/crystal palace.png',
+    everton: '../../../assets/logos/premierLeague/everton.png',
+    fulham: '../../../assets/logos/premierLeague/fulham.png',
+    liverpool: '../../../assets/logos/premierLeague/liverpool.png',
+    luton: '../../../assets/logos/premierLeague/luton.png',
+    manchester_city: '../../../assets/logos/premierLeague/manchester city.png',
+    manchester_united:
+      '../../../assets/logos/premierLeague/manchester united.png',
+    newcastle: '../../../assets/logos/premierLeague/newcastle.png',
+    nottingham_forest:
+      '../../../assets/logos/premierLeague/nottingham forest.png',
+    sheffield: '../../../assets/logos/premierLeague/sheffield.png',
+    tottenham: '../../../assets/logos/premierLeague/tottenham.png',
+    west_ham: '../../../assets/logos/premierLeague/west ham united.png',
+    wolves: '../../../assets/logos/premierLeague/wolverhampton.png',
+  };
 
   constructor(
     private srv: FetchesService,
@@ -81,9 +108,31 @@ export class StartComponent {
   getTeamLogoUrl(teamName: string): string | undefined {
     if (teamName === 'AC Milan') {
       return this.logosListSerieA['milan'];
+    } else if (teamName === 'AS Roma') {
+      return this.logosListSerieA['roma'];
     } else {
       const lowercaseTeamName = teamName.toLowerCase();
       return this.logosListSerieA[lowercaseTeamName];
+    }
+  }
+  getTeamLogoUrlPremierLeague(teamName: string): string | undefined {
+    if (teamName === 'Aston Villa') {
+      return this.logosListPremierLeague['aston_villa'];
+    } else if (teamName === 'Crystal Palace') {
+      return this.logosListPremierLeague['crystal_palace'];
+    } else if (teamName === 'Manchester City') {
+      return this.logosListPremierLeague['manchester_city'];
+    } else if (teamName === 'Manchester United') {
+      return this.logosListPremierLeague['manchester_united'];
+    } else if (teamName === 'Nottingham Forest') {
+      return this.logosListPremierLeague['nottingham_forest'];
+    } else if (teamName === 'Sheffield Utd') {
+      return this.logosListPremierLeague['sheffield'];
+    } else if (teamName === 'West Ham') {
+      return this.logosListPremierLeague['west_ham'];
+    } else {
+      const lowercaseTeamName = teamName.toLowerCase();
+      return this.logosListPremierLeague[lowercaseTeamName];
     }
   }
   getTeamLogoUrlSerieB(teamName: string): string | undefined {
