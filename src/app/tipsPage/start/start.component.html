@@ -24,7 +24,7 @@
               icon="pi pi-external-link"
               label="Show"
               appImgFallbackDirective
-              [appImgFallback]="logosListSerieA.logoSerieA"
+              [appImgFallback]="logoSerieA"
               alt="Card"
               src="https://media.api-sports.io/football/leagues/135.png"
             />
@@ -43,7 +43,7 @@
               id="flag"
               alt="Card"
               appImgFallbackDirective
-              [appImgFallback]="logosListSerieB.logoSerieB"
+              [appImgFallback]="logoSerieB"
               src="https://media.api-sports.io/football/leagues/136.png"
               (click)="showDialogSerieB()"
             />
@@ -65,7 +65,7 @@
               id="flag"
               alt="Card"
               appImgFallbackDirective
-              [appImgFallback]="logosListPremierLeague.logoPremierLeague"
+              [appImgFallback]="logoPremierLeague"
               src="https://media.api-sports.io/football/leagues/39.png"
               (click)="showDialogPremierLeague()"
             />
@@ -195,7 +195,7 @@
                     [src]="serieAmatch.teams.home.logo"
                     appImgFallbackDirective
                     [appImgFallback]="
-                      getTeamLogoUrl(serieAmatch.teams.home.name)
+                      getTeamLogoUrlSerieA(serieAmatch.teams.home.name)
                     "
                     alt="SerieAHomeTeamLogo"
                     class="col-2"
@@ -213,7 +213,7 @@
                     alt="SerieAAwayTeamLogo"
                     appImgFallbackDirective
                     [appImgFallback]="
-                      getTeamLogoUrl(serieAmatch.teams.away.name)
+                      getTeamLogoUrlSerieA(serieAmatch.teams.away.name)
                     "
                     class="col-2"
                   />
@@ -429,6 +429,12 @@
                   <img
                     [src]="ChampionshipMatch.teams.home.logo"
                     alt="ChampionshipHomeTeamLogo"
+                    appImgFallbackDirective
+                    [appImgFallback]="
+                      getTeamLogoUrlChampionship(
+                        ChampionshipMatch.teams.home.name
+                      )
+                    "
                     class="col-2"
                   />
                   <span
@@ -442,6 +448,12 @@
                   <img
                     [src]="ChampionshipMatch.teams.away.logo"
                     alt="ChampionshipAwayTeamLogo"
+                    appImgFallbackDirective
+                    [appImgFallback]="
+                      getTeamLogoUrlChampionship(
+                        ChampionshipMatch.teams.away.name
+                      )
+                    "
                     class="col-2"
                   />
                 </div>

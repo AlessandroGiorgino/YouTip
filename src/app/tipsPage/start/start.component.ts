@@ -7,6 +7,7 @@ import { CurrentRoundResponse } from 'src/app/interfaces/currentRoundResponse';
 import { LoginPageComponent } from 'src/app/home/login-page/login-page.component';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication.service';
+import * as allLogosFile from '../../allLogosList';
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
@@ -26,118 +27,66 @@ export class StartComponent {
   fixturesSegundaDivision: Response[] = [];
   fixturesBundesliga: Response[] = [];
   fixturesFusballBundesliga: Response[] = [];
-  //legenda per me, indice 0 serie a, indice 1 serieb
-  logosListSerieA: any = {
-    logoSerieA: 'https://media.api-sports.io/football/leagues/135.png',
-    atalanta: '../../../assets/logos/serieA/atalanta.png',
-    bologna: '../../../assets/logos/serieA/bologna.png',
-    cagliari: '../../../assets/logos/serieA/cagliari.png',
-    empoli: '../../../assets/logos/serieA/empoli.png',
-    fiorentina: '../../../assets/logos/serieA/fiorentina.png',
-    frosinone: '../../../assets/logos/serieA/frosinone.png',
-    genoa: '../../../assets/logos/serieA/genoa.png',
-    inter: '../../../assets/logos/serieA/inter.png',
-    juventus: '../../../assets/logos/serieA/juventus.png',
-    lazio: '../../../assets/logos/serieA/lazio.png',
-    lecce: '../../../assets/logos/serieA/lecce.png',
-    milan: '../../../assets/logos/serieA/milan.png',
-    monza: '../../../assets/logos/serieA/monza.png',
-    napoli: '../../../assets/logos/serieA/napoli.png',
-    roma: '../../../assets/logos/serieA/roma.png',
-    salernitana: '../../../assets/logos/serieA/salernitana.png',
-    sassuolo: '../../../assets/logos/serieA/sassuolo.png',
-    torino: '../../../assets/logos/serieA/torino.png',
-    udinese: '../../../assets/logos/serieA/udinese.png',
-    verona: '../../../assets/logos/serieA/verona.png',
-  };
-  logosListSerieB: any = {
-    logoSerieB: 'https://media.api-sports.io/football/leagues/136.png',
-    ascoli: '../../../assets/logos/serieB/ascoli.png',
-    bari: '../../../assets/logos/serieB/bari.png',
-    brescia: '../../../assets/logos/serieB/brescia.png',
-    catanzaro: '../../../assets/logos/serieB/catanzaro.png',
-    cittadella: '../../../assets/logos/serieB/cittadella.png',
-    como: '../../../assets/logos/serieB/como.png',
-    cosenza: '../../../assets/logos/serieB/cosenza.png',
-    cremonese: '../../../assets/logos/serieB/cremonese.png',
-    feralpisalo: '../../../assets/logos/serieB/feralpisalo.png',
-    lecco: '../../../assets/logos/serieB/lecco.png',
-    modena: '../../../assets/logos/serieB/modena.png',
-    palermo: '../../../assets/logos/serieB/palermo.png',
-    parma: '../../../assets/logos/serieB/parma.png',
-    pisa: '../../../assets/logos/serieB/pisa.png',
-    reggiana: '../../../assets/logos/serieB/reggiana.png',
-    sampdoria: '../../../assets/logos/serieB/sampdoria.png',
-    spezia: '../../../assets/logos/serieB/spezia.png',
-    sudtirol: '../../../assets/logos/serieB/sudtirol.png',
-    ternana: '../../../assets/logos/serieB/ternana.png',
-    venezia: '../../../assets/logos/serieB/venezia.png',
-  };
-  logosListPremierLeague: any = {
-    logoPremierLeague: 'https://media.api-sports.io/football/leagues/39.png',
-    arsenal: '../../../assets/logos/premierLeague/arsenal.png',
-    aston_villa: '../../../assets/logos/premierLeague/aston villa.png',
-    bournemouth: '../../../assets/logos/premierLeague/bournemouth.png',
-    brighton: '../../../assets/logos/premierLeague/brighton.png',
-    brentford: '../../../assets/logos/premierLeague/brentford.png',
-    burnley: '../../../assets/logos/premierLeague/burnley.png',
-    chelsea: '../../../assets/logos/premierLeague/chelsea.png',
-    crystal_palace: '../../../assets/logos/premierLeague/crystal palace.png',
-    everton: '../../../assets/logos/premierLeague/everton.png',
-    fulham: '../../../assets/logos/premierLeague/fulham.png',
-    liverpool: '../../../assets/logos/premierLeague/liverpool.png',
-    luton: '../../../assets/logos/premierLeague/luton.png',
-    manchester_city: '../../../assets/logos/premierLeague/manchester city.png',
-    manchester_united:
-      '../../../assets/logos/premierLeague/manchester united.png',
-    newcastle: '../../../assets/logos/premierLeague/newcastle.png',
-    nottingham_forest:
-      '../../../assets/logos/premierLeague/nottingham forest.png',
-    sheffield: '../../../assets/logos/premierLeague/sheffield.png',
-    tottenham: '../../../assets/logos/premierLeague/tottenham.png',
-    west_ham: '../../../assets/logos/premierLeague/west ham united.png',
-    wolves: '../../../assets/logos/premierLeague/wolverhampton.png',
-  };
 
   constructor(
     private srv: FetchesService,
     private route: Router,
     private auth: AuthenticationService
   ) {}
-
-  getTeamLogoUrl(teamName: string): string | undefined {
+  logoSerieA: string = allLogosFile.logosListSerieA.logoSerieA;
+  logoSerieB: string = allLogosFile.logosListSerieB.logoSerieB;
+  logoPremierLeague: string =
+    allLogosFile.logosListPremierLeague.logoPremierLeague;
+  getTeamLogoUrlSerieA(teamName: string): string | undefined {
     if (teamName === 'AC Milan') {
-      return this.logosListSerieA['milan'];
+      // return this.logosListSerieA['milan'];
+      return allLogosFile.logosListSerieA.milan;
     } else if (teamName === 'AS Roma') {
-      return this.logosListSerieA['roma'];
+      return allLogosFile.logosListSerieA.roma;
     } else {
       const lowercaseTeamName = teamName.toLowerCase();
-      return this.logosListSerieA[lowercaseTeamName];
+      return allLogosFile.logosListSerieA[lowercaseTeamName];
     }
   }
   getTeamLogoUrlPremierLeague(teamName: string): string | undefined {
     if (teamName === 'Aston Villa') {
-      return this.logosListPremierLeague['aston_villa'];
+      return allLogosFile.logosListPremierLeague['aston_villa'];
     } else if (teamName === 'Crystal Palace') {
-      return this.logosListPremierLeague['crystal_palace'];
+      return allLogosFile.logosListPremierLeague['crystal_palace'];
     } else if (teamName === 'Manchester City') {
-      return this.logosListPremierLeague['manchester_city'];
+      return allLogosFile.logosListPremierLeague['manchester_city'];
     } else if (teamName === 'Manchester United') {
-      return this.logosListPremierLeague['manchester_united'];
+      return allLogosFile.logosListPremierLeague['manchester_united'];
     } else if (teamName === 'Nottingham Forest') {
-      return this.logosListPremierLeague['nottingham_forest'];
+      return allLogosFile.logosListPremierLeague['nottingham_forest'];
     } else if (teamName === 'Sheffield Utd') {
-      return this.logosListPremierLeague['sheffield'];
+      return allLogosFile.logosListPremierLeague['sheffield'];
     } else if (teamName === 'West Ham') {
-      return this.logosListPremierLeague['west_ham'];
+      return allLogosFile.logosListPremierLeague['west_ham'];
     } else {
       const lowercaseTeamName = teamName.toLowerCase();
-      return this.logosListPremierLeague[lowercaseTeamName];
+      return allLogosFile.logosListPremierLeague[lowercaseTeamName];
     }
   }
   getTeamLogoUrlSerieB(teamName: string): string | undefined {
     const lowercaseTeamName = teamName.toLowerCase();
-    return this.logosListSerieB[lowercaseTeamName];
+    return allLogosFile.logosListSerieB[lowercaseTeamName];
+  }
+  getTeamLogoUrlChampionship(teamName: string): string | undefined {
+    if (teamName === 'Bristol City') {
+      return allLogosFile.logosListChampionship.bristol_city;
+    } else if (teamName === 'Hull City') {
+      return allLogosFile.logosListChampionship.hull_city;
+    } else if (teamName === 'Sheffield Wednesday') {
+      return allLogosFile.logosListChampionship.sheffield_wednesday;
+    } else if (teamName === 'Stoke City') {
+      return allLogosFile.logosListChampionship.stoke_city;
+    } else if (teamName === 'West Brom') {
+      return allLogosFile.logosListChampionship.west_brom;
+    } else {
+      const lowercaseTeamName = teamName.toLowerCase();
+      return allLogosFile.logosListChampionship[lowercaseTeamName];
+    }
   }
   //check se è loggato e autologut
 
