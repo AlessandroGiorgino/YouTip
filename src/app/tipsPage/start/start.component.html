@@ -103,6 +103,8 @@
             <img
               id="flag"
               alt="Card"
+              appImgFallbackDirective
+              [appImgFallback]="logoLiga"
               src="https://media.api-sports.io/football/leagues/140.png"
               (click)="showDialogLiga()"
             />
@@ -119,6 +121,8 @@
             <img
               id="flag"
               alt="Card"
+              appImgFallbackDirective
+              [appImgFallback]="logoSegundaDivision"
               src="https://media.api-sports.io/football/leagues/141.png"
               (click)="showDialogSegundaDivision()"
             />
@@ -506,6 +510,10 @@
                   <img
                     [src]="ligaMatch.teams.home.logo"
                     alt="LaligaHomeTeamLogo"
+                    appImgFallbackDirective
+                    [appImgFallback]="
+                      getTeamLogoUrlLiga(ligaMatch.teams.home.name)
+                    "
                     class="col-2"
                   />
                   <span
@@ -519,6 +527,10 @@
                   <img
                     [src]="ligaMatch.teams.away.logo"
                     alt="LaligaAwayTeamLogo"
+                    appImgFallbackDirective
+                    [appImgFallback]="
+                      getTeamLogoUrlLiga(ligaMatch.teams.away.name)
+                    "
                     class="col-2"
                   />
                 </div>
@@ -576,6 +588,12 @@
                   <img
                     [src]="segundaDivisionMatch.teams.home.logo"
                     alt="SeguendaDivisionHomeTeamLogo"
+                    appImgFallbackDirective
+                    [appImgFallback]="
+                      getTeamLogoUrlSegundaDivision(
+                        segundaDivisionMatch.teams.home.name
+                      )
+                    "
                     class="col-2"
                   />
                   <span
@@ -589,6 +607,12 @@
                   <img
                     [src]="segundaDivisionMatch.teams.away.logo"
                     alt="SeguendaDivisionAwayTeamLogo"
+                    appImgFallbackDirective
+                    [appImgFallback]="
+                      getTeamLogoUrlSegundaDivision(
+                        segundaDivisionMatch.teams.away.name
+                      )
+                    "
                     class="col-2"
                   />
                 </div>

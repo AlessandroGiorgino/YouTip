@@ -39,6 +39,9 @@ export class StartComponent {
     allLogosFile.logosListPremierLeague.logoPremierLeague;
   logoChampionship: string =
     allLogosFile.logosListChampionship.logoChampionship;
+  logoLiga: string = allLogosFile.logosListLiga.logoLiga;
+  logoSegundaDivision: string =
+    allLogosFile.logosListSegundaDivision.logoSegundaDivision;
   getTeamLogoUrlSerieA(teamName: string): string | undefined {
     if (teamName === 'AC Milan') {
       // return this.logosListSerieA['milan'];
@@ -88,6 +91,50 @@ export class StartComponent {
     } else {
       const lowercaseTeamName = teamName.toLowerCase();
       return allLogosFile.logosListChampionship[lowercaseTeamName];
+    }
+  }
+  getTeamLogoUrlLiga(teamName: string): string | undefined {
+    if (teamName === 'Athletic Club') {
+      return allLogosFile.logosListLiga.athletic_club;
+    } else if (teamName === 'Atletico Madrid') {
+      return allLogosFile.logosListLiga.atletico_madrid;
+    } else if (teamName === 'Celta Vigo') {
+      return allLogosFile.logosListLiga.celta_vigo;
+    } else if (teamName === 'Granada CF') {
+      return allLogosFile.logosListLiga.granada_cf;
+    } else if (teamName === 'Las Palmas') {
+      return allLogosFile.logosListLiga.las_palmas;
+    } else if (teamName === 'Rayo Vallecano') {
+      return allLogosFile.logosListLiga.rayo_vallecano;
+    } else if (teamName === 'Real Betis') {
+      return allLogosFile.logosListLiga.real_betis;
+    } else if (teamName === 'Real Madrid') {
+      return allLogosFile.logosListLiga.real_madrid;
+    } else if (teamName === 'Real Sociedad') {
+      return allLogosFile.logosListLiga.real_sociedad;
+    } else {
+      const lowercaseTeamName = teamName.toLowerCase();
+      return allLogosFile.logosListLiga[lowercaseTeamName];
+    }
+  }
+  getTeamLogoUrlSegundaDivision(teamName: string): string | undefined {
+    if (teamName === 'Amorebieta') {
+      return allLogosFile.logosListSegundaDivision.amore_bieta;
+    } else if (teamName === 'FC Andorra') {
+      return allLogosFile.logosListSegundaDivision.fc_andorra;
+    } else if (teamName === 'FC Cartagena') {
+      return allLogosFile.logosListSegundaDivision.fc_cartagena;
+    } else if (teamName === 'Racing Ferrol') {
+      return allLogosFile.logosListSegundaDivision.racing_ferrol;
+    } else if (teamName === 'Racing Santander') {
+      return allLogosFile.logosListSegundaDivision.racing_santander;
+    } else if (teamName === 'Sporting Gijon') {
+      return allLogosFile.logosListSegundaDivision.sporting_gijon;
+    } else if (teamName === 'Villarreal II') {
+      return allLogosFile.logosListSegundaDivision.villarreal_ii;
+    } else {
+      const lowercaseTeamName = teamName.toLowerCase();
+      return allLogosFile.logosListSegundaDivision[lowercaseTeamName];
     }
   }
   //check se è loggato e autologut
