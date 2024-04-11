@@ -236,8 +236,8 @@ export class StartComponent {
     this.getCurrentRoundChampionship();
     this.getCurrentRoundLiga();
     this.getCurrentRoundSegundaDivision();
-    this.getCurrentRoundBundesliga();
-    this.getCurrentRoundFusballBundesliga();
+    // this.getCurrentRoundBundesliga();
+    // this.getCurrentRoundFusballBundesliga();
   }
 
   //unico per tutti
