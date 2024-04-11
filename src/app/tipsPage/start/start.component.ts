@@ -37,6 +37,8 @@ export class StartComponent {
   logoSerieB: string = allLogosFile.logosListSerieB.logoSerieB;
   logoPremierLeague: string =
     allLogosFile.logosListPremierLeague.logoPremierLeague;
+  logoChampionship: string =
+    allLogosFile.logosListChampionship.logoChampionship;
   getTeamLogoUrlSerieA(teamName: string): string | undefined {
     if (teamName === 'AC Milan') {
       // return this.logosListSerieA['milan'];
